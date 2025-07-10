@@ -1,0 +1,168 @@
+[
+  {
+    "id": "Marine",
+    "Title": "Marine",
+    "Image": "marine.png",
+    "content": [
+      "Ship Design",
+      "Structural Design",
+      "Mechanical Design",
+      "Yacht Design",
+      "Mooring Analysis",
+      "Electrical Design",
+      "Instrumentation Design",
+      "Naval Architecture",
+      "CFD Studies",
+      "BWTS, EEXI, EEDI",
+      "Sea Keeping Studies",
+      "Piping Design",
+      "Scrubber Installation Engineering"
+    ]
+  },
+  {
+    "id": "Jack-Ups",
+    "Title": "Jack-Ups",
+    "Image": "jack-ups.png",
+    "content": [
+      "Jack Up Barge Design",
+      "Structural Design",
+      "Electrical Design",
+      "Jack Up Rig Design",
+      "Global Analysis",
+      "Instrumentation Design",
+      "Accommodation Modules",
+      "Fatigue Analysis",
+      "Geotechnical Studies",
+      "Helidecks",
+      "Piping Design",
+      "Cantilever Studies"
+    ]
+  },
+  {
+    "id": "Oil & Gas",
+    "Title": "Oil & Gas",
+    "Image": "oil-gas.png",
+    "content": [
+      "Platform Design",
+      "Bridge Design",
+      "Control Rooms",
+      "Jacket Design",
+      "Mooring Dolphins",
+      "Installation Engineering",
+      "Conductor Analysis",
+      "Buoys",
+      "Transportation Engineering",
+      "Gangways",
+      "Refinery Revamping",
+      "Sea Fastening Engineering",
+      "Instrumentation Buildings"
+    ]
+  },
+  {
+    "id": "Subsea",
+    "Title": "Subsea",
+    "Image": "subsea.png",
+    "content": [
+      "Decommissioning",
+      "Pipelines",
+      "Platforms",
+      "Offshore Structure",
+      "Pipe Lay Engineering",
+      "Cable Lay Engineering"
+    ]
+  },
+  {
+    "id": "Renewable-Energy",
+    "Title": "Renewable-Energy",
+    "Image": "renewable-energy.png",
+    "content": [
+      "Wind Energy",
+      "Solar Power",
+      "Wave Energy"
+    ]
+  },
+  {
+    "id": "Project-Management",
+    "Title": "Project-Management",
+    "Image": "project-management.png",
+    "content": [
+      "New Construction",
+      "Ship Repair",
+      "Ship/Rig Refurbishment",
+      "Docking",
+      "Ship Management"
+    ]
+  },
+  {
+    "id": "Surveys",
+    "Title": "Surveys",
+    "Image": "surveys.png",
+    "content": [
+      "Condition Surveys",
+      "Pre-Purchase Inspections",
+      "Ship Procurement Surveys",
+      "Flag State Surveys",
+      "Classification Surveys",
+      "Vessel Evaluation"
+    ]
+  },
+  {
+    "id": "Alternative-Fuel",
+    "Title": "Alternative-Fuel",
+    "Image": "alternative-fuel.png",
+    "content": [
+      "Methanol",
+      "Hydrogen Fuel",
+      "Electric Propulsion"
+    ]
+  },
+  {
+    "id": "Marine-Civil",
+    "Title": "Marine-Civil",
+    "Image": "marine-civil.png",
+    "content": [
+      "Shipyard Development",
+      "Dry Docks, Floating Dock",
+      "Slipways",
+      "Shiplifts",
+      "Port Development",
+      "Dock cradles"
+    ]
+  },
+  {
+    "id": "Manpower-Supply",
+    "Title": "Manpower-Supply",
+    "Image": "manpower-supply.png",
+    "content": [
+      "Project Managers",
+      "Piping Engineers",
+      "Electrical Modelers",
+      "Project Engineers",
+      "Electrical Engineers",
+      "HVAC Expert",
+      "Estimation Engineers",
+      "Cad Operators",
+      "Subsea Engineers",
+      "Naval Architects",
+      "Structural Modelers",
+      "Structural Engineers",
+      "Piping Modelers"
+    ]
+  },
+  {
+    "id": "Marine-Equipment-Supply",
+    "Title": "Marine-Equipment-Supply",
+    "Image": "marine-equipment-supply.png",
+    "content": [
+      "Mooring Solutions",
+      "Steering Systems & Solutions",
+      "Deck Equipment's",
+      "Oil Spill Equipment's",
+      "Environmental Solutions",
+      "Fire Fighting System Solutions",
+      "Hydrogen Storage",
+      "Hydrogen Pipeline Coating",
+      "Decarbonisation Solutions"
+    ]
+  }
+]
