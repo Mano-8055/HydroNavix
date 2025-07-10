@@ -72,8 +72,8 @@ const Header = () => {
       <header
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
           isHome && !isScrolled && !isMobileMenuOpen
-            ? "bg-transparent"
-            : "bg-secondary/50 backdrop-blur-lg"
+            ? "bg-transparent text-primary"
+            : "bg-primary text-secondary"
         }`}
       >
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4 relative">
@@ -86,9 +86,7 @@ const Header = () => {
             className="relative flex-shrink-0 flex cursor-pointer items-center z-60"
           >
             <span
-              className={`-ml-4 pl-2 font-semibold text-2xl transition-colors duration-300 ${
-                isMobileMenuOpen ? "text-white" : "text-secondary"
-              }`}
+              className={`-ml-4 pl-2 font-semibold text-2xl transition-colors duration-300 `}
             >
               HydroNavix
             </span>
@@ -108,8 +106,8 @@ const Header = () => {
                       className={({ isActive }) =>
                         `block py-2 md:py-0 font-medium transition-colors duration-300 ${
                           isActive
-                            ? "text-secondary"
-                            : "text-secondary/70 hover:text-secondary"
+                            ? "text-primary"
+                            : "text-primary/70 hover:text-primary"
                         }`
                       }
                     >
@@ -129,15 +127,15 @@ const Header = () => {
               <span
                 className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
                   isMobileMenuOpen
-                    ? "rotate-45 bg-white"
-                    : "translate-y-[-6px] bg-secondary"
+                    ? "rotate-45 bg-secondary"
+                    : "translate-y-[-6px] bg-primary"
                 }`}
               ></span>
               <span
                 className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
                   isMobileMenuOpen
-                    ? "-rotate-45 bg-white"
-                    : "translate-y-[6px] bg-secondary"
+                    ? "-rotate-45 bg-secondary"
+                    : "translate-y-[6px] bg-primary"
                 }`}
               ></span>
             </button>
@@ -148,7 +146,7 @@ const Header = () => {
       {/* Fullscreen Mobile Menu Overlay */}
       <div
         ref={overlayRef}
-        className="fixed inset-0 bg-secondary"
+        className="fixed inset-0 bg-primary"
         style={{
           zIndex: 40,
           transform: "translateY(-100%)",
@@ -168,8 +166,8 @@ const Header = () => {
                     className={({ isActive }) =>
                       `block font-medium transition-colors duration-300 ${
                         isActive
-                          ? "text-white"
-                          : "text-white/80 hover:text-white"
+                          ? "text-secondary"
+                          : "text-secondary/80 hover:text-secondary"
                       }`
                     }
                   >

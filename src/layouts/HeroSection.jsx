@@ -1,52 +1,62 @@
-import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import HeroImg from "../assets/images/hero.png";
+import { GoArrowRight } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
 
 const HeroSection = () => {
+  const contentRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    gsap.fromTo(
+      contentRef.current.children,
+      {
+        opacity: 0,
+        filter: "blur(10px)",
+        y: 30,
+      },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+      }
+    );
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/path-to-your-hero-image.jpg" // Replace with actual path
-          alt="Beach View"
+          src={HeroImg}
           className="w-full h-full object-cover"
+          alt="Hero"
         />
-        <div className="absolute inset-0 bg-black/30" /> {/* Optional dark overlay */}
+        <div className="absolute inset-0 bg-secondary/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-between h-full px-6 md:px-20 py-16">
-        {/* Left Text */}
-        <div className="max-w-xl mt-20 md:mt-32">
-          <h1 className="text-white text-4xl md:text-6xl font-serif font-semibold leading-tight">
-            Your Gateway to <br /> Unforgettable <br /> Memories
+      <div className="relative z-10 flex flex-col items-start justify-end h-full px-6 md:px-20 py-16" ref={contentRef}>
+        <div className="max-w-2xl">
+          <h1 className="text-primary text-4xl md:text-6xl font-serif font-semibold leading-tight">
+            Engineering the Future of Marine & Offshore Excellence
           </h1>
         </div>
 
-        {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-auto gap-8 border-t border-white/40 pt-6">
-          {/* Description */}
-          <p className="text-white text-center md:text-left text-sm md:text-base max-w-xl">
-            Experience exquisite accommodations, world-class amenities, and
-            personalized service tailored to exceed your expectations.
+        <div className="w-full h-[1.5px] rounded-full bg-primary my-4"></div>
+
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
+          <p className="text-primary text-left text-sm md:text-base max-w-2xl">
+            EHydroNavix blends innovation with precision, delivering advanced design solutions, technical consulting, and project support for the marine, shipbuilding, and oil & gas sectors
           </p>
-
-          {/* Buttons */}
-          <div className="flex items-center gap-6">
-            {/* Book Button */}
-            <div className="relative">
-              <div className="w-28 h-28 md:w-32 md:h-32 bg-[#d2b78c] rounded-full flex items-center justify-center text-center text-black font-medium text-sm md:text-base z-20 relative">
-                Book Your <br /> Stay
-              </div>
-              <div className="absolute inset-0 rounded-full border-2 border-[#d2b78c] scale-110 z-10" />
-            </div>
-
-            {/* View Rooms Button */}
-            <button className="flex items-center gap-2 border border-white text-white px-5 py-2 rounded-full transition hover:bg-white hover:text-black">
-              View Rooms
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
-          </div>
+          <button onClick={()=>navigate('/services')} className="hidden md:flex items-center gap-3 border border-primary text-primary pl-4 pr-2 py-2 rounded-full group">
+            View Services
+            <GoArrowRight className="w-8 h-8 p-1.5 bg-primary text-secondary rounded-full -rotate-45 group-hover:rotate-0 transition duration-300" />
+          </button>
         </div>
       </div>
     </section>

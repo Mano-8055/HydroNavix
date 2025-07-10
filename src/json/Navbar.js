@@ -1,15 +1,15 @@
 export const impNavItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
     { name: "Team", path: "/team" },
+    { name: "Services", path: "/services" },
     { name: "Contact Us", path: "/contact-us" },
   ];
 
 export const navItems = [
     { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
     { name: "Team", path: "/team" },
+    { name: "Services", path: "/services" },
     { name: "Digital Expertise", path: "/digital-expertise" },
     { name: "Asset Integrity", path: "/asset-integrity" },
     { name: "Sustainability", path: "/sustainability" },
