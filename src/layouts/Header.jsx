@@ -104,8 +104,12 @@ const Header = () => {
                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
-                        `block py-2 md:py-0 font-medium transition-colors duration-300 ${
-                          isActive
+                        `block py-1 md:py-0 font-medium transition-colors duration-300 ${
+                          isScrolled
+                            ? isActive
+                              ? "text-secondary"
+                              : "text-secondary/60 hover:text-secondary"
+                            : isActive
                             ? "text-primary"
                             : "text-primary/70 hover:text-primary"
                         }`
@@ -125,18 +129,14 @@ const Header = () => {
               onClick={toggleMobileMenu}
             >
               <span
-                className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
-                  isMobileMenuOpen
-                    ? "rotate-45 bg-secondary"
-                    : "translate-y-[-6px] bg-primary"
-                }`}
+                 className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
+                    isMobileMenuOpen ? "rotate-45" : "translate-y-[-6px]"
+                  } ${isScrolled || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
               ></span>
               <span
-                className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
-                  isMobileMenuOpen
-                    ? "-rotate-45 bg-secondary"
-                    : "translate-y-[6px] bg-primary"
-                }`}
+                 className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
+                  isMobileMenuOpen ? "-rotate-45" : "translate-y-[6px]"
+                } ${isScrolled || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
               ></span>
             </button>
           </div>

@@ -51,7 +51,7 @@ const HeroSection = () => {
 
         <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
           <p className="text-primary text-left text-sm md:text-base max-w-2xl">
-            EHydroNavix blends innovation with precision, delivering advanced design solutions, technical consulting, and project support for the marine, shipbuilding, and oil & gas sectors
+            HydroNavix blends innovation with precision, delivering advanced design solutions, technical consulting, and project support for the marine, shipbuilding, and oil & gas sectors
           </p>
           <button onClick={()=>navigate('/services')} className="hidden md:flex items-center gap-3 border border-primary text-primary pl-4 pr-2 py-2 rounded-full group">
             View Services

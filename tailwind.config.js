@@ -14,7 +14,7 @@ export default {
         text:      '#333333', 
       },
       fontFamily: {
-        sans: [],
+        sans: ["Syne", "sans-serif"],
       },
     },
   },

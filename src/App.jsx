@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./layouts/Header";
-import HeroSection from "./layouts/HeroSection";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <Router>
     <Header />
       <Routes>
-        <Route path="/" element={<HeroSection />} />
+        <Route path="/" element={<Home/>} />
       </Routes>
     </Router>
   );

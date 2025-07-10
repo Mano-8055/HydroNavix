@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react'
 import HeroSection from '../layouts/HeroSection'
+import ServiceSection from '../layouts/ServiceSection';
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
   return (
     <div className='overflow-x-hidden'>
         <HeroSection />
+        <ServiceSection />
     </div>
   )
 }

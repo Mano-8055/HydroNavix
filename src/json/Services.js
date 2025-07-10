@@ -1,9 +1,21 @@
-[
+import marine from '../assets/services/images/marine.png';
+import jackUps from '../assets/services/images/jack-ups.png';
+import oilGas from '../assets/services/images/oil-gas.png';
+import subsea from '../assets/services/images/subsea.png';
+import renewableEnergy from '../assets/services/images/renewable-energy.png';
+import projectManagement from '../assets/services/images/project-management.png';
+import surveys from '../assets/services/images/surveys.png';
+import alternativeFuel from '../assets/services/images/alternative-fuel.png';
+import marineCivil from '../assets/services/images/marine-civil.png';
+import manpowerSupply from '../assets/services/images/manpower-supply.png';
+import marineEquipmentSupply from '../assets/services/images/marine-equipment-supply.png';
+
+export const Services = [
   {
-    "id": "Marine",
-    "Title": "Marine",
-    "Image": "marine.png",
-    "content": [
+    id: "Marine",
+    title: "Marine",
+    image: marine,
+    content: [
       "Ship Design",
       "Structural Design",
       "Mechanical Design",
@@ -20,10 +32,10 @@
     ]
   },
   {
-    "id": "Jack-Ups",
-    "Title": "Jack-Ups",
-    "Image": "jack-ups.png",
-    "content": [
+    id: "Jack-Ups",
+    title: "Jack-Ups",
+    image: jackUps,
+    content: [
       "Jack Up Barge Design",
       "Structural Design",
       "Electrical Design",
@@ -39,10 +51,10 @@
     ]
   },
   {
-    "id": "Oil & Gas",
-    "Title": "Oil & Gas",
-    "Image": "oil-gas.png",
-    "content": [
+    id: "Oil & Gas",
+    title: "Oil & Gas",
+    image: oilGas,
+    content: [
       "Platform Design",
       "Bridge Design",
       "Control Rooms",
@@ -59,10 +71,10 @@
     ]
   },
   {
-    "id": "Subsea",
-    "Title": "Subsea",
-    "Image": "subsea.png",
-    "content": [
+    id: "Subsea",
+    title: "Subsea",
+    image: subsea,
+    content: [
       "Decommissioning",
       "Pipelines",
       "Platforms",
@@ -72,20 +84,20 @@
     ]
   },
   {
-    "id": "Renewable-Energy",
-    "Title": "Renewable-Energy",
-    "Image": "renewable-energy.png",
-    "content": [
+    id: "Renewable-Energy",
+    title: "Renewable-Energy",
+    image: renewableEnergy,
+    content: [
       "Wind Energy",
       "Solar Power",
       "Wave Energy"
     ]
   },
   {
-    "id": "Project-Management",
-    "Title": "Project-Management",
-    "Image": "project-management.png",
-    "content": [
+    id: "Project-Management",
+    title: "Project-Management",
+    image: projectManagement,
+    content: [
       "New Construction",
       "Ship Repair",
       "Ship/Rig Refurbishment",
@@ -94,10 +106,10 @@
     ]
   },
   {
-    "id": "Surveys",
-    "Title": "Surveys",
-    "Image": "surveys.png",
-    "content": [
+    id: "Surveys",
+    title: "Surveys",
+    image: surveys,
+    content: [
       "Condition Surveys",
       "Pre-Purchase Inspections",
       "Ship Procurement Surveys",
@@ -107,20 +119,20 @@
     ]
   },
   {
-    "id": "Alternative-Fuel",
-    "Title": "Alternative-Fuel",
-    "Image": "alternative-fuel.png",
-    "content": [
+    id: "Alternative-Fuel",
+    title: "Alternative-Fuel",
+    image: alternativeFuel,
+    content: [
       "Methanol",
       "Hydrogen Fuel",
       "Electric Propulsion"
     ]
   },
   {
-    "id": "Marine-Civil",
-    "Title": "Marine-Civil",
-    "Image": "marine-civil.png",
-    "content": [
+    id: "Marine-Civil",
+    title: "Marine-Civil",
+    image: marineCivil,
+    content: [
       "Shipyard Development",
       "Dry Docks, Floating Dock",
       "Slipways",
@@ -130,10 +142,10 @@
     ]
   },
   {
-    "id": "Manpower-Supply",
-    "Title": "Manpower-Supply",
-    "Image": "manpower-supply.png",
-    "content": [
+    id: "Manpower-Supply",
+    title: "Manpower-Supply",
+    image: manpowerSupply,
+    content: [
       "Project Managers",
       "Piping Engineers",
       "Electrical Modelers",
@@ -150,10 +162,10 @@
     ]
   },
   {
-    "id": "Marine-Equipment-Supply",
-    "Title": "Marine-Equipment-Supply",
-    "Image": "marine-equipment-supply.png",
-    "content": [
+    id: "Marine-Equipment-Supply",
+    title: "Marine-Equipment-Supply",
+    image: marineEquipmentSupply,
+    content: [
       "Mooring Solutions",
       "Steering Systems & Solutions",
       "Deck Equipment's",
@@ -165,4 +177,4 @@
       "Decarbonisation Solutions"
     ]
   }
-]
+];
