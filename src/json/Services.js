@@ -24,11 +24,6 @@ export const Services = [
       "Electrical Design",
       "Instrumentation Design",
       "Naval Architecture",
-      "CFD Studies",
-      "BWTS, EEXI, EEDI",
-      "Sea Keeping Studies",
-      "Piping Design",
-      "Scrubber Installation Engineering"
     ]
   },
   {
@@ -44,10 +39,6 @@ export const Services = [
       "Instrumentation Design",
       "Accommodation Modules",
       "Fatigue Analysis",
-      "Geotechnical Studies",
-      "Helidecks",
-      "Piping Design",
-      "Cantilever Studies"
     ]
   },
   {
@@ -64,10 +55,6 @@ export const Services = [
       "Conductor Analysis",
       "Buoys",
       "Transportation Engineering",
-      "Gangways",
-      "Refinery Revamping",
-      "Sea Fastening Engineering",
-      "Instrumentation Buildings"
     ]
   },
   {
@@ -153,12 +140,6 @@ export const Services = [
       "Electrical Engineers",
       "HVAC Expert",
       "Estimation Engineers",
-      "Cad Operators",
-      "Subsea Engineers",
-      "Naval Architects",
-      "Structural Modelers",
-      "Structural Engineers",
-      "Piping Modelers"
     ]
   },
   {
@@ -173,8 +154,6 @@ export const Services = [
       "Environmental Solutions",
       "Fire Fighting System Solutions",
       "Hydrogen Storage",
-      "Hydrogen Pipeline Coating",
-      "Decarbonisation Solutions"
     ]
   }
 ];

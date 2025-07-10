@@ -9,7 +9,7 @@ export default {
       colors: {
         primary:   '#FAFAFA',
         secondary: '#0D0812', 
-        accent:    '#005E6E',
+        accent:    '#17A2B8',
         background:'#F5F5F5', 
         text:      '#333333', 
       },

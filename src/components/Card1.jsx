@@ -5,7 +5,7 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const Card1 = ({ title, id, img }) => {
   return (
-    <div className="relative group h-72 w-full overflow-hidden rounded-3xl cursor-pointer">
+    <div className="relative group h-72 w-full overflow-hidden shadow-md cursor-pointer">
       {/* image */}
        <div className="w-full h-full transition-transform duration-500 group-hover:scale-110">
         <img
@@ -16,7 +16,7 @@ const Card1 = ({ title, id, img }) => {
       </div>
 
       {/* overlay in corners */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 via-transparent to-secondary/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 via-transparent to-secondary/50 pointer-events-none" />
 
       {/* icon */}
       <div className="absolute top-3 right-3 z-10">

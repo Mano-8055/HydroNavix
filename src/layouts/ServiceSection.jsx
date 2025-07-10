@@ -61,16 +61,16 @@ const ServiceSection = () => {
     <div className="py-10 md:py-20">
 
       {/* title */}
-      <div className="px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 py-20 gap-10">
+      <div className="px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 py-20 gap-5 md:gap-5 lg:gap-10">
         <p
           ref={titleRef}
-          className="text-2xl md:text-4xl max-w-xl leading-snug opacity-0"
+          className="text-2xl md:text-4xl text-center md:text-left font-semibold w-full md:max-w-xl leading-snug opacity-0"
         >
           Trusted Engineering Solutions for the Marine World
         </p>
         <p
           ref={descRef}
-          className="text-md font-medium max-w-xl text-justify opacity-0"
+          className="text-md font-medium w-full md:max-w-xl text-justify opacity-0"
         >
           HydroNavix delivers end-to-end engineering services with precision and
           reliability covering everything from marine and offshore design to

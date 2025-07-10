@@ -43,7 +43,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-start justify-end h-full px-6 md:px-20 py-16" ref={contentRef}>
         <div className="max-w-2xl">
           <h1 className="text-primary text-4xl md:text-6xl font-serif font-semibold leading-tight">
-            Engineering the Future of Marine & Offshore Excellence
+           Navigating the Future of Marine & Energy with AI Precision
           </h1>
         </div>
 

@@ -105,7 +105,7 @@ const Header = () => {
                       to={item.path}
                       className={({ isActive }) =>
                         `block py-1 md:py-0 font-medium transition-colors duration-300 ${
-                          isScrolled
+                          isScrolled || !isHome
                             ? isActive
                               ? "text-secondary"
                               : "text-secondary/60 hover:text-secondary"
@@ -131,12 +131,12 @@ const Header = () => {
               <span
                  className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
                     isMobileMenuOpen ? "rotate-45" : "translate-y-[-6px]"
-                  } ${isScrolled || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
+                  } ${isScrolled || !isHome || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
               ></span>
               <span
                  className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
                   isMobileMenuOpen ? "-rotate-45" : "translate-y-[6px]"
-                } ${isScrolled || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
+                } ${isScrolled || !isHome || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
               ></span>
             </button>
           </div>
