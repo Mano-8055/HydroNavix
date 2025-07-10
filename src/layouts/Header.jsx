@@ -80,6 +80,7 @@ const Header = () => {
           {/* Logo */}
           <div
             onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
               navigate("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
