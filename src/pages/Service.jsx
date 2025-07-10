@@ -60,12 +60,12 @@ const Service = () => {
                 {isActive && (
                   <ul className="flex flex-wrap gap-2 text-sm max-w-4xl">
                     {service.content.map((point, idx) => (
-                      <li
+                     <li
                         key={idx}
                         className="flex items-center gap-2 justify-center px-2 py-1 rounded bg-primary text-secondary"
                       >
-                        <SlArrowRightCircle className="text-accent" />
-                        <span className="text-xs font-medium">{point}</span>
+                        <SlArrowRightCircle className="text-accent text-xs" />
+                        <span className="text-xs font-medium leading-[1.5]">{point}</span>
                       </li>
                     ))}
                   </ul>

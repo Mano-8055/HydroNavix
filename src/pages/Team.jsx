@@ -42,7 +42,7 @@ const teamMembers = [
 
 const ITEM_HEIGHT = 120;
 
-export default function TeamDisplayPage() {
+export default function Team() {
   const [selected, setSelected] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const scrollRef = useRef(null);
@@ -94,57 +94,43 @@ export default function TeamDisplayPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-black text-white font-mono overflow-hidden">
-      {/* Redirect Button */}
-      <button
-        className="fixed top-6 right-6 z-50 bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-200 transition"
-        onClick={() => navigate('/team')}
-      >
-        Redirect
-      </button>
-      {/* Animated background grid */}
-      <div className="fixed inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), 
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          animation: 'gridMove 20s linear infinite'
-        }} />
-      </div>
+    <div className="w-full relative text-secondary py-20 overflow-hidden">
+      
+    
 
       <div className="relative z-10 container mx-auto px-6 lg:px-12 h-screen">
+        
         {/* Header */}
-        <div className="pt-12 pb-8 border-b border-white/20">
+        <div className="pt-5 pb-6 border-b border-secondary/60">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight">LEADERSHIP TEAM</h1>
-              <div className="mt-2 w-24 h-0.5 bg-white"></div>
+              <h1 className="text-4xl font-bold tracking-tight">TEAM</h1>
             </div>
             <div className="text-right">
-              <div className="text-sm text-white/60">
+              <div className="text-sm text-secondary/60">
                 {String(selected + 1).padStart(2, '0')} / {String(teamMembers.length).padStart(2, '0')}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 h-[calc(100vh-180px)]">
+       <div className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-12 h-[60vh]">
           {/* Left Column: Rotary Selector */}
           <div className="lg:col-span-2 flex items-center justify-center">
             <div 
-              className="relative h-[600px] w-full max-w-sm"
+              className="relative h-[100px] md:h-[400px] w-full max-w-sm"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               {/* Selection indicator */}
               <div className="absolute top-1/2 left-0 w-full z-30 pointer-events-none">
                 <div className="flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white transform rotate-45 mr-4"></div>
+                  <div className="w-4 h-4 bg-secondary transform rotate-45 mr-4"></div>
                   <div 
-                    className="flex-1 border-t-2 border-white"
+                    className="flex-1 border-t-2 border-secondary"
                     style={{ height: '2px' }}
                   />
-                  <div className="w-4 h-4 bg-white transform rotate-45 ml-4"></div>
+                  <div className="w-4 h-4 bg-secondary transform rotate-45 ml-4"></div>
                 </div>
               </div>
 
@@ -168,12 +154,12 @@ export default function TeamDisplayPage() {
                       ${selected === index ? 'scale-110 opacity-100' : 'scale-90 opacity-30'}
                       group-hover:opacity-70
                     `}>
-                      <div className="text-2xl font-bold tracking-wider mb-2">
+                      <div className={` ${selected === index ? 'text-xl md:text-2xl' : 'text-md md:text-lg'} font-bold tracking-wider mb-2`}>
                         {member.name.toUpperCase()}
                       </div>
                       <div className={`
                         text-sm font-light tracking-widest
-                        ${selected === index ? 'text-white' : 'text-white/50'}
+                        ${selected === index ? 'text-secondary' : 'text-secondary/50'}
                       `}>
                         {member.role.toUpperCase()}
                       </div>
@@ -183,11 +169,6 @@ export default function TeamDisplayPage() {
                 <div style={{ height: `calc(50% - ${ITEM_HEIGHT / 2}px)` }} />
               </div>
 
-              {/* Fade overlays */}
-              <div className="pointer-events-none absolute top-0 left-0 w-full h-full z-25">
-                <div className="absolute top-0 w-full h-1/3 bg-gradient-to-b from-black via-black/80 to-transparent" />
-                <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black via-black/80 to-transparent" />
-              </div>
             </div>
           </div>
 
@@ -204,16 +185,16 @@ export default function TeamDisplayPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 {/* Image */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-white/10 transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                  <div className="relative overflow-hidden bg-white">
+                  <div className="absolute inset-0 bg-secondary/10 transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                  <div className="relative overflow-hidden bg-secondary">
                     <img
                       src={selectedMember.image}
                       alt={selectedMember.name}
-                      className="w-full h-80 object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-60 md:h-80 object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                     />
                   </div>
                   <div className="absolute bottom-4 left-4 right-4 bg-black/90 p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="text-white text-xs font-mono tracking-widest">
+                    <div className="text-primary text-xs tracking-widest">
                       {selectedMember.role.toUpperCase()}
                     </div>
                   </div>
@@ -222,46 +203,18 @@ export default function TeamDisplayPage() {
                 {/* Content */}
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-4xl font-bold tracking-tight mb-2">
+                    <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-2">
                       {selectedMember.name.toUpperCase()}
                     </h2>
-                    <div className="w-16 h-0.5 bg-white mb-4"></div>
-                    <p className="text-lg font-light text-white/80 leading-relaxed">
+                    <div className="w-16 h-0.5 bg-secondary mb-4"></div>
+                    <p className="text-md md:text-lg font-light text-secondary/80 leading-relaxed">
                       {selectedMember.description}
                     </p>
-                  </div>
-
-                  {/* Stats/Metrics */}
-                  <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/20">
-                    <div>
-                      <div className="text-2xl font-bold">05+</div>
-                      <div className="text-xs text-white/60 tracking-widest">YEARS EXP</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold">A+</div>
-                      <div className="text-xs text-white/60 tracking-widest">RATING</div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Progress indicator */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40">
-        <div className="flex space-x-2">
-          {teamMembers.map((_, index) => (
-            <div
-              key={index}
-              className={`
-                w-2 h-2 transition-all duration-300 cursor-pointer
-                ${selected === index ? 'bg-white' : 'bg-white/30'}
-              `}
-              onClick={() => setSelected(index)}
-            />
-          ))}
         </div>
       </div>
 

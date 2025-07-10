@@ -39,7 +39,7 @@ const AssetSection = () => {
       className="min-h-screen pt-0 md:pt-[8vh] w-full flex flex-col md:flex-row bg-background text-secondary relative overflow-hidden"
     >
       {/* Left Fixed Image */}
-      <div className="w-full md:w-[40%] h-full hidden md:flex items-center justify-center sticky top-0 md:top-[9vh] z-10">
+      <div className="w-full md:w-[40%] h-full flex items-center justify-center sticky top-0 md:top-[9vh] z-10">
         <img
           src={assetImg}
           alt="Asset"

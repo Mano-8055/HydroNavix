@@ -61,7 +61,7 @@ const ServiceSection = () => {
     <div className="py-10 md:py-20">
 
       {/* title */}
-      <div className="px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 py-10 md:py-20 gap-5 md:gap-5 lg:gap-10">
+      <div className="px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 pb-10 md:pb-20 gap-5 md:gap-5 lg:gap-10">
         <p
           ref={titleRef}
           className="text-2xl md:text-4xl text-center md:text-left font-semibold w-full md:max-w-xl leading-snug opacity-0"

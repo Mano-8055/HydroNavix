@@ -1,42 +1,39 @@
-export const Teams =[
+
+const Teams = [
   {
-    "name": "Ashik Subahani",
-    "role": "Managing Director",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
+    name: 'Alice Johnson',
+    role: 'Chief Executive Officer',
+    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    description: 'Visionary leader driving innovation and strategic growth across global markets.',
   },
   {
-    "name": "Nawaf Al Shatti",
-    "role": "General Manager - Kuwait Operations",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
+    name: 'Bob Smith',
+    role: 'Chief Technology Officer',
+    image: 'https://randomuser.me/api/portraits/men/45.jpg',
+    description: 'Technical architect building scalable solutions for tomorrow\'s challenges.',
   },
   {
-    "name": "Ebrahim Zabih",
-    "role": "Manager - Commercial And Business Development",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
+    name: 'Priya Mehra',
+    role: 'Design Lead',
+    image: 'https://randomuser.me/api/portraits/women/46.jpg',
+    description: 'Creative director crafting exceptional user experiences through purposeful design.',
   },
   {
-    "name": "Adhil Subahani",
-    "role": "Operations Manager / Senior Naval Architect",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
+    name: 'Ravi Kapoor',
+    role: 'Engineering Manager',
+    image: 'https://randomuser.me/api/portraits/men/47.jpg',
+    description: 'Engineering excellence advocate delivering robust, high-performance systems.',
   },
   {
-    "name": "Dr. Anantha Subramaniam",
-    "role": "Principal Consultant - CFD Expert",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
+    name: 'Elena Garcia',
+    role: 'Marketing Head',
+    image: 'https://randomuser.me/api/portraits/women/48.jpg',
+    description: 'Brand strategist amplifying our voice in competitive global landscapes.',
   },
   {
-    "name": "Syed Nooruddin",
-    "role": "Manager - Piping Department",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
+    name: 'Kenji Tanaka',
+    role: 'Product Manager',
+    image: 'https://randomuser.me/api/portraits/men/49.jpg',
+    description: 'Product visionary transforming complex requirements into elegant solutions.',
   },
-  {
-    "name": "Thomas Philip",
-    "role": "Manager - Engineering",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
-  },
-  {
-    "name": "Jinesh Kumar",
-    "role": "Manager - Kochi & Senior Naval Architect",
-    "image": "https://www.seadeltamarine.com/upload_pic/team/thumb/120724030050nawaf.jpg"
-  }
-]
+];
