@@ -5,6 +5,7 @@
 
 body{
     @apply bg-primary;
+    user-select: none;
 }
 
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { TfiArrowCircleRight, TfiArrowCircleLeft } from "react-icons/tfi";
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -96,8 +97,12 @@ const images = [
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen flex justify-center items-center bg-gradient-to-br from-white to-gray-100 overflow-hidden">
-      <div className="relative w-[90%] max-w-[1200px] py-8">
+    <div className="py-24">
+      <p className="text-2xl md:text-4xl text-secondary text-center font-bold">Our Gallery</p>
+    
+    <div className="relative w-full py-10 flex justify-center items-center bg-gradient-to-br from-primary to-primary/60 overflow-hidden">
+      
+      <div className="relative w-[90%] max-w-[1200px] pb-8">
         <div
           ref={wrapperRef}
           className="relative w-full h-[400px] flex items-center justify-center"
@@ -119,23 +124,21 @@ const images = [
         </div>
 
         {/* Navigation Buttons */}
-        <button
-          className="absolute left-[30%] bottom-[-5rem] bg-white border border-gray-200 rounded-full p-3 shadow-md hover:bg-gray-100"
+        <div className="flex items-center justify-center gap-5 py-5">
+        <TfiArrowCircleLeft
+          className="w-8 h-8 cursor-pointer text-secondary hover:text-accent "
           onClick={() => scrollCarousel(-1)}
-        >
-          ←
-        </button>
-        <button
-          className="absolute right-[30%] bottom-[-5rem] bg-white border border-gray-200 rounded-full p-3 shadow-md hover:bg-gray-100"
+        />
+        <TfiArrowCircleRight
+          className="w-8 h-8 cursor-pointer text-secondary hover:text-accent "
           onClick={() => scrollCarousel(1)}
-        >
-          →
-        </button>
+        />
+        </div>
       </div>
 
       {/* Fullscreen Preview Modal */}
       {isPreviewOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-secondary bg-opacity-90 flex items-center justify-center z-50">
           <img
             src={previewSrc}
             alt="Full Preview"
@@ -143,6 +146,7 @@ const images = [
           />
         </div>
       )}
+    </div>
     </div>
   );
 };

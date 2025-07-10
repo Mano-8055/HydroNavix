@@ -8,10 +8,14 @@ const Service = () => {
   const location = useLocation();
 
   const sectionRefs = useRef([]);
+   
+ useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
   useEffect(() => {
     const pathParts = location.pathname.split("/");
-    const sectionId = decodeURIComponent(pathParts[2] || ""); // after /services/:id
+    const sectionId = decodeURIComponent(pathParts[2] || ""); 
 
     const index = Services.findIndex((s) => s.id === sectionId);
     if (index !== -1 && sectionRefs.current[index]) {

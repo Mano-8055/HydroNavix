@@ -29,7 +29,11 @@ const Contact = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
-useEffect(() => {
+  useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+  useEffect(() => {
   gsap.fromTo(
     leftRef.current,
     { opacity: 0, y: 40 },
