@@ -94,10 +94,11 @@ const Header = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className={`hidden lg:${isMobileMenuOpen ? "hidden" : "flex"}`}>
-            <ul className="flex flex-row space-x-8">
-              {impNavItems.map((item, index) => (
-                <li key={index}>
+          {!isMobileMenuOpen && (
+            <nav className="hidden lg:block">
+              <ul className="flex flex-row space-x-8">
+                {impNavItems.map((item, index) => (
+                  <li key={index}>
                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
@@ -114,10 +115,11 @@ const Header = () => {
                     >
                       {item.name}
                     </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
 
           {/* Hamburger Menu */}
           <div className="flex items-center space-x-2 md:space-x-3 z-60">
