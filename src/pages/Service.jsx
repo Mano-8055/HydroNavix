@@ -2,12 +2,20 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { SlArrowRightCircle } from "react-icons/sl";
 import { Services } from "../json/services";
+import { useAnimation } from "framer-motion";
+import FadeWords from "../components/FadeWords";
 
 const Service = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const location = useLocation();
 
   const sectionRefs = useRef([]);
+
+  const titleControls = useAnimation();
+
+  useEffect(() => {
+    titleControls.start("visible");
+  }, []);
    
  useEffect(() => {
         window.scrollTo(0, 0);
@@ -27,7 +35,11 @@ const Service = () => {
   return (
     <div className="py-24">
     <div className="flex flex-col gap-1 justify-center items-center">
-    <p className="text-center text-3xl md:text-5xl">At HydroNavix, we engineer precision</p>
+    <FadeWords
+      text="At HydroNavix, we engineer precision"
+      controls={titleControls}
+      className="text-center text-3xl md:text-5xl"
+    />
     <p className="max-w-4xl text-md md:text-lg text-center text-secondary/60">We provide end-to-end engineering services across marine, offshore, subsea, and energy sectors blending design innovation, compliance, and execution to streamline every project phase</p>
     </div>
     <div className="max-w-screen mx-auto py-10 space-y-0">

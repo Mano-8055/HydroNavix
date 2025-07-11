@@ -1,43 +1,59 @@
-import React from 'react';
+import { useEffect, useRef } from "react";
+import { FaEnvelope } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const CTASection = React.forwardRef(({ titleRef, subtitleRef, buttonRef, handleButtonHover }, _) => (
-  <div
-    className="cta-section bg-black rounded-2xl shadow-2xl px-8 py-12 md:px-20 md:py-16 text-center max-w-3xl w-full mx-auto
-    -mb-24 md:-mb-28 relative"
-    style={{
-      boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
-      marginTop: '-80px', // overlap effect
-    }}
-  >
-    <div
-      style={{
-        background: 'linear-gradient(90deg, #000 0%, #1a1a1a 50%, #000 100%)'
-      }}
-      className="absolute inset-0 rounded-2xl"
-    />
-    <div className="relative z-10">
-      <h2
-        ref={titleRef}
-        className="text-3xl md:text-5xl font-semibold mb-4 opacity-0 transform translate-y-12"
-      >
-        We'd love to hear from you!
-      </h2>
-      <p
-        ref={subtitleRef}
-        className="text-gray-300 mb-8 text-lg opacity-0 transform translate-y-8"
-      >
-        If you'd like to speak to someone at Sea Delta Marine, feel free to write us.
-      </p>
-      <button
-        ref={buttonRef}
-        className="bg-white text-black font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition-colors opacity-0 transform translate-y-8"
-        onMouseEnter={() => handleButtonHover(true)}
-        onMouseLeave={() => handleButtonHover(false)}
-      >
-        Let's Talk
-      </button>
-    </div>
-  </div>
-));
+gsap.registerPlugin(ScrollTrigger);
 
-export default CTASection;
+export default function CTASection() {
+  const navigate = useNavigate();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+
+    gsap.fromTo(
+      el,
+      { opacity: 0.5, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <section
+  ref={sectionRef}
+  style={{
+   boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px"
+  }}
+  className="bg-secondary text-primary rounded-[3rem] mx-5 md:mx-20 my-20 px-10 py-14 flex justify-center items-center"
+>
+
+      {/* Left Section */}
+      <div className="flex flex-col items-center text-center space-y-6 max-w-xl">
+        <h2 className="text-2xl md:text-4xl font-semibold">
+          Ready to find your <span className="text-primary">flow</span>?
+        </h2>
+        <p className="text-sm md:text-lg text-gray-300">
+          Join a community of driven professionals built for focus, flexibility,
+          and real connection. Your desk is waiting.
+        </p>
+        <button
+          onClick={() => navigate("/contact-us")}
+          className="bg-primary text-secondary rounded-full px-6 py-3 flex items-center gap-3 w-fit group transition"
+        >
+          Contact us <FaEnvelope className="group-hover:animate-bounce group-hover:text-accent duration-200 transition-colors ease-in" />
+        </button>
+      </div>
+    </section>
+  );
+}

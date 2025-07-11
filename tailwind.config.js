@@ -16,6 +16,9 @@ export default {
       fontFamily: {
         sans: ["Syne", "sans-serif"],
       },
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
+      },
     },
   },
   plugins: [],

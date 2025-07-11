@@ -80,7 +80,7 @@ const Header = () => {
           {/* Logo */}
           <div
             onClick={() => {
-              setIsMobileMenuOpen(!isMobileMenuOpen);
+              setIsMobileMenuOpen(false);
               navigate("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
@@ -94,11 +94,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav
-            className={`${
-              isMobileMenuOpen ? "hidden" : "flex"
-            } hidden lg:flex`}
-          >
+          <nav className={`hidden lg:${isMobileMenuOpen ? "hidden" : "flex"}`}>
             <ul className="flex flex-row space-x-8">
               {impNavItems.map((item, index) => (
                 <li key={index}>

@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import HeroSection from '../layouts/HeroSection'
 import ServiceSection from '../layouts/ServiceSection';
 import AssetSection from '../layouts/AssetSection';
+import AboutSection from '../layouts/AboutSection';
+import CTASection from '../layouts/CTASection';
 
 const Home = () => {
 
@@ -11,10 +13,12 @@ const Home = () => {
     }, []);
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden hide-scroll'>
         <HeroSection />
         <ServiceSection />
+        <AboutSection />
         <AssetSection />
+        <CTASection />
     </div>
   )
 }
