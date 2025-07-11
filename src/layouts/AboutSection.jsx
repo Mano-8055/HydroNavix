@@ -3,12 +3,15 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import aboutImg1 from '../assets/images/about1.png';
 import aboutImg2 from '../assets/images/about2.png';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -59,7 +62,7 @@ export default function AboutSection() {
         <p className="text-sm lg:text-base text-justify text-secondary/80 mt-6 max-w-lg">
           HydroNavix is a cutting-edge marine and offshore engineering company operating across India, the Middle East, and Europe. We specialize in providing end-to-end solutions — from advanced design and compliance to surveys, manpower, and equipment supply. Since our inception, HydroNavix has remained committed to innovation, reliability, and engineering excellence, delivering seamless services that drive projects forward with precision and integrity.
         </p>
-        <button className="mt-8 w-fit border border-secondary/80 text-secondary/80 px-6 py-2 rounded-full text-sm hover:bg-gray-800 duration-300 ease-in-out hover:text-white transition-all">
+        <button onClick={()=>navigate('/about')} className="mt-8 w-fit border border-secondary/80 text-secondary/80 px-6 py-2 rounded-full text-sm hover:bg-gray-800 duration-300 ease-in-out hover:text-white transition-all">
           Learn More
         </button>
       </div>

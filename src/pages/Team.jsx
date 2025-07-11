@@ -57,7 +57,6 @@ export default function Team() {
     setMounted(true);
   }, []);
 
-  // Auto-scroll effect
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isUserScrolling.current && !isHovered) {
@@ -67,7 +66,6 @@ export default function Team() {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  // Programmatic scroll
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
@@ -94,52 +92,38 @@ export default function Team() {
   };
 
   return (
-    <div className="w-full relative text-secondary py-20 overflow-hidden">
-      
-    
-
-      <div className="relative z-10 container mx-auto px-6 lg:px-12 h-screen">
-        
+    <div className="w-full relative text-secondary py-20 overflow-hidden min-h-screen">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <div className="pt-5 pb-6 border-b border-secondary/60">
+        <div className="pt-4 pb-6 border-b border-secondary/60">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold tracking-tight">TEAM</h1>
-            </div>
-            <div className="text-right">
-              <div className="text-sm text-secondary/60">
-                {String(selected + 1).padStart(2, '0')} / {String(teamMembers.length).padStart(2, '0')}
-              </div>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Team</h1>
+            <div className="text-sm text-secondary/60">
+              {String(selected + 1).padStart(2, '0')} / {String(teamMembers.length).padStart(2, '0')}
             </div>
           </div>
         </div>
 
-       <div className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-12 h-[60vh]">
-          {/* Left Column: Rotary Selector */}
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-8 lg:gap-12 mt-8 lg:h-[65vh]">
+          {/* Left Column: Selector */}
           <div className="lg:col-span-2 flex items-center justify-center">
-            <div 
-              className="relative h-[100px] md:h-[400px] w-full max-w-sm"
+            <div
+              className="relative h-[100px] sm:h-[400px] w-full max-w-sm"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              {/* Selection indicator */}
               <div className="absolute top-1/2 left-0 w-full z-30 pointer-events-none">
                 <div className="flex items-center justify-center">
                   <div className="w-4 h-4 bg-secondary transform rotate-45 mr-4"></div>
-                  <div 
-                    className="flex-1 border-t-2 border-secondary"
-                    style={{ height: '2px' }}
-                  />
+                  <div className="flex-1 border-t-[1.5px] border-secondary h-[1px]" />
                   <div className="w-4 h-4 bg-secondary transform rotate-45 ml-4"></div>
                 </div>
               </div>
 
-              {/* Scrollable list */}
               <div
                 ref={scrollRef}
                 onScroll={handleScroll}
                 className="h-full overflow-y-scroll scroll-smooth snap-y snap-mandatory scrollbar-none z-20 relative"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 <div style={{ height: `calc(50% - ${ITEM_HEIGHT / 2}px)` }} />
                 {teamMembers.map((member, index) => (
@@ -149,18 +133,19 @@ export default function Team() {
                     style={{ height: ITEM_HEIGHT }}
                     onClick={() => setSelected(index)}
                   >
-                    <div className={`
-                      text-center transition-all duration-500 transform
-                      ${selected === index ? 'scale-110 opacity-100' : 'scale-90 opacity-30'}
-                      group-hover:opacity-70
-                    `}>
-                      <div className={` ${selected === index ? 'text-xl md:text-2xl' : 'text-md md:text-lg'} font-bold tracking-wider mb-2`}>
+                    <div
+                      className={`text-center transition-all duration-500 transform
+                        ${selected === index ? 'scale-110 opacity-100' : 'scale-90 opacity-30'}
+                        group-hover:opacity-70`}
+                    >
+                      <div className={`text-sm sm:text-lg md:text-2xl font-bold tracking-wider mb-1`}>
                         {member.name.toUpperCase()}
                       </div>
-                      <div className={`
-                        text-sm font-light tracking-widest
-                        ${selected === index ? 'text-secondary' : 'text-secondary/50'}
-                      `}>
+                      <div
+                        className={`text-xs sm:text-sm font-light tracking-widest ${
+                          selected === index ? 'text-secondary' : 'text-secondary/50'
+                        }`}
+                      >
                         {member.role.toUpperCase()}
                       </div>
                     </div>
@@ -168,21 +153,20 @@ export default function Team() {
                 ))}
                 <div style={{ height: `calc(50% - ${ITEM_HEIGHT / 2}px)` }} />
               </div>
-
             </div>
           </div>
 
-          {/* Right Column: Member Details */}
+          {/* Right Column: Details */}
           <div className="lg:col-span-3 flex items-center justify-start">
-            <div 
-              key={selected} 
+            <div
+              key={selected}
               className={`
-                w-full max-w-2xl transition-all duration-700 transform
+                w-full transition-all duration-700 transform
                 ${mounted ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}
               `}
               style={{ animation: 'slideInRight 0.7s ease-out' }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* Image */}
                 <div className="relative group">
                   <div className="absolute inset-0 bg-secondary/10 transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
@@ -193,24 +177,22 @@ export default function Team() {
                       className="w-full h-60 md:h-80 object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                     />
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4 bg-black/90 p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="text-primary text-xs tracking-widest">
+                  <div className="absolute bottom-4 left-4 right-4 bg-black/90 p-2 sm:p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="text-primary text-xs sm:text-sm tracking-widest">
                       {selectedMember.role.toUpperCase()}
                     </div>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-2">
-                      {selectedMember.name.toUpperCase()}
-                    </h2>
-                    <div className="w-16 h-0.5 bg-secondary mb-4"></div>
-                    <p className="text-md md:text-lg font-light text-secondary/80 leading-relaxed">
-                      {selectedMember.description}
-                    </p>
-                  </div>
+                {/* Info */}
+                <div className="space-y-4 sm:space-y-6">
+                  <h2 className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight">
+                    {selectedMember.name.toUpperCase()}
+                  </h2>
+                  <div className="hidden md:block w-12 sm:w-16 h-0.5 bg-secondary"></div>
+                  <p className="hidden md:block text-sm sm:text-base md:text-lg font-light text-secondary/80 leading-relaxed">
+                    {selectedMember.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -219,27 +201,22 @@ export default function Team() {
       </div>
 
       <style jsx>{`
-        @keyframes gridMove {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(50px, 50px); }
-        }
-        
         @keyframes slideInRight {
-          0% { 
-            transform: translateX(50px); 
-            opacity: 0; 
+          0% {
+            transform: translateX(50px);
+            opacity: 0;
           }
-          100% { 
-            transform: translateX(0); 
-            opacity: 1; 
+          100% {
+            transform: translateX(0);
+            opacity: 1;
           }
         }
-        
+
         .scrollbar-none {
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
-        
+
         .scrollbar-none::-webkit-scrollbar {
           display: none;
         }

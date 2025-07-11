@@ -89,7 +89,7 @@ const Gallery = () => {
     const startAutoScroll = () => {
       intervalRef.current = setInterval(() => {
         scrollCarousel(1);
-      }, 5000);
+      }, 3000);
     };
 
     const stopAutoScroll = () => {
