@@ -14,7 +14,7 @@ const FadeWords = ({ text, controls, targetColor = "#0D0812", className = "" }) 
               opacity: 1,
               y: 0,
               color: targetColor,
-              transition: { delay: index * 0.08, duration: 0.4 },
+              transition: { delay: index * 0.08, duration: 0.8 },
             },
           }}
           className="inline-block mr-2"

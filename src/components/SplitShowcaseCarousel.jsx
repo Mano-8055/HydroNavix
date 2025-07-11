@@ -52,20 +52,12 @@ const SplitShowcaseCarousel = ({ data }) => {
     }
   }, [nextIndex]);
 
-  const splitData = (contentArray) => {
-    const half = Math.ceil(contentArray.length / 2);
-    return {
-      left: contentArray.slice(0, half),
-      right: contentArray.slice(half),
-    };
-  };
-
-  const { left: leftChips, right: rightChips } = splitData(current.content["content-data"]);
+  const chips = current.content["content-data"];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden font-sans text-white">
+    <div className="relative w-full h-screen overflow-hidden text-primary">
       {/* Left Color Slide Up */}
-      <div className="absolute left-0 top-0 w-1/2 h-full overflow-hidden z-0">
+      <div className="absolute left-0 top-0 w-full md:w-1/2 h-1/2 md:h-full overflow-hidden z-0">
         <AnimatePresence initial={false}>
           <SlideUp keyId={current.id + "-left"}>
             <div className="w-full h-full" style={{ backgroundColor: current.color }} />
@@ -79,7 +71,7 @@ const SplitShowcaseCarousel = ({ data }) => {
       </div>
 
       {/* Right Image Slide Down */}
-      <div className="absolute right-0 top-0 w-1/2 h-full overflow-hidden z-0">
+      <div className="absolute right-0 bottom-0 md:top-0 w-full md:w-1/2 h-1/2 md:h-full overflow-hidden z-0">
         <AnimatePresence initial={false}>
           <SlideDown keyId={current.id + "-right"}>
             <img
@@ -101,15 +93,15 @@ const SplitShowcaseCarousel = ({ data }) => {
       </div>
 
       {/* Centered Title */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
+      <div className="absolute inset-0 mt-[24vh] md:mt-0 z-10 md:flex md:items-center md:justify-center text-center">
         <AnimatePresence mode="wait">
           <motion.h1
             key={current.id + "-title"}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0.8 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.7 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
           >
             {current.content["content-title"]}
           </motion.h1>
@@ -118,19 +110,14 @@ const SplitShowcaseCarousel = ({ data }) => {
 
       {/* Bottom Chips */}
       <div className="absolute bottom-6 left-0 right-0 px-8 flex justify-between flex-wrap gap-y-3 z-10">
-        <div className="flex flex-wrap gap-2 max-w-[45%]">
-          {leftChips.map((item, i) => (
-            <div key={i} className="flex items-center gap-1 px-3 py-1 bg-white/10 rounded-full">
-              <CheckCircle size={14} className="text-white" />
-              <span className="text-sm">{item}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-wrap gap-2 max-w-[45%] justify-end">
-          {rightChips.map((item, i) => (
-            <div key={i} className="flex items-center gap-1 px-3 py-1 bg-white/10 rounded-full">
-              <CheckCircle size={14} className="text-white" />
-              <span className="text-sm">{item}</span>
+        <div className="flex flex-wrap gap-2 -full md:max-w-[45%]">
+          {chips.map((item, i) => (
+            <div
+              key={i}
+              className="inline-flex items-center gap-1 px-2 py-1.5 bg-secondary md:bg-primary/20 drop-shadow-md rounded-full transition-transform transform hover:scale-105 cursor-pointer whitespace-nowrap"
+            >
+              <CheckCircle size={14} className="text-primary flex-shrink-0" />
+              <span className="text-sm md:text-md font-medium leading-none">{item}</span>
             </div>
           ))}
         </div>
@@ -142,12 +129,13 @@ const SplitShowcaseCarousel = ({ data }) => {
           <button
             key={idx}
             onClick={() => setNextIndex(idx)}
-            className={`w-3 h-3 rounded-full transition ${
-              idx === index ? "bg-white scale-125" : "bg-white/40"
+            className={`w-2 h-2 rounded-full transition ${
+              idx === index ? "bg-primary scale-125" : "bg-primary/40 scale-90"
             }`}
           />
         ))}
       </div>
+
     </div>
   );
 };
