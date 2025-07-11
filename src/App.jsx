@@ -9,6 +9,7 @@ import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Project from "./pages/Project";
 import Preload from "./pages/Preload"; 
+import DigitalExpertisePage from "./pages/DigitalExpertisePage"; // Import the new page
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ function App() {
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/projects" element={<Project />} />
+        <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
       </Routes>
       <Footer />
     </Router>
