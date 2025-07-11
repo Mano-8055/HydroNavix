@@ -12,6 +12,7 @@ import Preload from "./pages/Preload";
 import DigitalExpertisePage from "./pages/DigitalExpertisePage"; 
 import AssetIntegrityPage from "./pages/AssetIntegrityPage";
 import SustainablityPage from "./pages/SustainablityPage";
+import About from "./pages/About";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
         <Route path="/asset-integrity" element={<AssetIntegrityPage />} /> 
         <Route path="/sustainability" element={<SustainablityPage />} /> 
+        <Route path="/about" element={<About />} />
 
       </Routes>
       <Footer />
