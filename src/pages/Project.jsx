@@ -1,16 +1,22 @@
+import { useEffect } from "react";
 import { Services } from "../json/services";
 
 const Project = () => {
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   return (
     <div className="py-24">
-      <p className="text-2xl md:text-4xl text-secondary text-center font-bold mb-12">
+      <p className="text-2xl sm:text-4xl font-semibold tracking-tight text-secondary text-center">
         Projects
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12 py-10">
         {Services.map((service) => (
           <div
             key={service.id}
-            className="group relative overflow-hidden shadow-md cursor-pointer"
+            className="group relative overflow-hidden cursor-follow shadow-md cursor-pointer"
           >
             {/* Image */}
             <img

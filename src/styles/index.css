@@ -7,8 +7,13 @@ body{
     @apply bg-primary;
     user-select: none;
     overflow-x: hidden;
+    -webkit-touch-callout: none;
 }
 
+
+img {
+  -webkit-user-drag: none; 
+}
 
 .hide-scroll {
   scrollbar-width: none; 

@@ -34,11 +34,11 @@ const Service = () => {
 
   return (
     <div className="py-24">
-    <div className="flex flex-col gap-1 justify-center items-center">
+    <div className="flex flex-col gap-1 justify-center items-center pb-4 md:pb-8">
     <FadeWords
       text="At HydroNavix, we engineer precision"
       controls={titleControls}
-      className="text-center text-3xl md:text-5xl"
+      className="text-2xl sm:text-4xl font-semibold tracking-tight text-center mb-1.5"
     />
     <p className="max-w-4xl text-md md:text-lg text-center text-secondary/60">We provide end-to-end engineering services across marine, offshore, subsea, and energy sectors blending design innovation, compliance, and execution to streamline every project phase</p>
     </div>
@@ -51,7 +51,7 @@ const Service = () => {
             ref={(el) => (sectionRefs.current[index] = el)}
             id={service.id}
             key={service.id}
-            className="w-full overflow-hidden cursor-pointer transition-all duration-500"
+            className="w-full overflow-hidden cursor-pointer cursor-follow transition-all duration-500"
             onClick={() => setActiveIndex(index)}
             onMouseEnter={() => setActiveIndex(index)}
             onMouseLeave={() => setActiveIndex(null)}

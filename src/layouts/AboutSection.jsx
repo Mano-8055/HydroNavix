@@ -53,7 +53,7 @@ export default function AboutSection() {
     <section className="flex flex-col-reverse lg:flex-row min-h-screen">
       {/* left side */}
       <div className="flex flex-col items-center lg:items-start justify-center px-5 md:px-10 py-16 lg:w-1/2">
-        <h2 className="text-4xl lg:text-5xl text-center md:text-left font-semibold leading-snug text-secondary">
+        <h2 className="text-3xl lg:text-5xl text-center md:text-left font-semibold leading-snug text-secondary mt-5 md:mt-0">
           Precision Engineered.{" "}<span className='text-secondary/70'>Globally Delivered.</span>
         </h2>
         <h2 className="text-xl lg:text-2xl text-center md:text-left font-light leading-snug text-secondary mt-2">

@@ -50,8 +50,8 @@ const AssetSection = () => {
       {/* Right Side — Animated Scroll Content */}
       <div className="w-full md:w-[60%] h-full relative overflow-hidden">
         {/* Sticky Title */}
-        <div className="sticky top-0 bg-background z-20 p-5">
-          <p className="text-2xl text-center md:text-left md:text-4xl font-semibold">
+        <div className="sticky top-0 bg-background z-20 pb-5">
+          <p className="text-2xl md:text-4xl text-center md:text-left font-semibold">
             Asset Integrity Solutions
           </p>
         </div>

@@ -54,6 +54,7 @@ export default function Team() {
   const selectedMember = teamMembers[selected];
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setMounted(true);
   }, []);
 
@@ -92,12 +93,12 @@ export default function Team() {
   };
 
   return (
-    <div className="w-full relative text-secondary py-20 overflow-hidden min-h-screen">
+    <div className="w-full relative text-secondary py-24 overflow-hidden min-h-screen">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <div className="pt-4 pb-6 border-b border-secondary/60">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Team</h1>
+            <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight">Team</h1>
             <div className="text-sm text-secondary/60">
               {String(selected + 1).padStart(2, '0')} / {String(teamMembers.length).padStart(2, '0')}
             </div>
@@ -168,7 +169,7 @@ export default function Team() {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* Image */}
-                <div className="relative group">
+                <div className="relative group cursor-follow">
                   <div className="absolute inset-0 bg-secondary/10 transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
                   <div className="relative overflow-hidden bg-secondary">
                     <img

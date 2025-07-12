@@ -11,9 +11,7 @@ const About = () => {
   const heroTitleRef = useRef(null);
 
   useEffect(() => {
-    // Context for cleanup
     let ctx = gsap.context(() => {
-      // 1. Hero Animation on Page Load
       gsap.fromTo(
         heroImgRef.current,
         { scale: 1.2, opacity: 0.6 },
@@ -36,7 +34,6 @@ const About = () => {
         }
       );
 
-      // 2. Animate sections as they scroll into view
       const sections = gsap.utils.toArray("section");
       sections.forEach((section) => {
         gsap.fromTo(
@@ -50,13 +47,12 @@ const About = () => {
             scrollTrigger: {
               trigger: section,
               start: "top 85%",
-              toggleActions: "play none none none", // Animate once on enter
+              toggleActions: "play none none none", 
             },
           }
         );
       });
 
-      // 3. Staggered animation for the "Why Choose Us" cards
       const cards = gsap.utils.toArray(".why-us-card");
       gsap.from(cards, {
         opacity: 0,
@@ -65,12 +61,11 @@ const About = () => {
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: ".why-us-grid", // Use the parent grid as the trigger
+          trigger: ".why-us-grid", 
           start: "top 80%",
         },
       });
       
-      // 4. Staggered animation for the "Experience & Services" list
       const serviceItems = gsap.utils.toArray(".service-item");
       gsap.from(serviceItems, {
           opacity: 0,
@@ -85,15 +80,14 @@ const About = () => {
       });
 
 
-      // 5. Parallax effect for section images
       const parallaxImages = gsap.utils.toArray(".parallax-img");
       parallaxImages.forEach(img => {
           gsap.to(img, {
-              yPercent: -15, // Move image up as you scroll down
+              yPercent: -15, 
               ease: "none",
               scrollTrigger: {
                   trigger: img,
-                  scrub: 1.5 // Smoothly scrub the animation with scroll
+                  scrub: 1.5 
               }
           });
       });
@@ -101,36 +95,35 @@ const About = () => {
 
     }, componentRef);
 
-    // Cleanup function
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={componentRef} className="bg-white text-black">
+    <div ref={componentRef} className="bg-primary text-secondary py-10">
       {/* Hero Banner */}
-      <div className="w-full h-[500px] overflow-hidden relative">
+      <div className="w-full h-[250px] md:h-[500px] overflow-hidden relative">
         <img
           ref={heroImgRef}
           src={image}
           alt="Marine Banner"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 ref={heroTitleRef} className="text-white text-4xl md:text-6xl font-extrabold text-center">
+        <div className="absolute inset-0 bg-secondary bg-opacity-40 flex items-center justify-center">
+          <h1 ref={heroTitleRef} className="text-primary text-2xl md:text-5xl font-bold text-center">
             Sea Delta Marine & Offshore
           </h1>
         </div>
       </div>
 
       {/* About Company */}
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+      <section className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-3">About Us</h2>
-          <h3 className="text-4xl font-bold leading-tight mb-6">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-secondary/80 mb-2">About Us</h2>
+          <h3 className="text-xl md:text-4xl font-bold leading-tight mb-4">
             Unique Solution Provider for Marine, Offshore, Oil & Gas
           </h3>
-          <p className="text-lg text-gray-700">
-            Based across the Middle East, India and Europe, we provide complete engineering and consulting solutions —
+          <p className="text-lg text-secondary/60">
+            Based across the Middle East, India and Europe, we provide complete engineering and consulting solutions
             from design to delivery, all under one roof.
           </p>
         </div>
@@ -144,9 +137,9 @@ const About = () => {
       </section>
 
       {/* Mission */}
-      <section className="bg-gray-100 px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+      <section className="bg-background px-6 py-10 text-center">
+        <h2 className="text-xl md:text-4xl font-bold mb-4">Our Mission</h2>
+        <p className="text-md md:text-lg text-secondary/60 max-w-3xl mx-auto">
           Deliver bespoke, innovative, practical and cost-effective solutions with professional integrity and marine engineering excellence.
         </p>
         <div className="w-full max-w-5xl h-96 mx-auto mt-10 shadow-xl overflow-hidden">
@@ -159,8 +152,8 @@ const About = () => {
       </section>
 
       {/* Why Clients Choose Us */}
-      <section className="px-6 py-20 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Clients Choose Us</h2>
+      <section className="px-6 py-10 max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8">Why Clients Choose Us</h2>
         <div className="grid md:grid-cols-3 gap-8 why-us-grid">
           {[
             {
@@ -181,12 +174,12 @@ const About = () => {
           ].map((card, i) => (
             <div
               key={i}
-              className="overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 why-us-card" // Added a class for targeting
+              className="overflow-hidden shadow-md group why-us-card cursor-pointer" 
             >
-              <img src={card.img} alt={card.title} className="h-48 w-full object-cover" />
+              <img src={card.img} alt={card.title} className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300" />
               <div className="p-5">
                 <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-                <p className="text-gray-600">{card.text}</p>
+                <p className="text-secondary/60">{card.text}</p>
               </div>
             </div>
           ))}

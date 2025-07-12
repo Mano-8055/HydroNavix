@@ -13,6 +13,7 @@ import DigitalExpertisePage from "./pages/DigitalExpertisePage";
 import AssetIntegrityPage from "./pages/AssetIntegrityPage";
 import SustainablityPage from "./pages/SustainablityPage";
 import About from "./pages/About";
+import CursorFollower from "./layouts/CursorFollower";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,8 +28,10 @@ function App() {
   if (isLoading) return <Preload />;
 
   return (
+    <div>
     <Router>
       <Header />
+      <CursorFollower />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Service />} />
@@ -45,6 +48,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </div>
   );
 }
 

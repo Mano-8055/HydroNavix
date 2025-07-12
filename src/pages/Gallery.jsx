@@ -115,7 +115,7 @@ const Gallery = () => {
 
   return (
     <div className="py-24">
-      <p className="text-2xl md:text-4xl text-secondary text-center font-bold">Our Gallery</p>
+      <p className="text-2xl sm:text-4xl font-semibold tracking-tight text-secondary text-center">Our Gallery</p>
 
       <div className="relative w-full py-10 flex justify-center items-center bg-gradient-to-br from-primary to-primary/60 overflow-hidden">
         

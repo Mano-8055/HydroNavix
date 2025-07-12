@@ -55,7 +55,7 @@ const SplitShowcaseCarousel = ({ data }) => {
   const chips = current.content["content-data"];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden text-primary">
+    <div className="relative w-full h-screen overflow-hidden text-primary  cursor-follow">
       {/* Left Color Slide Up */}
       <div className="absolute left-0 top-0 w-full md:w-1/2 h-1/2 md:h-full overflow-hidden z-0">
         <AnimatePresence initial={false}>

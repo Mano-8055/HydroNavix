@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import {
   FaTwitter,
@@ -9,6 +9,9 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { HiArrowUturnRight } from "react-icons/hi2";
+import { useAnimation } from "framer-motion";
+import FadeWords from "../components/FadeWords";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +23,7 @@ const Contact = () => {
 
   const leftRef = useRef(null);
   const marqueeRef = useRef(null);
+  const socialsRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,16 +35,44 @@ const Contact = () => {
     );
   }, []);
 
+  const titleControls = useAnimation();
+
+  useEffect(() => {
+    titleControls.start("visible");
+  }, []);
+
   useEffect(() => {
     if (marqueeRef.current) {
-      gsap.to(marqueeRef.current, {
-        x: "-100%",
+      const el = marqueeRef.current;
+      gsap.to(el, {
+        xPercent: -50,
         duration: 20,
         repeat: -1,
         ease: "linear",
       });
     }
   }, []);
+
+  useEffect(() => {
+  if (socialsRef.current) {
+    const childrenArray = Array.from(socialsRef.current.children);
+
+    gsap.fromTo(
+      childrenArray,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 0.6,
+        ease: "power3.out",
+      }
+    );
+  }
+}, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,34 +81,41 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
   };
 
   return (
-    <div className="bg-white text-black min-h-screen pt-24">
+    <div className="text-secondary min-h-screen py-24">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <h1 className="text-5xl font-bold tracking-tight">Contact</h1>
-          <div className="flex flex-col gap-4 text-black/70 text-sm">
-            <div className="flex items-start gap-3">
-              <FaMapMarkerAlt className="mt-1 text-black" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
+          <div>
+            <FadeWords
+              text="Contact"
+              controls={titleControls}
+              className="text-2xl sm:text-4xl font-semibold tracking-tight"
+            />
+          </div>
+          <div
+            className="grid grid-col-2 md:grid-cols-3 gap-4 text-secondary/70 text-sm"
+          >
+            <div className="flex col-span-2 md:col-span-1 items-start gap-3">
+              <FaMapMarkerAlt className="mt-1 text-secondary" />
               <div>
-                <h4 className="text-black font-semibold">Address</h4>
+                <h4 className="text-secondary font-semibold">Address</h4>
                 <p>1234 Pine Street, San Francisco, CA 94109</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <FaEnvelope className="mt-1 text-black" />
+              <FaEnvelope className="mt-1 text-secondary" />
               <div>
-                <h4 className="text-black font-semibold">Email</h4>
+                <h4 className="text-secondary font-semibold">Email</h4>
                 <p>hello@ondex.com</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <FaPhoneAlt className="mt-1 text-black" />
+              <FaPhoneAlt className="mt-1 text-secondary" />
               <div>
-                <h4 className="text-black font-semibold">Phone</h4>
+                <h4 className="text-secondary font-semibold">Phone</h4>
                 <p>(415) 876-5432</p>
               </div>
             </div>
@@ -85,36 +124,58 @@ const Contact = () => {
       </div>
 
       {/* Marquee */}
-      <div className="overflow-hidden py-10 mt-10 border-y border-black/10">
+      <div className="overflow-hidden py-6 md:py-10 mt-10 border-y border-secondary/10">
         <div
           ref={marqueeRef}
-          className="whitespace-nowrap text-6xl font-bold text-black/5 uppercase"
+          className="flex whitespace-nowrap text-3xl md:text-4xl lg:text-5xl font-bold text-secondary uppercase"
         >
-          <span className="mx-10 text-black">
-            Request a Demo · Request a Demo · Request a Demo · Request a Demo ·
-          </span>
+          <span className="mx-10">Request a Demo ·</span>
+          <span className="mx-10">Request a Demo ·</span>
+          <span className="mx-10">Request a Demo ·</span>
+          <span className="mx-10">Request a Demo ·</span>
         </div>
       </div>
 
-      {/* Contact Form */}
-      <div className="max-w-4xl mx-auto px-6 md:px-10 py-16">
-        <form
-          onSubmit={handleSubmit}
-          ref={leftRef}
-          className="space-y-10 text-black"
-        >
-          <div className="max-w-4xl mx-auto px-6 md:px-10 mt-10">
-  <p className="uppercase text-xs tracking-widest font-medium text-black/80">
-    ↳ Information
-  </p>
-</div>
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-16 text-secondary">
+        {/* Left: Info & Socials */}
+        <div className="space-y-10">
+          <div>
+            <div className="flex items-center gap-2 uppercase text-md tracking-widest font-medium text-secondary/80">
+              <HiArrowUturnRight /> Information
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Social Media Icons with Labels */}
+          <div ref={socialsRef} className="flex flex-row md:flex-col gap-6 text-bg-secondary text-sm">
+            {[
+              { href: "https://instagram.com", icon: <FaInstagram /> },
+              { href: "https://linkedin.com", icon: <FaLinkedinIn /> },
+              { href: "https://twitter.com", icon: <FaTwitter /> },
+              { href: "https://facebook.com", icon: <FaFacebookF /> },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent duration-300 transition text-xl"
+              >
+                {item.icon}
+              </a>
+            ))}
+
+          </div>
+        </div>
+
+        {/* Right: Contact Form */}
+        <form onSubmit={handleSubmit} ref={leftRef} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <InputField
               placeholder="Your Name"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              className="md:col-span-2"
             />
             <InputField
               placeholder="Phone"
@@ -137,14 +198,12 @@ const Contact = () => {
             onChange={handleChange}
           />
 
-          <div>
-            <button
-              type="submit"
-              className="px-8 py-3 rounded-full bg-black text-white font-semibold hover:bg-black/80 transition"
-            >
-              Submit
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="px-8 py-3 rounded-full bg-secondary text-primary font-semibold hover:bg-accent duration-300 transition"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
@@ -152,14 +211,14 @@ const Contact = () => {
 };
 
 // Input component
-const InputField = ({ placeholder, name, value, onChange }) => (
+const InputField = ({ placeholder, name, value, onChange, className = "" }) => (
   <input
     type="text"
     name={name}
     value={value}
     onChange={onChange}
     placeholder={placeholder}
-    className="w-full bg-transparent border-b border-dotted border-black/30 text-black placeholder-black/50 px-1 py-2 focus:outline-none focus:border-black transition"
+    className={`w-full bg-transparent border-b first-line: border-dotted border-secondary/50 text-secondary placeholder-secondary/60 px-1 py-2 focus:outline-none focus:border-secondary transition ${className}`}
   />
 );
 
@@ -171,7 +230,7 @@ const TextAreaField = ({ placeholder, name, value, onChange }) => (
     onChange={onChange}
     placeholder={placeholder}
     rows={5}
-    className="w-full bg-transparent border-b border-dotted border-black/30 text-black placeholder-black/50 px-1 py-2 focus:outline-none focus:border-black transition resize-none"
+    className="w-full bg-transparent border-b border-dotted border-secondary/50 text-secondary placeholder-secondary/50 px-1 py-2 focus:outline-none focus:border-secondary transition resize-none"
   />
 );
 
