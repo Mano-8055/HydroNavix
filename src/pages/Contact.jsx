@@ -46,7 +46,7 @@ const Contact = () => {
       const el = marqueeRef.current;
       gsap.to(el, {
         xPercent: -50,
-        duration: 20,
+        duration: 10,
         repeat: -1,
         ease: "linear",
       });
