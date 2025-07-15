@@ -13,6 +13,7 @@ import DigitalExpertisePage from "./pages/DigitalExpertisePage";
 import AssetIntegrityPage from "./pages/AssetIntegrityPage";
 import SustainablityPage from "./pages/SustainablityPage";
 import About from "./pages/About";
+import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/asset-integrity" element={<AssetIntegrityPage />} /> 
         <Route path="/sustainability" element={<SustainablityPage />} /> 
         <Route path="/about" element={<About />} />
+        <Route path="/clients" element={<Client />} />
 
       </Routes>
       <Footer />
