@@ -1,10 +1,16 @@
+import hybridPropulsionImage from "../assets/sustainability/hybrid-propulsion.png";
+import hydrogenFuelImage from "../assets/sustainability/hydrogen-fuel.png";
+import hydrogenPowerPlantImage from "../assets/sustainability/hydrogen-power-plant.png";
+import deCarbonizationImage from "../assets/sustainability/de-carbonization.png";
+
+
 
 export const Sustainability = [
   {
     id: "hybrid-propulsion",
     title: "hybrid-propulsion",
     color: "#1B9C85",
-    image: "path/to/hybrid-propulsion.png",
+    image: hybridPropulsionImage,
     content: {
       "content-title": "Hybrid Propulsion",
       "content-data": [
@@ -17,7 +23,7 @@ export const Sustainability = [
     id: "hydrogen-fuel",
     title: "hydrogen-fuel",
     color: "#40C4FF",
-    image: "path/to/hydrogen-fuel.png",
+    image: hydrogenFuelImage,
     content: {
       "content-title": "Hydrogen Fuel",
       "content-data": [
@@ -28,7 +34,7 @@ export const Sustainability = [
   },
   {
     id: "hydrogen-power-plant",
-    title: "hydrogen-power-plant",
+    title: hydrogenPowerPlantImage,
     color: "#00C49A",
     image: "path/to/hydrogen-power-plant.png",
     content: {
@@ -43,7 +49,7 @@ export const Sustainability = [
     id: "de-carbonization",
     title: "de-carbonization",
     color: "#689F38",
-    image: "path/to/de-carbonization.png",
+    image: deCarbonizationImage,
     content: {
       "content-title": "De Carbonization",
       "content-data": [
