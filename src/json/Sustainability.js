@@ -1,6 +1,6 @@
 import hybridPropulsionImage from "../assets/sustainability/hybrid-propulsion.png";
 import hydrogenFuelImage from "../assets/sustainability/hydrogen-fuel.png";
-import hydrogenPowerPlantImage from "../assets/sustainability/hydrogen-power-plant.png";
+import hydrogenPowerPlantImage from "../assets/sustainability/hydrogen-powerplant.png";
 import deCarbonizationImage from "../assets/sustainability/de-carbonization.png";
 
 
@@ -34,9 +34,9 @@ export const Sustainability = [
   },
   {
     id: "hydrogen-power-plant",
-    title: hydrogenPowerPlantImage,
+    title: "hydrogen-power-plant",
     color: "#00C49A",
-    image: "path/to/hydrogen-power-plant.png",
+    image: hydrogenPowerPlantImage,
     content: {
       "content-title": "Hydrogen Power Plant",
       "content-data": [
