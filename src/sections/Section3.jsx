@@ -52,7 +52,6 @@ const Section3 = () => {
       ref={missionRef}
       className="relative h-screen text-primary overflow-hidden"
     >
-      {/* Image Layer with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="relative h-full w-full overflow-hidden">
           <img
@@ -61,9 +60,7 @@ const Section3 = () => {
             alt="Mission"
             className="w-full h-full object-cover"
           />
-          {/* Semi-transparent overlay only on image */}
           <div className="absolute inset-0 bg-secondary/20 z-10 pointer-events-none" />
-          {/* White overlay for animation */}
           <div
             ref={whiteOverlayRef}
             className="absolute inset-0 bg-primary z-20 pointer-events-none"
@@ -71,7 +68,6 @@ const Section3 = () => {
         </div>
       </div>
 
-      {/* Text Content */}
       <div className="relative z-30 flex flex-col items-center justify-center text-center px-6 h-full max-w-4xl mx-auto">
         <h2
           ref={missionHeadingRef}

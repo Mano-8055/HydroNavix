@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { impNavItems, navItems } from "../json/Navbar";
+import Logo from "./Logo";
 
 const Header = () => {
  
@@ -86,11 +87,7 @@ const Header = () => {
             }}
             className="relative flex-shrink-0 flex cursor-pointer items-center z-60"
           >
-            <span
-              className={`-ml-4 pl-2 font-semibold text-2xl transition-colors duration-300 `}
-            >
-              HydroNavix
-            </span>
+            <Logo />
           </div>
 
           {/* Desktop Nav */}

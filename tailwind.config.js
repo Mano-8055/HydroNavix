@@ -12,6 +12,8 @@ export default {
         accent:    '#17A2B8',
         background:'#F5F5F5', 
         text:      '#333333', 
+        LightBlue: '#8ED1EC',
+        DarkBlue: '#4682B4',
       },
       fontFamily: {
         sans: ["Syne", "sans-serif"],

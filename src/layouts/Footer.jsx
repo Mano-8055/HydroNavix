@@ -1,5 +1,6 @@
 import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { navItems } from "../json/Navbar"; 
+import Logo from "./Logo";
 
 const Footer = () => {
   const footerLinksItems = [
@@ -14,8 +15,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-20 py-16 justify-between">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">HydroNavix</h3>
-            <p className="text-primary/70 mb-2 text-sm">info@seadeltamarine.com</p>
+            <Logo />
+            <p className="text-primary/70 mb-2 text-sm mt-4">info@seadeltamarine.com</p>
             <p className="text-primary/70 text-sm">+971-4-5708222</p>
           </div>
 
