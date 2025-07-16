@@ -42,10 +42,10 @@ const Section4 = () => {
 
   return (
     <section 
-      className="px-4 py-16 max-w-6xl mx-auto relative bg-white"
+      className="px-4 py-16 max-w-6xl mx-auto relative"
       style={{ 
         zIndex: 20,
-        marginTop: '-50vh' // Negative margin to overlap with Section 3
+        marginTop: '-50vh' 
       }}
     >
       <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
@@ -55,7 +55,7 @@ const Section4 = () => {
         {cards.map((card, i) => (
           <div
             key={i}
-            className="overflow-hidden shadow-md group why-us-card cursor-pointer bg-white rounded-lg"
+            className="overflow-hidden shadow-md group why-us-card cursor-pointer bg-white"
           >
             <img
               src={card.img}

@@ -36,12 +36,12 @@ function HoverImageItem({ left, image, index }) {
   return (
     <div
       ref={itemRef}
-      className="group relative grid grid-cols-1 md:grid-cols-2 py-6 border-b border-gray-200"
+      className="group relative grid grid-cols-1 md:grid-cols-2 py-6 border-b border-secondary/20"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={handleMouseMove}
     >
-      <div className="text-lg font-medium text-secondary/70 cursor-pointer group-hover:text-secondary z-20">
+      <div className="text-lg font-medium text-secondary/70 cursor-pointer group-hover:text-secondary z-10">
         {left}
       </div>
 
@@ -49,17 +49,17 @@ function HoverImageItem({ left, image, index }) {
         <div
           className="fixed z-30 pointer-events-none shadow-xl overflow-hidden"
           style={{
-            top: `${coords.y}px`,
-            left: `${coords.x}px`,
-            width: "384px",
-            height: "240px",
+            top: `${10}px`,
+            left: `${50}%`,
+            width: "250px",
+            height: "180px",
             transition: "opacity 0.2s ease",
           }}
         >
           <img
             src={image}
             alt="Preview"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover z-30"
           />
         </div>
       )}

@@ -17,7 +17,7 @@ const Section3 = () => {
         scrollTrigger: {
           trigger: missionRef.current,
           start: "top top",
-          end: "+=150%", // Increased to allow for overlap
+          end: "+=150%", 
           scrub: true,
           pin: true,
         },
@@ -55,7 +55,7 @@ const Section3 = () => {
     <section
       ref={missionRef}
       className="relative h-screen text-primary overflow-hidden"
-      style={{ zIndex: 10 }} // Ensure proper stacking
+      style={{ zIndex: 10 }}
     >
       {/* Image Layer with Overlay */}
       <div className="absolute inset-0 z-0">
