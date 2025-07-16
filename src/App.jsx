@@ -15,7 +15,6 @@ import SustainablityPage from "./pages/SustainablityPage";
 import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
-import ServiceDropdown from "./layouts/ServiceDropdown";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,8 +46,6 @@ function App() {
         <Route path="/sustainability" element={<SustainablityPage />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
-        <Route path="/temp" element={<ServiceDropdown/>} />
-
 
       </Routes>
       <Footer />
