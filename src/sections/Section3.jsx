@@ -17,30 +17,34 @@ const Section3 = () => {
         scrollTrigger: {
           trigger: missionRef.current,
           start: "top top",
-          end: "+=200%",
+          end: "+=100%", // Faster scroll reaction
           scrub: true,
           pin: true,
         },
       });
 
-      tl.fromTo(missionImgRef.current, { scale: 0.6 }, { scale: 1.2, ease: "none" })
+      tl.fromTo(
+        missionImgRef.current,
+        { scale: 0.8 },
+        { scale: 1.8, ease: "none" }
+      )
         .fromTo(
           missionHeadingRef.current,
           { opacity: 0, y: 60 },
-          { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
           "<30%"
         )
         .fromTo(
           missionTextRef.current,
-          { opacity: 0, y: 100 },
-          { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" },
-          "<50%"
+          { opacity: 0, y: 80 },
+          { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" },
+          "<40%"
         )
         .fromTo(
           whiteOverlayRef.current,
           { y: "100%" },
           { y: "0%", ease: "power1.inOut" },
-          "+=0.2"
+          "+=0.1"
         );
     }, missionRef);
 
@@ -52,6 +56,7 @@ const Section3 = () => {
       ref={missionRef}
       className="relative h-screen text-primary overflow-hidden"
     >
+      {/* Image Layer with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="relative h-full w-full overflow-hidden">
           <img
@@ -60,7 +65,9 @@ const Section3 = () => {
             alt="Mission"
             className="w-full h-full object-cover"
           />
+          {/* Semi-transparent overlay only on image */}
           <div className="absolute inset-0 bg-secondary/20 z-10 pointer-events-none" />
+          {/* White overlay for animation */}
           <div
             ref={whiteOverlayRef}
             className="absolute inset-0 bg-primary z-20 pointer-events-none"
@@ -68,6 +75,7 @@ const Section3 = () => {
         </div>
       </div>
 
+      {/* Text Content */}
       <div className="relative z-30 flex flex-col items-center justify-center text-center px-6 h-full max-w-4xl mx-auto">
         <h2
           ref={missionHeadingRef}
