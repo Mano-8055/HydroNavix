@@ -58,7 +58,7 @@ const ServiceSection = () => {
   const handleMouseLeave = () => scrollTween.current?.play();
 
   return (
-    <div className="hidden lg:blocl py-16 md:py-20">
+    <div className="py-16 md:py-20">
 
       {/* title */}
       <div className="px-5 md:px-10 grid grid-cols-1 md:grid-cols-2 pb-10 md:pb-20 gap-5 md:gap-5 lg:gap-10">
