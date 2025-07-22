@@ -15,6 +15,7 @@ import SustainablityPage from "./pages/SustainablityPage";
 import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
+import Home1 from "./pages/Home1";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ function App() {
       <CursorFollower />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/demo" element={<Home1 />} />
         <Route path="/services" element={<Service />} />
         <Route path="/services/:id" element={<Service />} />
         <Route path="/team" element={<Team />} />
