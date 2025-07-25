@@ -21,12 +21,21 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+     setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  //  useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > window.innerHeight * 3);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   handleScroll();
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {

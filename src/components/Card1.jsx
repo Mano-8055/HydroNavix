@@ -21,7 +21,7 @@ const Card1 = ({ title, id, img }) => {
       {/* icon */}
       <div className="absolute top-3 right-3 z-10">
         <a
-          href={`/services/${id}`}
+          href={`/engineering-services/${id}`}
           className="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-secondary hover:scale-110 transition-transform"
         >
           <GoArrowUpRight className="text-xl" />
@@ -30,7 +30,7 @@ const Card1 = ({ title, id, img }) => {
 
       {/* title */}
       <div className="absolute bottom-3 right-3 z-10">
-        <p className="text-white text-lg font-semibold">{title}</p>
+        <p className="text-primary text-md text-right font-semibold">{title}</p>
       </div>
     </div>
   );

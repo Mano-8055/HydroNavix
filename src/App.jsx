@@ -10,12 +10,12 @@ import Gallery from "./pages/Gallery";
 import Project from "./pages/Project";
 import Preload from "./pages/Preload"; 
 import DigitalExpertisePage from "./pages/DigitalExpertisePage"; 
-import AssetIntegrityPage from "./pages/AssetIntegrityPage";
-import SustainablityPage from "./pages/SustainablityPage";
 import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
 import Home1 from "./pages/Home1";
+import EachService from "./pages/EachService";
+import MarinexStudio from "./pages/MarinexStudio";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,12 +37,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/demo" element={<Home1 />} />
-        <Route path="/services" element={<Service />} />
-        <Route path="/services/:id" element={<Service />} />
+        <Route path="/engineering-services" element={<Service />} />
+        <Route path="/engineering-services/:id" element={<EachService />} />
         <Route path="/team" element={<Team />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/projects" element={<Project />} />
+        <Route path='/marinex-studio' element={<MarinexStudio />} />
         <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
         <Route path="/asset-integrity" element={<AssetIntegrityPage />} /> 
         <Route path="/sustainability" element={<SustainablityPage />} /> 
