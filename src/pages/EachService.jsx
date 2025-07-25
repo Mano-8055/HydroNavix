@@ -43,16 +43,16 @@ const EachService = () => {
         {serviceData.services.map((item, idx) => (
           <div
             key={idx}
-            className="bg-white border border-primary/20 shadow-md rounded-xl overflow-hidden transition-transform hover:scale-[1.02]"
+            className="overflow-hidden group cursor-pointer"
           >
-            <div className="h-[180px] w-full">
+            <div className="h-[220px] w-full">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover overflow-hidden group-hover:scale-105 transition-all duration-300"
               />
             </div>
-            <div className="p-4 flex flex-col gap-2">
+            <div className="p-2 flex flex-col gap-1">
               <h3 className="text-secondary font-semibold text-lg flex items-center gap-2">
                 {item.title}
               </h3>

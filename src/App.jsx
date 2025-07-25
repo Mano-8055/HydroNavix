@@ -16,6 +16,7 @@ import CursorFollower from "./layouts/CursorFollower";
 import Home1 from "./pages/Home1";
 import EachService from "./pages/EachService";
 import MarinexStudio from "./pages/MarinexStudio";
+import Manpower from "./pages/Manpower";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/projects" element={<Project />} />
         <Route path='/marinex-studio' element={<MarinexStudio />} />
+        <Route path='/manpower' element={<Manpower />} />
         <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />

@@ -14,8 +14,8 @@ const Home = () => {
 
   return (
     <div className='overflow-x-hidden hide-scroll'>
-        <HeroSection />
-        {/* <Home1 /> */}
+        {/* <HeroSection /> */}
+        <Home1 />
         <AboutSection />
         <AssetSection />
         <CTASection />
