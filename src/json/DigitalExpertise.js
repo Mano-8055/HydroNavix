@@ -5,7 +5,7 @@ import electricalControlImage from '../assets/studio/electric.png';
 import productionSupportImage from '../assets/studio/workshop.png';
 import digitalTwinImage from '../assets/studio/digital-twin.png'; // Reuse or replace with actual VR/AR image
 
-export const DigitalExpertise = [
+const DigitalExpertise = [
   {
     id: 1,
     title: "naval-architecture-hull-design",

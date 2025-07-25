@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 const SlideUp = ({ children, keyId }) => (
@@ -28,72 +28,54 @@ const SlideDown = ({ children, keyId }) => (
   </motion.div>
 );
 
-const SplitShowcaseCarousel = ({ data }) => {
+const SplitShowcaseCarousel = ({ data, scrollIndex }) => {
   const [index, setIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState(null);
+  const [prevIndex, setPrevIndex] = useState(null);
+
+  useMotionValueEvent(scrollIndex, "change", (val) => {
+    const rounded = Math.round(val);
+    if (rounded !== index && rounded >= 0 && rounded < data.length) {
+      setPrevIndex(index);
+      setIndex(rounded);
+    }
+  });
 
   const current = data[index];
-  const next = nextIndex !== null ? data[nextIndex] : null;
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setNextIndex((index + 1) % data.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, [index]);
-
-  useEffect(() => {
-    if (nextIndex !== null) {
-      const timeout = setTimeout(() => {
-        setIndex(nextIndex);
-        setNextIndex(null);
-      }, 700);
-      return () => clearTimeout(timeout);
-    }
-  }, [nextIndex]);
-
+  const previous = prevIndex !== null ? data[prevIndex] : null;
   const chips = current.content["content-data"];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden text-primary  cursor-follow">
-      {/* Left Color Slide Up */}
+    <div className="relative w-full h-screen overflow-hidden text-primary cursor-follow">
+      {/* Left SlideUp */}
       <div className="absolute left-0 top-0 w-full md:w-1/2 h-1/2 md:h-full overflow-hidden z-0">
         <AnimatePresence initial={false}>
-          <SlideUp keyId={current.id + "-left"}>
-            <div className="w-full h-full" style={{ backgroundColor: current.color }} />
-          </SlideUp>
-          {next && (
-            <SlideUp keyId={next.id + "-left"}>
-              <div className="w-full h-full" style={{ backgroundColor: next.color }} />
+          {previous && (
+            <SlideUp keyId={previous.id + "-left-exit"}>
+              <div className="w-full h-full" style={{ backgroundColor: previous.color }} />
             </SlideUp>
           )}
+          <SlideUp keyId={current.id + "-left-enter"}>
+            <div className="w-full h-full" style={{ backgroundColor: current.color }} />
+          </SlideUp>
         </AnimatePresence>
       </div>
 
-      {/* Right Image Slide Down */}
+      {/* Right SlideDown */}
       <div className="absolute right-0 bottom-0 md:top-0 w-full md:w-1/2 h-1/2 md:h-full overflow-hidden z-0">
         <AnimatePresence initial={false}>
-          <SlideDown keyId={current.id + "-right"}>
-            <img
-              src={current.image}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </SlideDown>
-          {next && (
-            <SlideDown keyId={next.id + "-right"}>
-              <img
-                src={next.image}
-                alt=""
-                className="w-full h-full object-cover"
-              />
+          {previous && (
+            <SlideDown keyId={previous.id + "-right-exit"}>
+              <img src={previous.image} alt="" className="w-full h-full object-cover" />
             </SlideDown>
           )}
+          <SlideDown keyId={current.id + "-right-enter"}>
+            <img src={current.image} alt="" className="w-full h-full object-cover" />
+          </SlideDown>
         </AnimatePresence>
       </div>
 
       {/* Centered Title */}
-      <div className="absolute inset-0 mt-[24vh] md:mt-0 z-10 md:flex md:items-center md:justify-center text-center">
+      <div className="absolute inset-0 mt-[24vh] md:mt-0 z-10 md:flex md:items-center md:justify-center text-center pointer-events-none">
         <AnimatePresence mode="wait">
           <motion.h1
             key={current.id + "-title"}
@@ -110,7 +92,7 @@ const SplitShowcaseCarousel = ({ data }) => {
 
       {/* Bottom Chips */}
       <div className="absolute bottom-6 left-0 right-0 px-8 flex justify-between flex-wrap gap-y-3 z-10">
-        <div className="flex flex-wrap gap-2 -full md:max-w-[45%]">
+        <div className="flex flex-wrap gap-2 w-full md:max-w-[45%]">
           {chips.map((item, i) => (
             <div
               key={i}
@@ -122,20 +104,6 @@ const SplitShowcaseCarousel = ({ data }) => {
           ))}
         </div>
       </div>
-
-      {/* Navigation Dots */}
-      <div className="absolute left-6 top-1/2 -translate-y-1/2 z-10 flex flex-col space-y-4">
-        {data.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setNextIndex(idx)}
-            className={`w-2 h-2 rounded-full transition ${
-              idx === index ? "bg-primary scale-125" : "bg-primary/40 scale-90"
-            }`}
-          />
-        ))}
-      </div>
-
     </div>
   );
 };
