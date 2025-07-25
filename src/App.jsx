@@ -45,8 +45,6 @@ function App() {
         <Route path="/projects" element={<Project />} />
         <Route path='/marinex-studio' element={<MarinexStudio />} />
         <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
-        <Route path="/asset-integrity" element={<AssetIntegrityPage />} /> 
-        <Route path="/sustainability" element={<SustainablityPage />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
 
