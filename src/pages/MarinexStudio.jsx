@@ -4,9 +4,9 @@ import SplitShowcaseCarousel from "../components/SplitShowcaseCarousel";
 
 const MarinexStudio = () => {
   return (
-    <section className="relative w-full h-full flex flex-col items-center justify-start overflow-hidden bg-black">
-      {/* Banner Section */}
-      <div className="relative z-20 w-full h-screen"> {/* Added h-screen here */}
+    <section className="relative w-full h-full flex flex-col items-center justify-start overflow-hidden">
+
+      <div className="relative z-20 w-full h-screen">
         <MarineXBanner />
       </div>
 

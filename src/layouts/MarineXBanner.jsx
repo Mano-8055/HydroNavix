@@ -35,3 +35,5 @@ const MarineXBanner = () => {
     </section>
   );
 }
+
+export default MarineXBanner;
