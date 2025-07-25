@@ -1,100 +1,98 @@
-import capabilitiesImage from '../assets/digitalexpertise/capabilities.png';
-import softwareDevelopmentImage from '../assets/digitalexpertise/development.png';
-import computationalFluidDynamicsImage from '../assets/digitalexpertise/cfd.png';
-import finiteElementAnalysisImage from '../assets/digitalexpertise/element.png';
-import mooringPipelayingCableLayImage from '../assets/digitalexpertise/mooring.png';
-
+import hullDesignImage from '../assets/studio/hull.png';
+import structuralAnalysisImage from '../assets/studio/analysis.png';
+import pipingLayoutImage from '../assets/studio/pipe.png';
+import electricalControlImage from '../assets/studio/electric.png';
+import productionSupportImage from '../assets/studio/workshop.png';
+import digitalTwinImage from '../assets/studio/digital-twin.png'; // Reuse or replace with actual VR/AR image
 
 export const DigitalExpertise = [
   {
-    "id": 1,
-    "title": "software-capabilities",
-    "color": "#3A86FF", 
-    "image": capabilitiesImage,
-    "content": {
-      "content-title": "Software Capabilities",
+    id: 1,
+    title: "naval-architecture-hull-design",
+    color: "#012A4A",
+    image: hullDesignImage,
+    content: {
+      "content-title": "Naval Architecture & Hull Design",
       "content-data": [
-        "Ansys",
-        "SACS",
-        "STAAD",
-        "Autohydro",
-        "MAXSURF",
-        "Ship Constructor",
-        "Pipe Flow",
-        "Optimoor",
-        "OrcaFlex",
-        "Plant 3D",
-        "Rhinoceros",
-        "MOSES",
-        "CADMATIC",
-        "TEKLA",
-        "AVEVA",
-        "Off Pipe"
+        "3D modeling",
+        "CFD",
+        "Hydrostatics",
+        "Trim simulations",
+        "Seakeeping simulations"
       ]
     }
   },
   {
-    "id": 2,
-    "title": "software-development",
-    "color": "#8338EC",
-    "image": softwareDevelopmentImage,
-    "content": {
-      "content-title": "Software Development",
+    id: 2,
+    title: "structural-offshore-analysis",
+    color: "#263238",
+    image: structuralAnalysisImage,
+    content: {
+      "content-title": "Structural & Offshore Analysis",
       "content-data": [
-        "Stability software",
-        "Jackup operational software",
-        "Ship Management Software",
-        "Voyage Management"
+        "Finite Element Analysis (FEA)",
+        "Load analysis",
+        "Stress & fatigue analysis",
+        "Jack-up platform modeling"
       ]
     }
   },
   {
-    "id": 3,
-    "title": "computational-fluid-dynamics-cfd",
-    "color": "#FF6D00",
-    "image": computationalFluidDynamicsImage,
-    "content": {
-      "content-title": "Computational Fluid Dynamics CFD",
+    id: 3,
+    title: "piping-hvac-machinery-layouts",
+    color: "#1B4332",
+    image: pipingLayoutImage,
+    content: {
+      "content-title": "Piping, HVAC & Machinery Layouts",
       "content-data": [
-        "Propeller Performance Studies",
-        "Submarine Hydro Dynamics",
-        "Aerodynamic Sutdies of Helicoptor",
-        "Exhaust Gas Analysis",
-        "Fluid Flow Dynamics",
-        "Wave Energy Converter",
-        "Effluent discharge at sea",
-        "Thermal analysis"
+        "2D/3D design",
+        "Routing optimization",
+        "System schematics"
       ]
     }
   },
   {
-    "id": 4,
-    "title": "finite-element-analysis",
-    "color": "#009688",
-    "image": finiteElementAnalysisImage,
-    "content": {
-      "content-title": "Finite Element Analysis",
+    id: 4,
+    title: "electrical-control-systems",
+    color: "#1E1E2F",
+    image: electricalControlImage,
+    content: {
+      "content-title": "Electrical, E&I, and Control Systems",
       "content-data": [
-        "Global Analysis",
-        "Inplace Seismic & Fatigue Analysis",
-        "Vibration Analysis",
-        "Complex Structural Analysis & Simulation"
+        "Integrated control diagrams",
+        "Cable trays",
+        "Loop drawings"
       ]
     }
   },
   {
-    "id": 5,
-    "title": "mooring-pipelaying-cable-lay",
-    "color": "#FFB703",
-    "image": mooringPipelayingCableLayImage,
-    "content": {
-      "content-title": "Mooring Pipelaying Cable Lay",
+    id: 5,
+    title: "shipbuilding-production-support",
+    color: "#37474F",
+    image: productionSupportImage,
+    content: {
+      "content-title": "Shipbuilding Production Support",
       "content-data": [
-        "Mooring Analysis",
-        "Cable Lay Studies & Analysis",
-        "Pipe Lay Engineering"
+        "Plate nesting",
+        "Workshop drawings",
+        "Panel management"
+      ]
+    }
+  },
+  {
+    id: 6,
+    title: "digital-twin-vr-ar",
+    color: "#0F172A",
+    image: digitalTwinImage,
+    content: {
+      "content-title": "Digital Twin & VR/AR Platforms",
+      "content-data": [
+        "Scan-to-model",
+        "Real-time walkthroughs",
+        "Cloud-based visualization"
       ]
     }
   }
 ];
+
 export default DigitalExpertise;
