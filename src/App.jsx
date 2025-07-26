@@ -17,6 +17,7 @@ import Home1 from "./pages/Home1";
 import EachService from "./pages/EachService";
 import MarinexStudio from "./pages/MarinexStudio";
 import Manpower from "./pages/Manpower";
+import Home2 from "./pages/Home2";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +37,7 @@ function App() {
       <Header />
       <CursorFollower />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home2 />} />
         <Route path="/demo" element={<Home1 />} />
         <Route path="/engineering-services" element={<Service />} />
         <Route path="/engineering-services/:id" element={<EachService />} />

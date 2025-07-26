@@ -46,7 +46,7 @@ const MarinexStudio = () => {
       <style>{customAnimationStyle}</style>
 
       {/* Banner Section */}
-      <div className="relative z-10 w-full h-screen">
+      <div className="relative z-10 w-full">
         <MarineXBanner />
       </div>
 

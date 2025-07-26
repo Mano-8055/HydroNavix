@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Services } from "../json/services";
 import { useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import FadeWords from "../components/FadeWords";
 
 const EachService = () => {
@@ -41,15 +42,18 @@ const EachService = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-12">
         {serviceData.services.map((item, idx) => (
-          <div
+          <motion.div
             key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="overflow-hidden group cursor-pointer"
           >
-            <div className="h-[220px] w-full">
+            <div className="h-[220px] w-full overflow-hidden">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover overflow-hidden group-hover:scale-105 transition-all duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
               />
             </div>
             <div className="p-2 flex flex-col gap-1">
@@ -58,7 +62,7 @@ const EachService = () => {
               </h3>
               <p className="text-sm text-secondary/80">{item.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
