@@ -126,7 +126,7 @@ const Manpower = () => {
             Empowering Projects with <span className='text-secondary/70'>Expert Manpower</span>
           </h2>
           <p className="text-sm lg:text-base text-justify text-secondary/80 mt-6 max-w-lg">
-            Hydronavix provides highly qualified engineering personnel for marine, offshore, and oil & gas projects worldwide. Whether you need a single expert or an entire team — we deliver experienced professionals ready to support from design to delivery.
+            Hydronavix provides highly qualified engineering personnel for marine, offshore, and oil & gas projects worldwide. Whether you need a single expert or an entire team we deliver experienced professionals ready to support from design to delivery.
           </p>
         </div>
         <div className="relative w-full lg:w-1/2 h-[320px] lg:h-auto overflow-visible flex justify-center lg:justify-end">
@@ -137,12 +137,11 @@ const Manpower = () => {
         </div>
       </section>
 
-<section className="py-20 bg-gray-50">
+<section className="py-20">
   <div className="text-center mb-10">
-    <h2 className="text-4xl font-bold text-[#003d4d]">What We Offer</h2>
+    <h2 className="text-4xl font-bold text-secondary">What We Offer</h2>
   </div>
-
-  <div className="mx-auto w-[95%] md:w-[90%] lg:w-[80%] bg-white rounded-2xl shadow-lg border border-gray-200 px-4 py-10 overflow-hidden">
+  <div className="mx-auto w-[95%] md:w-[90%] lg:w-[80%] overflow-hidden">
 
     {/* Top Row - Left to Right */}
     <div className="relative w-full overflow-hidden mb-10">
