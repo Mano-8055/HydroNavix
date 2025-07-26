@@ -13,14 +13,10 @@ import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
 import Home1 from "./pages/Home1";
-<<<<<<< HEAD
-import Manpower from "./pages/Manpower";
-=======
 import EachService from "./pages/EachService";
 import MarinexStudio from "./pages/MarinexStudio";
 import Manpower from "./pages/Manpower";
 import Home2 from "./pages/Home2";
->>>>>>> f95ff44bb159c1d13e4b7c2251c656bed12d9750
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
