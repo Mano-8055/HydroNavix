@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
 import Home1 from "./pages/Home1";
+import Manpower from "./pages/Manpower";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,7 @@ function App() {
         <Route path="/sustainability" element={<SustainablityPage />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
+        <Route path="/manpower" element={<Manpower />} />
 
       </Routes>
       <Footer />

@@ -7,21 +7,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:   '#FAFAFA',
-        secondary: '#0D0812', 
-        accent:    '#17A2B8',
-        background:'#F5F5F5', 
-        text:      '#333333', 
+        primary: '#FAFAFA',
+        secondary: '#0D0812',
+        accent: '#17A2B8',
+        background: '#F5F5F5',
+        text: '#333333',
         LightBlue: '#8ED1EC',
         DarkBlue: '#4682B4',
       },
       fontFamily: {
         sans: ["Syne", "sans-serif"],
       },
+      keyframes: {
+        scrollX1: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        scrollX2: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        spinSlow: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+      },
       animation: {
-        'spin-slow': 'spin 10s linear infinite',
+        'spin-slow': 'spinSlow 10s linear infinite',
+        'scrollX1': 'scrollX1 15s linear infinite',
+        'scrollX2': 'scrollX2 15s linear infinite',
       },
     },
   },
-  plugins: [],
-}
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.pause-on-hover:hover': {
+          animationPlayState: 'paused',
+        },
+      });
+    },
+  ],
+};
