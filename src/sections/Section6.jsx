@@ -1,45 +1,152 @@
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section6 = () => {
+  const sectionRef = useRef(null);
+  const overlayRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+
+      gsap.fromTo(
+        ".rd-heading",
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".rd-heading",
+            start: "top 85%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".rd-subtext",
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".rd-subtext",
+            start: "top 90%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".rd-card",
+        {
+          opacity: 0,
+          y: 60,
+          rotationX: 20,
+          transformOrigin: "center bottom",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".rd-grid",
+            start: "top 85%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".rd-followup",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".rd-followup",
+            start: "top 90%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".rd-quote",
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: ".rd-quote",
+            start: "top 90%",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const currentRD = [
+    "AI-driven engineering workflows",
+    "Real-time digital twin deployment",
+    "Virtual and augmented reality for engineering collaboration",
+    "Predictive maintenance and analytics",
+    "Integration of sensors and cyber-physical systems",
+  ];
+
   return (
-    <section className="relative w-full overflow-hidden py-16 px-4 md:px-12">
-
-      <div className="absolute top-0 md:top-24 left-0 w-full z-0 overflow-hidden pointer-events-none">
-        <h2 className="animate-marquee font-bold text-4xl md:text-6xl text-secondary whitespace-nowrap">
-          Our Team’s Strength ~ Our Team’s Strength ~ Our Team’s Strength ~ Our Team’s Strength ~ Our Team’s Strength ~ Our Team’s Strength ~
+    <section
+      ref={sectionRef}
+      className="relative px-4 py-20 max-w-7xl mx-auto overflow-hidden"
+    >
+      
+      <div className="text-center mb-10">
+        <h2 className="rd-heading text-3xl md:text-5xl font-medium text-secondary mb-2.5">
+          R&D AND OUR 2040 OUTLOOK
         </h2>
+        <p className="rd-subtext text-lg md:text-xl font-normal text-secondary/60 max-w-4xl mx-auto leading-relaxed">
+          Innovation is at the core of Hydronavix. Our current R&D efforts focus on
+        </p>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center md:items-end justify-center md:justify-between min-h-[400px] gap-10">
-        <div className="w-[250px] h-[300px] md:w-[320px] md:h-[380px] shadow-xl">
-          <img
-            src="https://images.unsplash.com/photo-1645932647969-6a92e3d6667f?q=80&w=1170&auto=format&fit=crop"
-            alt="Team"
-            className="w-full h-full object-cover grayscale"
-          />
+      <div className="items-center">
+        <div className="space-y-4 rd-grid">
+          {currentRD.map((item, index) => (
+            <div
+              key={index}
+              className="rd-card px-2 py-6 border-b-2 border-secondary/30"
+            >
+              <div className="flex items-start space-x-4">
+                <p className="text-lg md:text-xl font-medium text-secondary-700 leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="text-left max-w-2xl">
-          <p className="text-xl md:text-2xl text-justify font-medium text-secondary/70 leading-relaxed">
-            “Our team spans Naval Architects, Marine & Electrical Engineers, Process Engineers,
-            Sustainability Experts, and Surveyors. We deliver precise, passionate, and
-            end-to-end consultancy with proven real-world impact.”
-          </p>
-        </div>
+        <p className="rd-followup text-lg md:text-xl font-medium leading-relaxed mb-2.5 text-center text-secondary/60 mt-10">
+          Hydronavix aims to lead the transformation toward a smarter, automated,
+          and more connected marine industry.
+        </p>
+
+        <p className="rd-quote text-xl md:text-2xl font-semibold text-secondary italic text-center leading-tight">
+          "The ocean will remain constant <br /> but how we work with it must evolve."
+        </p>
       </div>
-
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 15s linear infinite;
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
@@ -328,3 +329,14 @@ const Manpower = () => {
 
 export default Manpower;
 
+=======
+import React from 'react'
+
+const Manpower = () => {
+  return (
+    <div>Manpower</div>
+  )
+}
+
+export default Manpower
+>>>>>>> f95ff44bb159c1d13e4b7c2251c656bed12d9750

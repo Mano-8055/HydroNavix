@@ -9,14 +9,18 @@ import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Project from "./pages/Project";
 import Preload from "./pages/Preload"; 
-import DigitalExpertisePage from "./pages/DigitalExpertisePage"; 
-import AssetIntegrityPage from "./pages/AssetIntegrityPage";
-import SustainablityPage from "./pages/SustainablityPage";
 import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
 import Home1 from "./pages/Home1";
+<<<<<<< HEAD
 import Manpower from "./pages/Manpower";
+=======
+import EachService from "./pages/EachService";
+import MarinexStudio from "./pages/MarinexStudio";
+import Manpower from "./pages/Manpower";
+import Home2 from "./pages/Home2";
+>>>>>>> f95ff44bb159c1d13e4b7c2251c656bed12d9750
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,17 +40,16 @@ function App() {
       <Header />
       <CursorFollower />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home2 />} />
         <Route path="/demo" element={<Home1 />} />
-        <Route path="/services" element={<Service />} />
-        <Route path="/services/:id" element={<Service />} />
+        <Route path="/engineering-services" element={<Service />} />
+        <Route path="/engineering-services/:id" element={<EachService />} />
         <Route path="/team" element={<Team />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/projects" element={<Project />} />
-        <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
-        <Route path="/asset-integrity" element={<AssetIntegrityPage />} /> 
-        <Route path="/sustainability" element={<SustainablityPage />} /> 
+        <Route path='/marinex-studio' element={<MarinexStudio />} />
+        <Route path='/manpower' element={<Manpower />} />
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
         <Route path="/manpower" element={<Manpower />} />

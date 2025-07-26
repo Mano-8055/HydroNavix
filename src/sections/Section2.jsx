@@ -5,19 +5,35 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Section2 = () => {
+  const sectionRef = useRef(null);
   const leftRef = useRef(null);
-  const rightRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+
+      gsap.utils.toArray(".fade-para").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { color: "#888" },
+          {
+            color: "#000",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              end: "top 60%",
+              scrub: true,
+            },
+          }
+        );
+      });
+
       gsap.fromTo(
         leftRef.current,
-        { opacity: 0, x: -80 },
+        { opacity: 0, x: -120 },
         {
           opacity: 1,
           x: 0,
           duration: 1.2,
-          ease: "power3.out",
           scrollTrigger: {
             trigger: leftRef.current,
             start: "top 85%",
@@ -25,50 +41,33 @@ const Section2 = () => {
           },
         }
       );
-
-      gsap.fromTo(
-        rightRef.current,
-        { opacity: 0, x: 80 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: rightRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
     });
 
-    return () => ctx.revert(); 
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-      
-      <div ref={leftRef}>
-        <h2 className="text-sm font-medium uppercase tracking-wider text-secondary/80 mb-2">
-          About Us
-        </h2>
-        <h3 className="text-xl md:text-4xl font-bold leading-tight mb-4">
-          Unique Solution Provider for Marine, Offshore, Oil & Gas
-        </h3>
-        <p className="text-lg text-secondary/60">
-          Based across the Middle East, India and Europe, we provide complete
-          engineering and consulting solutions from design to delivery, all
-          under one roof.
-        </p>
-      </div>
+    <section ref={sectionRef} className="py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        <div ref={leftRef} className="space-y-8">
+          <div>
+            <h2 className="text-3xl md:text-5xl text-center font-medium leading-tight text-secondary">
+              OUR STORY
+            </h2>
+          </div>
 
-      <div ref={rightRef} className="overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1524522173746-f628baad3644?w=600"
-          alt="Offshore Engineering"
-          className="w-full h-80 object-cover shadow-2xl"
-        />
+          <div className="space-y-6 text-secondary text-justify text-lg md:text-xl font-medium leading-relaxed">
+            <p className="fade-para">
+              Hydronavix was not created in a boardroom; it was shaped by real experiences, on real waters. Our roots lie in a deep understanding of marine and offshore challenges, gained through years of hands-on exposure and engineering work in the field.
+            </p>
+            <p className="fade-para">
+              Raised with a mindset to help and improve lives, we've always believed that every challenge has a solution. Entering the marine world wasn't a choice it was a natural evolution. We studied the sea, understood its forces, and worked with the structures, systems, and vessels that move it forward.
+            </p>
+            <p className="fade-para">
+              Through years of engineering design, construction, retrofits, and innovation, we've gained the expertise to deliver solutions that are practical, intelligent, and future-ready. Hydronavix is the result of that journey designed to meet the evolving needs of global marine and offshore industries.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

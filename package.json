@@ -10,8 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@react-three/drei": "^10.5.2",
     "@react-three/fiber": "^9.2.0",
+=======
+    "@studio-freight/lenis": "^1.0.42",
+>>>>>>> f95ff44bb159c1d13e4b7c2251c656bed12d9750
     "framer-motion": "^12.23.3",
     "gsap": "^3.13.0",
     "lucide-react": "^0.525.0",

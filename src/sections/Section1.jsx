@@ -20,7 +20,7 @@ const Section1 = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[250px] md:h-[400px] overflow-hidden">
+    <div className="relative w-full h-[250px] md:h-[400px] overflow-hidden cursor-follow">
       <img
         src={image}
         alt="Marine Banner"

@@ -12,7 +12,7 @@ const Footer = () => {
     <div className="bg-secondary/90 overflow-hidden cursor-follow">
       <footer className="bg-gradient-to-b from-secondary via-secondary/50 to-accent/50 text-primary">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-20 py-16 justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-20 py-20 justify-between">
           {/* Company Info */}
           <div>
             <Logo />

@@ -1,74 +1,124 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Section4 = () => {
+  const missionRef = useRef(null);
+  const missionImgRef = useRef(null);
+  const missionHeadingRef = useRef(null);
+  const missionTextRef = useRef(null);
+  const overlayRef = useRef(null);
+
   useEffect(() => {
-    gsap.fromTo(".why-us-card",{
-      opacity:0,
-      y: 100,
-    }, {
-      opacity: 1,
-      y: 0,
-      stagger: 0.4,
-      duration: 1.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".why-us-grid",
-        start: "top 80%",
-      },
-    });
+    const ctx = gsap.context(() => {
+      const bulletItems = gsap.utils.toArray(
+        missionTextRef.current.querySelectorAll(".mission-card")
+      );
+
+      gsap.set(bulletItems, {
+        opacity: 0,
+        y: 100,
+        rotationX: 45,
+        transformOrigin: "center bottom",
+        scale: 0.8,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: missionRef.current,
+          start: "top top",
+          end: "+=150%",
+          scrub: 1,
+          pin: true,
+          pinSpacing: true,
+        },
+      });
+
+      tl.fromTo(
+        missionImgRef.current,
+        { scale: 1, y: 0 },
+        { scale: 1.3, y: -100, ease: "none" }
+      )
+      .fromTo(
+        overlayRef.current,
+        { scaleY: 0, transformOrigin: "bottom center" },
+        { scaleY: 1, duration: 0.8, ease: "power2.out" },
+        0.2
+      )
+      .fromTo(
+        missionHeadingRef.current,
+        { opacity: 0, y: 80, rotationX: 45 },
+        { opacity: 1, y: 0, rotationX: 0, duration: 0.8, ease: "power3.out" },
+        0.4
+      )
+      .fromTo(
+        missionTextRef.current,
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" },
+        0.6
+      )
+      // Mission cards staggered
+      .to(
+        bulletItems,
+        {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          stagger: {
+            amount: 0.6,
+            from: "start",
+          },
+        },
+        0.8
+      );
+    }, missionRef);
+
+    return () => ctx.revert();
   }, []);
 
-  const cards = [
-    {
-      title: "Full-Cycle Support",
-      text: "From initial concept through to project delivery, we support every step.",
-      img: "https://images.unsplash.com/photo-1496347326319-2935d381b307?w=600",
-    },
-    {
-      title: "Integrated Engineering",
-      text: "Cross-disciplinary expertise: Naval, Electrical, Structural, Sustainability.",
-      img: "https://images.unsplash.com/photo-1437385545573-fcf5b4b7fb57?w=600",
-    },
-    {
-      title: "Sustainable Innovation",
-      text: "We embed decarbonization and renewable design thinking by default.",
-      img: "https://images.unsplash.com/photo-1552207802-77bcb0d13122?w=600",
-    },
-  ];
-
   return (
-    <section 
-      className="px-4 py-16 max-w-6xl mx-auto relative"
-      style={{ 
-        zIndex: 20,
-        marginTop: '-50vh' 
-      }}
+    <section
+      ref={missionRef}
+      className="relative h-screen text-primary overflow-hidden cursor-follow"
+      style={{ zIndex: 10 }}
     >
-      <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
-        Why Clients Choose Us
-      </h2>
-      <div className="grid md:grid-cols-3 gap-8 why-us-grid">
-        {cards.map((card, i) => (
-          <div
-            key={i}
-            className="overflow-hidden shadow-md group why-us-card cursor-pointer bg-white"
-          >
-            <img
-              src={card.img}
-              alt={card.title}
-              className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="p-5">
-              <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-              <p className="text-secondary/60">{card.text}</p>
-            </div>
-          </div>
-        ))}
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="relative h-full w-full overflow-hidden">
+          <img
+            ref={missionImgRef}
+            src="https://images.unsplash.com/photo-1496347326319-2935d381b307?w=1200"
+            alt="Mission"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
+
+
+      {/* Content */}
+      <div className="relative z-30 flex flex-col items-center justify-center text-center px-4 h-full max-w-6xl mx-auto">
+        
+        <h2
+          ref={missionHeadingRef}
+          className="text-3xl md:text-5xl font-medium mb-10 opacity-0 text-shadow-lg"
+        >
+          OUR MISSION
+        </h2>
+
+        <div ref={missionTextRef} className="opacity-0 w-full">
+          <p className="text-xl md:text-3xl font-600 text-accent-200 mb-16 max-w-5xl mx-auto leading-tight">
+            To deliver high-performance engineering solutions by combining precision, innovation, and smart technology helping marine and offshore industries work faster, safer, and with greater clarity.
+          </p>
+
+        </div>
+      </div>
+
+      <div className="h-[100vh]" />
     </section>
   );
 };
