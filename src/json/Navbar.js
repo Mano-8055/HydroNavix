@@ -14,5 +14,6 @@ export const navItems = [
     { name: "Projects", path: "/projects" },
     { name: "Gallery", path: "/gallery" },
     { name: "Clients", path: "/clients" },
+    { name: "Career", path: "/career" },
     { name: "Contact", path: "/contact-us" },
   ];
