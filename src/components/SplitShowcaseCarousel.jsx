@@ -65,11 +65,17 @@ const SplitShowcaseCarousel = ({ data, scrollIndex }) => {
         <AnimatePresence initial={false}>
           {previous && (
             <SlideDown keyId={previous.id + "-right-exit"}>
-              <img src={previous.image} alt="" className="w-full h-full object-cover" />
+               <div className="relative w-full h-full">
+                  <img src={previous.image} alt="" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-secondary/50" />
+                </div>
             </SlideDown>
           )}
           <SlideDown keyId={current.id + "-right-enter"}>
-            <img src={current.image} alt="" className="w-full h-full object-cover" />
+             <div className="relative w-full h-full">
+              <img src={current.image} alt="" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-secondary/50" />
+            </div>
           </SlideDown>
         </AnimatePresence>
       </div>
@@ -83,7 +89,7 @@ const SplitShowcaseCarousel = ({ data, scrollIndex }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.7 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold"
           >
             {current.content["content-title"]}
           </motion.h1>
@@ -104,6 +110,7 @@ const SplitShowcaseCarousel = ({ data, scrollIndex }) => {
           ))}
         </div>
       </div>
+
     </div>
   );
 };

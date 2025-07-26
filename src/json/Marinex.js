@@ -3,13 +3,13 @@ import structuralAnalysisImage from '../assets/studio/analysis.png';
 import pipingLayoutImage from '../assets/studio/pipe.png';
 import electricalControlImage from '../assets/studio/electric.png';
 import productionSupportImage from '../assets/studio/workshop.png';
-import digitalTwinImage from '../assets/studio/digital-twin.png'; // Reuse or replace with actual VR/AR image
+import digitalTwinImage from '../assets/studio/digital-twin.png'; 
 
-const DigitalExpertise = [
+const Marinex = [
   {
     id: 1,
     title: "naval-architecture-hull-design",
-    color: "#012A4A",
+    color: "#6DC6FE",
     image: hullDesignImage,
     content: {
       "content-title": "Naval Architecture & Hull Design",
@@ -25,7 +25,7 @@ const DigitalExpertise = [
   {
     id: 2,
     title: "structural-offshore-analysis",
-    color: "#263238",
+    color: "#48B7FF",
     image: structuralAnalysisImage,
     content: {
       "content-title": "Structural & Offshore Analysis",
@@ -40,7 +40,7 @@ const DigitalExpertise = [
   {
     id: 3,
     title: "piping-hvac-machinery-layouts",
-    color: "#1B4332",
+    color: "#21A9FF",
     image: pipingLayoutImage,
     content: {
       "content-title": "Piping, HVAC & Machinery Layouts",
@@ -54,7 +54,7 @@ const DigitalExpertise = [
   {
     id: 4,
     title: "electrical-control-systems",
-    color: "#1E1E2F",
+    color: "#1E9DFF",
     image: electricalControlImage,
     content: {
       "content-title": "Electrical, E&I, and Control Systems",
@@ -68,7 +68,7 @@ const DigitalExpertise = [
   {
     id: 5,
     title: "shipbuilding-production-support",
-    color: "#37474F",
+    color: "#1689FD",
     image: productionSupportImage,
     content: {
       "content-title": "Shipbuilding Production Support",
@@ -82,7 +82,7 @@ const DigitalExpertise = [
   {
     id: 6,
     title: "digital-twin-vr-ar",
-    color: "#0F172A",
+    color: "#1177FF",
     image: digitalTwinImage,
     content: {
       "content-title": "Digital Twin & VR/AR Platforms",
@@ -95,4 +95,4 @@ const DigitalExpertise = [
   }
 ];
 
-export default DigitalExpertise;
+export default Marinex;

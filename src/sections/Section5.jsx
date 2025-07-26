@@ -10,7 +10,6 @@ const Section5 = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Parallax overlay
       gsap.to(overlayRef.current, {
         yPercent: 25,
         ease: "none",
@@ -22,7 +21,6 @@ const Section5 = () => {
         }
       });
 
-      // Cards animation
       gsap.fromTo(".future-card", {
         opacity: 0,
         y: 120,
@@ -42,7 +40,6 @@ const Section5 = () => {
         },
       });
 
-      // Solutions animation
       gsap.fromTo(".solution-item", {
         opacity: 0,
         x: -60,
@@ -95,80 +92,52 @@ const Section5 = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative px-8 md:px-16 py-32 max-w-7xl mx-auto overflow-hidden"
+      className="relative px-4 py-20 max-w-7xl mx-auto overflow-hidden"
       style={{ 
         zIndex: 20,
         marginTop: '0' 
       }}
     >
-      {/* Parallax Background Overlay */}
-      <div 
-        ref={overlayRef}
-        className="absolute inset-0 bg-gradient-to-br from-primary-50 to-accent-50 opacity-40 -z-10"
-      />
 
-      {/* Sharp Geometric Elements */}
-      <div className="absolute top-20 right-0 w-32 h-32 bg-primary-500 opacity-10 transform rotate-45" />
-      <div className="absolute bottom-40 left-0 w-24 h-24 bg-accent-500 opacity-10 transform -rotate-12" />
-
-      <div className="text-center mb-20">
-        <h2 className="font-syne text-4xl md:text-6xl font-800 text-secondary-900 mb-8">
-          WHY WE ARE THE FUTURE OF<br />
-          <span className="text-primary-600">MARINE & OFFSHORE</span>
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-5xl font-medium text-secondary mb-8">
+          WHY WE ARE THE FUTURE <br /> OF MARINE & OFFSHORE
         </h2>
-        <div className="w-32 h-1 bg-accent-500 mx-auto mb-8" />
-        <p className="font-syne text-xl md:text-2xl font-500 text-secondary-600 max-w-4xl mx-auto leading-relaxed">
-          The industry is evolving. Hydronavix is purpose-built for this transformation.
-        </p>
       </div>
 
-      <div className="mb-24">
-        <h3 className="font-syne text-3xl md:text-4xl font-700 text-secondary-800 mb-12 text-center">
-          Projects Need:
-        </h3>
+      <div className="mb-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 future-grid">
           {industryNeeds.map((item, i) => (
             <div
               key={i}
-              className="overflow-hidden shadow-xl group future-card cursor-pointer bg-white border-t-4 border-primary-500 hover:border-accent-500 transition-all duration-500"
+              className="overflow-hidden group future-card cursor-pointer"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="h-52 w-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
               </div>
-              <div className="p-8">
-                <h3 className="font-syne text-xl font-700 mb-4 text-secondary-900">{item.title}</h3>
-                <p className="font-syne text-secondary-600 leading-relaxed font-500">{item.text}</p>
+              <div className="p-2">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-secondary">{item.title}</h3>
+                <p className="text-md  text-justify text-secondary/60 leading-relaxed">{item.text}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-secondary-900 to-primary-900 p-12 md:p-16 relative overflow-hidden">
-        {/* Sharp Corner Elements */}
-        <div className="absolute top-0 right-0 w-24 h-24 bg-accent-400 opacity-20" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary-400 opacity-20" />
-        
-        <h3 className="font-syne text-3xl md:text-4xl font-700 text-black mb-12 text-center">
-          We are developing solutions where:
+      <div className="relative overflow-hidden">
+        <h3 className="text-3xl md:text-5xl font-medium text-secondary mb-10 text-center">
+          We are developing solutions
         </h3>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto solutions-grid">
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto solutions-grid">
           {solutions.map((solution, index) => (
-            <div key={index} className="solution-item flex items-start space-x-6 p-6 bg-white/10 backdrop-blur-strong border-l-4 border-accent-400">
-              <div className="w-4 h-4 bg-accent-400 flex-shrink-0 mt-2" />
-              <p className="font-syne text-lg md:text-xl text-black leading-relaxed font-500">{solution}</p>
+            <div key={index} className="solution-item flex items-start space-x-6 p-6 bg-primary/10 backdrop-blur-strong border-l-4">
+              <p className="text-lg md:text-xl text-secondary leading-relaxed font-500">{solution}</p>
             </div>
           ))}
-        </div>
-        <div className="text-center mt-12">
-          <p className="font-syne text-2xl md:text-3xl font-700 text-accent-300">
-            This is not tomorrow's idea — this is our current direction.
-          </p>
         </div>
       </div>
     </section>

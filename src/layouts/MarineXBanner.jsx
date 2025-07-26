@@ -1,17 +1,34 @@
-import AnchorSvg from "../assets/studio/anchor.svg"; // not destructured
+import { useEffect } from "react";
+import FadeWords from "../components/FadeWords";
+import { useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 const MarineXBanner = () => {
+  const titleControls = useAnimation();
+
+  useEffect(() => {
+    titleControls.start("visible");
+  }, [titleControls]);
+
   return (
-    <section className="relative w-full h-full flex flex-col items-center justify-start overflow-hidden">
-      <div className="relative z-20 text-black text-center p-4 max-w-4xl mx-auto mt-24">
-        <h2 className="font-serif font-semibold text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight mb-4">
-          Where Innovation Meets the Ocean
-        </h2>
-        <p className="text-lg sm:text-xl md:text-2xl font-light leading-relaxed mb-8 opacity-90">
-          MarineX Studio is Hydronavix’s digital powerhouse — where advanced tools, immersive media, and high-performance design software come together to transform marine and offshore engineering.
-        </p>
-      </div>
-    </section>
+    <div className="text-secondary text-center flex flex-col gap-1 max-w-4xl mx-auto pb-10">
+      <FadeWords
+        text="Where Innovation Meets the Ocean"
+        controls={titleControls}
+        className="text-2xl sm:text-4xl text-secondary font-semibold tracking-tight text-center mb-1.5"
+      />
+
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        className=" text-md md:text-lg text-secondary/60 leading-relaxed mb-10"
+      >
+        MarineX Studio is Hydronavix’s digital powerhouse where advanced tools,
+        immersive media, and high-performance design software come together to
+        transform marine and offshore engineering.
+      </motion.p>
+    </div>
   );
 };
 

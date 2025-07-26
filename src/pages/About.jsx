@@ -12,15 +12,13 @@ const About = () => {
   const componentRef = useRef(null);
 
   return (
-    <div ref={componentRef} className="text-secondary py-10 relative">
+    <div ref={componentRef} className="text-secondary py-20 relative">
       <Section1 />
       <Section2 />
       <Section3 />
       <Section4 />
       <Section5 />
       <Section6 />
-      <Section7 />
-      <Section8 />
     </div>
   );
 };

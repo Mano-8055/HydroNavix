@@ -9,7 +9,6 @@ import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Project from "./pages/Project";
 import Preload from "./pages/Preload"; 
-import DigitalExpertisePage from "./pages/DigitalExpertisePage"; 
 import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
@@ -47,7 +46,6 @@ function App() {
         <Route path="/projects" element={<Project />} />
         <Route path='/marinex-studio' element={<MarinexStudio />} />
         <Route path='/manpower' element={<Manpower />} />
-        <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
 
