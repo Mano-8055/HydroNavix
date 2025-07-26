@@ -1,112 +1,174 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function HoverImageItem({ left, image, index }) {
-  const [hovered, setHovered] = useState(false);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const itemRef = useRef(null);
-
-  const isDesktop = window.innerWidth >= 1024;
-
-  const handleMouseMove = (e) => {
-    setCoords({ x: e.clientX + 20, y: e.clientY + 20 });
-  };
+const Section5 = () => {
+  const sectionRef = useRef(null);
+  const overlayRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      itemRef.current,
-      { opacity: 0, x: 50 },
-      {
+    const ctx = gsap.context(() => {
+      // Parallax overlay
+      gsap.to(overlayRef.current, {
+        yPercent: 25,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Cards animation
+      gsap.fromTo(".future-card", {
+        opacity: 0,
+        y: 120,
+        rotationX: 30,
+        scale: 0.8,
+      }, {
+        opacity: 1,
+        y: 0,
+        rotationX: 0,
+        scale: 1,
+        stagger: 0.2,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".future-grid",
+          start: "top 80%",
+        },
+      });
+
+      // Solutions animation
+      gsap.fromTo(".solution-item", {
+        opacity: 0,
+        x: -60,
+      }, {
         opacity: 1,
         x: 0,
+        stagger: 0.15,
         duration: 1.2,
-        delay: index * 0.15,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: itemRef.current,
-          start: "top 90%",
+          trigger: ".solutions-grid",
+          start: "top 85%",
         },
-      }
-    );
-  }, [index]);
+      });
+    });
 
-  return (
-    <div
-      ref={itemRef}
-      className="group relative grid grid-cols-1 md:grid-cols-2 py-6 border-b border-secondary/20"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onMouseMove={handleMouseMove}
-    >
-      <div className="text-lg font-medium text-secondary/70 cursor-pointer group-hover:text-secondary z-10">
-        {left}
-      </div>
+    return () => ctx.revert();
+  }, []);
 
-      {hovered && isDesktop && (
-        <div
-          className="fixed z-30 pointer-events-none shadow-xl overflow-hidden"
-          style={{
-            top: `${10}px`,
-            left: `${50}%`,
-            width: "250px",
-            height: "180px",
-            transition: "opacity 0.2s ease",
-          }}
-        >
-          <img
-            src={image}
-            alt="Preview"
-            className="w-full h-full object-cover z-30"
-          />
-        </div>
-      )}
-    </div>
-  );
-}
+  const industryNeeds = [
+    {
+      title: "Faster Design Cycles",
+      text: "Accelerated project timelines through digital optimization and streamlined workflows.",
+      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600",
+    },
+    {
+      title: "Better Coordination",
+      text: "Seamless collaboration between teams, stakeholders, and global project partners.",
+      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+    },
+    {
+      title: "Real-time Insight",
+      text: "Live project monitoring, predictive analytics, and data-driven decision making.",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+    },
+    {
+      title: "Smart Decision Making",
+      text: "AI-powered analysis and tech-enabled solutions for complex marine challenges.",
+      img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600",
+    },
+  ];
 
-const Section5 = () => {
-  const items = [
-    [
-      "Ship, jack-up & platform design",
-      "https://images.pexels.com/photos/32910812/pexels-photo-32910812.jpeg",
-    ],
-    [
-      "New build project management",
-      "https://images.unsplash.com/photo-1524522173746-f628baad3644?w=600",
-    ],
-    [
-      "Ocean engineering & feasibility studies",
-      "https://images.pexels.com/photos/32910812/pexels-photo-32910812.jpeg",
-    ],
-    [
-      "Digitization & renewable energy systems",
-      "https://images.unsplash.com/photo-1524522173746-f628baad3644?w=600",
-    ],
-    [
-      "Port & shipyard development",
-      "https://images.pexels.com/photos/32910812/pexels-photo-32910812.jpeg",
-    ],
-    [
-      "Marine electrical & mechanical integration",
-      "https://images.unsplash.com/photo-1524522173746-f628baad3644?w=600",
-    ],
+  const solutions = [
+    "Vessels are modeled, simulated, and optimized digitally before build",
+    "Retrofits are scanned and completed with precision",
+    "Offshore systems are managed through digital dashboards",
+    "Clients can visualize and track every stage, remotely",
   ];
 
   return (
-    <section className="relative py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-start mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Experience & Scope of Services
-          </h2>
-        </div>
-        <div className="border-t border-gray-300 relative">
-          {items.map(([left, image], i) => (
-            <HoverImageItem key={i} left={left} image={image} index={i} />
+    <section 
+      ref={sectionRef}
+      className="relative px-8 md:px-16 py-32 max-w-7xl mx-auto overflow-hidden"
+      style={{ 
+        zIndex: 20,
+        marginTop: '0' 
+      }}
+    >
+      {/* Parallax Background Overlay */}
+      <div 
+        ref={overlayRef}
+        className="absolute inset-0 bg-gradient-to-br from-primary-50 to-accent-50 opacity-40 -z-10"
+      />
+
+      {/* Sharp Geometric Elements */}
+      <div className="absolute top-20 right-0 w-32 h-32 bg-primary-500 opacity-10 transform rotate-45" />
+      <div className="absolute bottom-40 left-0 w-24 h-24 bg-accent-500 opacity-10 transform -rotate-12" />
+
+      <div className="text-center mb-20">
+        <h2 className="font-syne text-4xl md:text-6xl font-800 text-secondary-900 mb-8">
+          WHY WE ARE THE FUTURE OF<br />
+          <span className="text-primary-600">MARINE & OFFSHORE</span>
+        </h2>
+        <div className="w-32 h-1 bg-accent-500 mx-auto mb-8" />
+        <p className="font-syne text-xl md:text-2xl font-500 text-secondary-600 max-w-4xl mx-auto leading-relaxed">
+          The industry is evolving. Hydronavix is purpose-built for this transformation.
+        </p>
+      </div>
+
+      <div className="mb-24">
+        <h3 className="font-syne text-3xl md:text-4xl font-700 text-secondary-800 mb-12 text-center">
+          Projects Need:
+        </h3>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 future-grid">
+          {industryNeeds.map((item, i) => (
+            <div
+              key={i}
+              className="overflow-hidden shadow-xl group future-card cursor-pointer bg-white border-t-4 border-primary-500 hover:border-accent-500 transition-all duration-500"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
+              </div>
+              <div className="p-8">
+                <h3 className="font-syne text-xl font-700 mb-4 text-secondary-900">{item.title}</h3>
+                <p className="font-syne text-secondary-600 leading-relaxed font-500">{item.text}</p>
+              </div>
+            </div>
           ))}
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-secondary-900 to-primary-900 p-12 md:p-16 relative overflow-hidden">
+        {/* Sharp Corner Elements */}
+        <div className="absolute top-0 right-0 w-24 h-24 bg-accent-400 opacity-20" />
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary-400 opacity-20" />
+        
+        <h3 className="font-syne text-3xl md:text-4xl font-700 text-black mb-12 text-center">
+          We are developing solutions where:
+        </h3>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto solutions-grid">
+          {solutions.map((solution, index) => (
+            <div key={index} className="solution-item flex items-start space-x-6 p-6 bg-white/10 backdrop-blur-strong border-l-4 border-accent-400">
+              <div className="w-4 h-4 bg-accent-400 flex-shrink-0 mt-2" />
+              <p className="font-syne text-lg md:text-xl text-black leading-relaxed font-500">{solution}</p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <p className="font-syne text-2xl md:text-3xl font-700 text-accent-300">
+            This is not tomorrow's idea — this is our current direction.
+          </p>
         </div>
       </div>
     </section>
