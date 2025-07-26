@@ -17,6 +17,9 @@ import Home1 from "./pages/Home1";
 import EachService from "./pages/EachService";
 import MarinexStudio from "./pages/MarinexStudio";
 import Manpower from "./pages/Manpower";
+import Career from "./pages/Career";
+
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,6 +52,7 @@ function App() {
         <Route path="/digital-expertise" element={<DigitalExpertisePage />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
+        <Route path="/career" element={<Career />} />
 
       </Routes>
       <Footer />
