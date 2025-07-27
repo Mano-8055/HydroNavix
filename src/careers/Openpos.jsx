@@ -78,79 +78,59 @@ export default function Openpos() {
   const departments = [...new Set(positions.map(p => p.department))];
 
   return (
-    <div className="min-h-screen bg-white py-12 px-6">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-20 px-4">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-start justify-between mb-6">
-            <h1 className="text-5xl font-light text-gray-900 tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-medium text-secondary tracking-tight">
               Open roles
             </h1>
-            <div className="text-right text-sm text-gray-600 max-w-md leading-relaxed">
-              You don't need to be a government expert or infrastructure lifer. You just 
-              need to care deeply about solving hard problems, doing honest work, 
-              and helping high-impact teams succeed.
-            </div>
-          </div>
-        </div>
-
-        {/* Departments */}
-        {departments.map(department => (
-          <div key={department} className="mb-12">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-light text-gray-900">
-                {department}
-              </h2>
-              
-              {/* Search Bar */}
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-secondary/50 h-4 w-4" />
                 <input
                   type="text"
                   placeholder="Search for a role"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-80 bg-gray-100 border-0 rounded-full text-sm text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-white transition-all"
+                  className="pl-10 pr-4 py-2 w-60 md:w-80 bg-secondary/5 border-0 rounded-full text-sm text-secondary/70 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-primary transition-all"
                 />
-              </div>
             </div>
+          </div>
+        </div>
 
-            {/* Job Cards */}
+        {departments.map(department => (
+          <div key={department} className="mb-12">
             <div className="space-y-4">
               {filteredPositions
                 .filter(position => position.department === department)
                 .map((position) => (
                 <div
                   key={position.id}
-                  className="group bg-white border border-gray-200 rounded-lg p-6 hover:border-gray-300 hover:shadow-sm transition-all duration-200"
+                  className="group border border-secondary/40 rounded-lg p-6 hover:border-secondary/60 cursor-pointer hover:shadow-sm transition-all duration-200"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-3">
-                        <h3 className="text-xl font-medium text-gray-900 group-hover:text-gray-700">
+                      <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mb-3">
+                        <h3 className="text-xl font-medium text-secondary/80 group-hover:text-secondary">
                           {position.title}
                         </h3>
-                        
-                        {/* Tags */}
                         <div className="flex gap-2">
                           {position.tags.map((tag, index) => (
                             <span
                               key={index}
-                              className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full font-medium"
+                              className="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full font-medium"
                             >
                               {tag}
                             </span>
                           ))}
                         </div>
                       </div>
-                      
-                      <p className="text-gray-600 text-sm leading-relaxed max-w-2xl">
+                      <p className="text-secondary/70 text-sm leading-relaxed max-w-2xl">
                         {position.description}
                       </p>
                     </div>
-                    
-                    {/* Apply Button */}
-                    <button className="px-6 py-2 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors ml-6 flex-shrink-0">
+                    <button className="px-6 py-2 bg-secondary text-primary text-sm font-medium rounded-full hover:bg-secondary/80 transition-colors flex-shrink-0">
                       Apply
                     </button>
                   </div>
@@ -172,6 +152,7 @@ export default function Openpos() {
             </button>
           </div>
         )}
+
       </div>
     </div>
   );

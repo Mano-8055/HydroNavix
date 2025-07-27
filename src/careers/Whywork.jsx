@@ -54,8 +54,8 @@ const Whywork = () => {
     switch(type) {
       case 'offshore':
         return (
-          <div className={baseClasses + " bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center"}>
-            <svg width="60" height="40" viewBox="0 0 60 40" className="text-gray-600">
+          <div className={baseClasses + " bg-primary flex items-center justify-center"}>
+            <svg width="60" height="40" viewBox="0 0 60 40" className="text-secondary">
               <rect x="20" y="15" width="20" height="20" fill="currentColor" />
               <rect x="15" y="10" width="30" height="5" fill="currentColor" />
               <rect x="10" y="35" width="5" height="5" fill="currentColor" />
@@ -66,8 +66,8 @@ const Whywork = () => {
         );
       case 'tech':
         return (
-          <div className={baseClasses + " bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center"}>
-            <svg width="50" height="40" viewBox="0 0 50 40" className="text-gray-600">
+          <div className={baseClasses + " bg-primary flex items-center justify-center"}>
+            <svg width="50" height="40" viewBox="0 0 50 40" className="text-secondary">
               <rect x="5" y="8" width="40" height="24" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
               <rect x="8" y="11" width="34" height="15" fill="currentColor" opacity="0.3" />
               <circle cx="15" cy="30" r="1.5" fill="currentColor" />
@@ -77,8 +77,8 @@ const Whywork = () => {
         );
       case 'global':
         return (
-          <div className={baseClasses + " bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center"}>
-            <svg width="40" height="40" viewBox="0 0 40 40" className="text-gray-600">
+          <div className={baseClasses + "bg-primary flex items-center justify-center"}>
+            <svg width="40" height="40" viewBox="0 0 40 40" className="text-secondary">
               <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" strokeWidth="1.5" />
               <path d="M8 20 Q13 10 20 20 T32 20" stroke="currentColor" strokeWidth="1.5" fill="none" />
               <circle cx="13" cy="18" r="1" fill="currentColor" />
@@ -88,19 +88,19 @@ const Whywork = () => {
         );
       case 'engineering':
         return (
-          <div className={baseClasses + " bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center"}>
-            <svg width="40" height="40" viewBox="0 0 40 40" className="text-gray-600">
+          <div className={baseClasses + "bg-primary flex items-center justify-center"}>
+            <svg width="40" height="40" viewBox="0 0 40 40" className="text-secondary">
               <rect x="10" y="15" width="20" height="10" fill="currentColor" />
               <rect x="8" y="12" width="24" height="3" fill="currentColor" />
-              <circle cx="15" cy="19" r="1.5" fill="white" />
-              <circle cx="25" cy="19" r="1.5" fill="white" />
+              <circle cx="15" cy="19" r="1.5" fill="primary" />
+              <circle cx="25" cy="19" r="1.5" fill="primary" />
             </svg>
           </div>
         );
       case 'growth':
         return (
-          <div className={baseClasses + " bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center"}>
-            <svg width="40" height="40" viewBox="0 0 40 40" className="text-gray-600">
+          <div className={baseClasses + "bg-primary flex items-center justify-center"}>
+            <svg width="40" height="40" viewBox="0 0 40 40" className="text-secondary">
               <path d="M8 32 L13 27 L18 30 L23 22 L28 25 L33 17" stroke="currentColor" strokeWidth="2" fill="none" />
               <polygon points="30,17 33,14 36,20" fill="currentColor" />
               <rect x="10" y="28" width="2" height="6" fill="currentColor" opacity="0.6" />
@@ -110,49 +110,36 @@ const Whywork = () => {
           </div>
         );
       default:
-        return <div className={baseClasses + " bg-gray-300"}></div>;
+        return <div className={baseClasses + " bg-primary"}></div>;
     }
   };
 
   return (
-    <div id="why-section" className="h-screen bg-white relative overflow-hidden flex items-center">
-      {/* Sharp geometric background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-16 h-16 bg-black"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-2 bg-black"></div>
-        <div className="absolute top-1/2 left-1/4 w-1 h-16 bg-black"></div>
-      </div>
+    <div id="why-section" className="relative flex items-center py-20">
+ 
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full items-center">
           
-          {/* Left Header Section */}
           <div className={`lg:col-span-1 transition-all duration-800 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="space-y-6">
-              {/* Small tag */}
               <div className="inline-block">
-                <span className="px-4 py-2 bg-black text-white text-xs font-medium tracking-wider uppercase">
+                <span className="px-4 py-2 bg-secondary text-primary text-xs font-medium tracking-wider uppercase">
                   Why Choose Us
                 </span>
               </div>
-
-              {/* Main heading */}
-              <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+              <h2 className="text-3xl lg:text-5xl font-bold text-secondary leading-tight">
                 Why Work at
                 <br />
                 <span className="relative">
                   Hydronavix?
-                  <div className="absolute -bottom-1 left-0 w-16 h-0.5 bg-black"></div>
                 </span>
               </h2>
-
-              <p className="text-base text-gray-700 max-w-sm">
-                Five compelling reasons to join our team of ocean innovators.
+              <p className="text-base text-secondary/70 max-w-sm">
+                Five compelling reasons to join our team of ocean innovators
               </p>
-
-              {/* CTA */}
               <div className="pt-4">
-                <button className="group bg-black text-white px-6 py-3 text-sm font-medium flex items-center gap-2 hover:bg-gray-900 transition-all">
+                <button className="group bg-secondary text-primary px-6 py-3 text-sm font-medium flex items-center gap-2 hover:bg-secondary/80 transition-all">
                   EXPLORE CAREERS
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -160,13 +147,12 @@ const Whywork = () => {
             </div>
           </div>
 
-          {/* Right Grid Section */}
           <div className={`lg:col-span-2 transition-all duration-800 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
               {reasons.map((reason, index) => (
                 <div
                   key={index}
-                  className={`group relative bg-white border-2 border-black hover:bg-black hover:text-white transition-all duration-300 ${
+                  className={`group relative bg-primary border-2 border-secondary hover:bg-secondary hover:text-primary transition-all duration-300 ${
                     index === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
                   }`}
                   style={{ 
@@ -174,34 +160,20 @@ const Whywork = () => {
                     minHeight: index < 2 ? '200px' : '180px'
                   }}
                 >
-                  {/* Number */}
-                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-black text-white flex items-center justify-center text-xs font-bold group-hover:bg-white group-hover:text-black transition-colors">
+                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-secondary text-primary flex items-center justify-center text-xs font-bold group-hover:bg-primary group-hover:text-secondary transition-colors">
                     {index + 1}
                   </div>
-
-                  {/* Content */}
                   <div className="p-4 h-full flex flex-col">
-                    {/* Image */}
-                    <div className="h-16 w-16 mb-4 border border-current group-hover:bg-white group-hover:text-black transition-colors">
+                    <div className="h-16 w-16 mb-4 border border-current group-hover:bg-primary group-hover:text-secondary transition-colors">
                       {renderImage(reason.imageType, index)}
                     </div>
-
-                    {/* Title */}
                     <h3 className="text-sm font-bold mb-2 leading-tight">
                       {reason.title}
                     </h3>
-
-                    {/* Description */}
-                    <p className="text-xs leading-relaxed opacity-80 group-hover:opacity-100 flex-1">
+                    <p className="text-xs leading-relaxed text-secondary/70 group-hover:opacity-100 flex-1">
                       {reason.description}
                     </p>
-
-                    {/* Accent line */}
-                    <div className="w-8 h-px bg-current mt-3"></div>
                   </div>
-
-                  {/* Sharp corner accent */}
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-black group-hover:bg-white transition-colors"></div>
                 </div>
               ))}
             </div>

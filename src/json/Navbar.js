@@ -11,9 +11,9 @@ export const navItems = [
     { name: "Engineering Services", path: "/engineering-services" },
     { name: "Marinex Studio", path: "/marinex-studio" },
     { name: "Manpower", path: "/manpower"},
+    { name: "Career", path: "/career" },
     { name: "Projects", path: "/projects" },
     { name: "Gallery", path: "/gallery" },
     { name: "Clients", path: "/clients" },
-    { name: "Career", path: "/career" },
     { name: "Contact", path: "/contact-us" },
   ];
