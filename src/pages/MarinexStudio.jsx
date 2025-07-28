@@ -2,11 +2,10 @@ import MarineXBanner from '../layouts/MarineXBanner';
 import ScrollControlledCarousel from "../components/ScrollControlledCarousel";
 import Marinex from '../json/Marinex';
 
-import ShipIcon from "../assets/studio/ship.png";
-import ScanIcon from "../assets/studio/scan.png";
-import RetrofitIcon from "../assets/studio/puzzle.png";
-import WalkthroughIcon from "../assets/studio/layout.png";
-import { useEffect } from 'react';
+import ShipIcon from "../assets/studio/ship.svg";
+import ScanIcon from "../assets/studio/scan.svg";
+import RetrofitIcon from "../assets/studio/puzzle.svg";
+import WalkthroughIcon from "../assets/studio/layout.svg";
 
 
 const MarinexStudio = () => {
