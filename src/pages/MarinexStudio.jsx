@@ -6,6 +6,7 @@ import ShipIcon from "../assets/studio/ship.svg";
 import ScanIcon from "../assets/studio/scan.svg";
 import RetrofitIcon from "../assets/studio/puzzle.svg";
 import WalkthroughIcon from "../assets/studio/layout.svg";
+import { useEffect } from 'react';
 
 
 const MarinexStudio = () => {
