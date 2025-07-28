@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import vision from '../assets/about/vision.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +68,7 @@ const Section3 = () => {
         <div ref={leftRef}>
           <div className="overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1552207802-77bcb0d13122?w=800"
+              src={vision}
               alt="Vision Engineering"
               className="w-full h-[250px] md:h-[400px] object-cover shadow-2xl"
             />

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import mission from '../assets/about/mission.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -92,9 +93,9 @@ const Section4 = () => {
         <div className="relative h-full w-full overflow-hidden">
           <img
             ref={missionImgRef}
-            src="https://images.unsplash.com/photo-1496347326319-2935d381b307?w=1200"
+            src={mission}
             alt="Mission"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-90"
           />
         </div>
       </div>

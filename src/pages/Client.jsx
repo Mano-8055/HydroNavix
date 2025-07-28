@@ -9,6 +9,10 @@ const Client = () => {
   const headingRef = useRef(null);
   const logoRefs = useRef([]);
 
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const logos = [
     'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
     'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',

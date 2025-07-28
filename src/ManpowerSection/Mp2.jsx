@@ -52,13 +52,13 @@ const offerCards = [
 
 const Mp2 = () => {
   return (
-    <section className="px-6 py-20 bg-[#080a15]">
+    <section className="px-6 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-semibold text-secondary">
             What We Offer
           </h2>
-          <p className="text-white/70 mt-2 max-w-2xl mx-auto">
+          <p className="text-secondary/70 mt-2 max-w-2xl mx-auto">
             Providing a comprehensive range of skilled professionals to meet the demands of your projects.
           </p>
         </div>
@@ -68,7 +68,7 @@ const Mp2 = () => {
           {offerCards.map((card, idx) => (
             <div
               key={idx}
-              className="group relative rounded-3xl overflow-hidden shadow-lg min-h-[400px]"
+              className="group relative overflow-hidden shadow-lg min-h-[320px]"
             >
               {/* Background Image with Hover Zoom & Blur Effect */}
               <img
@@ -77,15 +77,15 @@ const Mp2 = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:blur-sm"
               />
               {/* Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-secondary/40" />
 
               {/* Content Container */}
-              <div className="relative z-10 p-6 text-white h-full flex flex-col justify-between">
+              <div className="relative z-10 p-6 text-primary h-full flex flex-col justify-between">
                 {/* Top Section: Title and Hover-reveal description */}
                 <div>
-                  <h3 className="text-3xl font-bold">{card.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold">{card.title}</h3>
                   <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                    <p className="text-gray-300 text-sm mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                    <p className="text-primary text-sm font-bold mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
                         {card.fullDesc}
                     </p>
                   </div>
@@ -93,8 +93,8 @@ const Mp2 = () => {
                 
                 {/* Bottom Section: Arrow Button */}
                 <div className="flex justify-between items-end">
-                    <button className="bg-blue-800 hover:bg-cyan-600 transition-colors p-4 rounded-2xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button className="bg-LightBlue hover:bg-LightBlue transition-colors p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                     </button>

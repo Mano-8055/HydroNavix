@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./layouts/Header";
-import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import Footer from "./layouts/Footer";
@@ -16,10 +15,20 @@ import EachService from "./pages/EachService";
 import MarinexStudio from "./pages/MarinexStudio";
 import Manpower from "./pages/Manpower";
 import Career from "./pages/Career";
-import Home2 from "./pages/Home2";
+import Lenis from "@studio-freight/lenis";
+import Home from "./pages/Home";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -36,7 +45,7 @@ function App() {
       <Header />
       <CursorFollower />
       <Routes>
-        <Route path="/" element={<Home2 />} />
+        <Route path="/" element={<Home />} />
         <Route path="/engineering-services" element={<Service />} />
         <Route path="/engineering-services/:id" element={<EachService />} />
         <Route path="/team" element={<Team />} />

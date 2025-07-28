@@ -6,9 +6,15 @@ import ShipIcon from "../assets/studio/ship.png";
 import ScanIcon from "../assets/studio/scan.png";
 import RetrofitIcon from "../assets/studio/puzzle.png";
 import WalkthroughIcon from "../assets/studio/layout.png";
+import { useEffect } from 'react';
 
 
 const MarinexStudio = () => {
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   const customAnimationStyle = `
     @keyframes float {
       0% { transform: translateY(0px) rotate(0deg); }

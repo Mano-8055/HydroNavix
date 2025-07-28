@@ -53,7 +53,7 @@ const Mp1 = () => {
           Empowering Projects with <span className="text-secondary/70">Expert Manpower</span>
         </h2>
         <p className="text-sm lg:text-base text-justify text-secondary/80 mt-6 max-w-lg">
-          Hydronavix provides highly qualified engineering personnel for marine, offshore, and oil & gas projects worldwide. Whether you need a single expert or an entire team — we deliver experienced professionals ready to support from design to delivery.
+          Hydronavix provides highly qualified engineering personnel for marine, offshore, and oil & gas projects worldwide. Whether you need a single expert or an entire team we deliver experienced professionals ready to support from design to delivery.
         </p>
       </div>
       {/* Right side images */}

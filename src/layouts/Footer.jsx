@@ -12,15 +12,15 @@ const Footer = () => {
     <div className="bg-secondary/90 overflow-hidden cursor-follow">
       <footer className="bg-gradient-to-b from-secondary via-secondary/50 to-accent/50 text-primary">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-20 py-20 justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-20 py-20 justify-between">
           {/* Company Info */}
           <div>
             <Logo />
-            <p className="text-primary/70 mb-2 text-sm mt-4">info@seadeltamarine.com</p>
-            <p className="text-primary/70 text-sm">+971-4-5708222</p>
+            <p className="text-primary/70 mb-2 text-sm mt-4">info@hydronavix.com</p>
+            <p className="text-primary/70 text-sm">+91 - 00000 00000</p>
           </div>
 
-          {/* Location Columns */}
+          {/* Location Columns
           <div className="grid grid-cols-2 gap-4 text-sm text-primary/70">
             <div>
               <div className="mb-6">
@@ -74,7 +74,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Quick Links */}
           <div>
