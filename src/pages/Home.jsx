@@ -4,7 +4,6 @@ import HeroSection from '../layouts/HeroSection'
 import AssetSection from '../layouts/AssetSection';
 import AboutSection from '../layouts/AboutSection';
 import CTASection from '../layouts/CTASection';
-import Home1 from './Home1';
 
 const Home = () => {
 
@@ -14,8 +13,7 @@ const Home = () => {
 
   return (
     <div className='overflow-x-hidden hide-scroll'>
-        {/* <HeroSection /> */}
-        <Home1 />
+        <HeroSection />
         <AboutSection />
         <AssetSection />
         <CTASection />

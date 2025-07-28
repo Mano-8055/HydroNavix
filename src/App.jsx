@@ -12,10 +12,10 @@ import Preload from "./pages/Preload";
 import About from "./pages/About";
 import Client from "./pages/Client";
 import CursorFollower from "./layouts/CursorFollower";
-import Home1 from "./pages/Home1";
 import EachService from "./pages/EachService";
 import MarinexStudio from "./pages/MarinexStudio";
 import Manpower from "./pages/Manpower";
+import Career from "./pages/Career";
 import Home2 from "./pages/Home2";
 
 function App() {
@@ -37,7 +37,6 @@ function App() {
       <CursorFollower />
       <Routes>
         <Route path="/" element={<Home2 />} />
-        <Route path="/demo" element={<Home1 />} />
         <Route path="/engineering-services" element={<Service />} />
         <Route path="/engineering-services/:id" element={<EachService />} />
         <Route path="/team" element={<Team />} />
@@ -48,7 +47,7 @@ function App() {
         <Route path='/manpower' element={<Manpower />} />
         <Route path="/about" element={<About />} />
         <Route path="/clients" element={<Client />} />
-        <Route path="/manpower" element={<Manpower />} />
+        <Route path="/career" element={<Career/>} />
 
       </Routes>
       <Footer />
