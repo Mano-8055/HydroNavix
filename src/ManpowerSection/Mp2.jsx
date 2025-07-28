@@ -56,11 +56,11 @@ const offerCards = [
 
 const Mp2 = () => {
   return (
-    <section className="px-6 py-20">
+    <section className="px-4 py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-white">What We Offer</h2>
-          <p className="text-white/70 mt-2 max-w-2xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-4xl font-semibold text-secondary">What We Offer</h2>
+          <p className="text-secondary/70 text-lg mt-2 max-w-2xl mx-auto">
             Providing a comprehensive range of skilled professionals to meet the demands of your projects.
           </p>
         </div>
@@ -87,7 +87,7 @@ const Mp2 = () => {
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold">{card.title}</h3>
                   <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                    <p className="text-gray-300 text-sm mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                    <p className="text-primary font-bold text-sm mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
                       {card.fullDesc}
                     </p>
                   </div>
@@ -95,8 +95,8 @@ const Mp2 = () => {
 
                 {/* Bottom Section: Arrow Button */}
                 <div className="flex justify-between items-end">
-                  <button className="bg-blue-800 hover:bg-cyan-600 transition-colors p-4 rounded-2xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <button className="bg-LightBlue hover:bg-LightBlue/80 transition-colors p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>

@@ -28,7 +28,7 @@ const Mp6 = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-[60vh] overflow-hidden">
+    <div className="relative w-full min-h-[50vh] overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0 bg-fixed bg-center bg-cover" style={{ backgroundImage: `url(${ImageCTA})`, zIndex: 0 }} />
       {/* Overlay */}
@@ -37,11 +37,11 @@ const Mp6 = () => {
       {/* Content */}
       <section ref={section6Ref} className="relative z-20 text-primary mx-2 md:mx-20 my-20 px-10 py-14 md:py-20 flex justify-center items-center">
         <div className="flex flex-col items-center text-center max-w-2xl">
-          <h2 className="text-3xl md:text-5xl font-semibold text-white mb-2">
-            Need support? <span className="text-primary">We're here</span>
+          <h2 className="text-3xl md:text-5xl font-semibold text-primary mb-2">
+            Need support? <br className='block md:hidden' /> We're here
           </h2>
-          <p className="text-sm md:text-lg text-primary mb-6">
-            Hydronavix can step in with the right people — at the right time.
+          <p className="text-sm md:text-lg font-medium text-primary mb-6">
+            Hydronavix can step in with the right people at the right time
           </p>
           <a
             href="mailto:manpower@hydronavixmarine.com"

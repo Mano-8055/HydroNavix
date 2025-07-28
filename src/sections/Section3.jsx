@@ -77,9 +77,9 @@ const Section3 = () => {
 
         <div
           ref={rightRef}
-          className="text-center md:text-left space-y-4 md:space-y-6"
+          className="text-center md:text-left space-y-4 md:space-y-6 text-secondary"
         >
-          <h2 className="text-3xl md:text-5xl text-secondary leading-tight font-medium mb-5">
+          <h2 className="text-2xl sm:text-4xl text-secondary leading-tight font-semibold mb-5">
             OUR VISION
           </h2>
           <h3 className="text-xl md:text-2xl leading-tight">

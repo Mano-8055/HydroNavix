@@ -105,7 +105,7 @@ const Section5 = () => {
     >
 
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-5xl font-medium text-secondary mb-8">
+        <h2 className="text-2xl sm:text-4xl font-semibold text-secondary mb-8">
           WHY WE ARE THE FUTURE <br /> OF MARINE & OFFSHORE
         </h2>
       </div>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Import actual images (after renaming the files)
 import globalTalentImg from '../assets/images/Mp5/global-talent-pool.png';
 import technicalScreeningImg from '../assets/images/Mp5/technical-screening.png';
 import fastMobilizationImg from '../assets/images/Mp5/fast-mobilization.png';
@@ -81,7 +80,7 @@ const Mp5 = () => {
                   <div className={`transition-all duration-500 ease-in-out ${activeTab === idx ? 'opacity-100 max-h-[1000px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
                     <h3 className="text-xl md:*:text-3xl font-semibold text-primary mb-4">{item.title}</h3>
                     <p className="text-primary/80 mb-8 text-bold">{item.description}</p>
-                    <img src={item.image} alt={item.title} className="rounded-2xl w-full object-cover h-64" />
+                    <img src={item.image} alt={item.title} className="w-full object-cover h-60" />
                   </div>
                 </div>
               </div>

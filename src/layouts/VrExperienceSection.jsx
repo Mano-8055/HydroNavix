@@ -50,7 +50,7 @@ export default function VrExperienceSection() {
     >
       <div
         ref={bgRef}
-        className="relative z-10 max-w-7xl mx-auto px-8 py-20"
+        className="relative z-10 max-w-7xl mx-auto px-4 py-20"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-screen">
           <div ref={leftRef} className="space-y-8">
@@ -89,7 +89,7 @@ export default function VrExperienceSection() {
               ))}
             </div>
 
-            <button className="group bg-LightBlue text-secondary px-4 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-3 hover:bg-LightBlue hover:shadow-xl transform hover:-translate-y-1">
+            <button className="w-full md:w-fit group bg-LightBlue text-secondary px-4 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center justify-center md:justify-start gap-3 hover:bg-LightBlue hover:shadow-xl transform hover:-translate-y-1">
               EXPLORE VR/AR PREVIEW
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>

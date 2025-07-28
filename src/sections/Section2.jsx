@@ -51,7 +51,7 @@ const Section2 = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div ref={leftRef} className="space-y-8">
           <div>
-            <h2 className="text-3xl md:text-5xl text-center font-medium leading-tight text-secondary">
+            <h2 className="text-2xl sm:text-4xl text-center font-semibold leading-tight text-secondary">
               OUR STORY
             </h2>
           </div>

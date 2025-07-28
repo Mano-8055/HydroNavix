@@ -53,7 +53,7 @@ const Mp4 = () => {
     <section className="px-4 sm:px-6 lg:px-8 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-semibold text-secondary">
+          <h2 className="text-2xl md:text-4xl font-semibold text-secondary">
             INDUSTRY SECTORS COVERED
           </h2>
           <p className="text-secondary/70 mt-4 max-w-2xl mx-auto text-lg">

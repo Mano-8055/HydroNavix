@@ -29,7 +29,7 @@ const Section1 = () => {
       <div className="absolute inset-0 flex items-center justify-center px-6 md:px-20 bg-secondary/30">
         <h1
           ref={heroTitleRef}
-          className="text-primary text-center text-2xl md:text-4xl lg:text-6xl font-bold leading-none tracking-tight"
+          className="text-primary text-center text-3xl md:text-4xl lg:text-6xl font-bold leading-none tracking-tight"
         >
           HydroNavix<br />Marine & Offshore
         </h1>

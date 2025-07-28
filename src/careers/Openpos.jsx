@@ -83,7 +83,7 @@ export default function Openpos() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-start justify-between mb-6">
-            <h1 className="text-3xl md:text-5xl font-medium text-secondary tracking-tight">
+            <h1 className="text-2xl md:text-4xl font-semibold text-secondary tracking-tight">
               Open roles
             </h1>
               <div className="relative">
@@ -93,7 +93,7 @@ export default function Openpos() {
                   placeholder="Search for a role"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-60 md:w-80 bg-secondary/5 border-0 rounded-full text-sm text-secondary/70 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-primary transition-all"
+                  className="pl-10 pr-4 py-2 w-44 md:w-80 bg-secondary/5 border-0 rounded-full text-sm text-secondary/70 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-primary transition-all"
                 />
             </div>
           </div>
@@ -109,13 +109,13 @@ export default function Openpos() {
                   key={position.id}
                   className="group border border-secondary/40 rounded-lg p-6 hover:border-secondary/60 cursor-pointer hover:shadow-sm transition-all duration-200"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-2">
                     <div className="flex-1">
                       <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mb-3">
                         <h3 className="text-xl font-medium text-secondary/80 group-hover:text-secondary">
                           {position.title}
                         </h3>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                           {position.tags.map((tag, index) => (
                             <span
                               key={index}
@@ -126,7 +126,7 @@ export default function Openpos() {
                           ))}
                         </div>
                       </div>
-                      <p className="text-secondary/70 text-sm leading-relaxed max-w-2xl">
+                      <p className="text-secondary/70 text-sm text-justify leading-relaxed max-w-2xl">
                         {position.description}
                       </p>
                     </div>

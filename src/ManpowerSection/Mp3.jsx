@@ -1,6 +1,9 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom'
 
 const Mp3 = () => {
+
+  const navigate = useNavigate(); 
+
   const deploymentTypes = [
     {
       id: "01",
@@ -25,9 +28,9 @@ const Mp3 = () => {
   ];
 
   return (
-    <section className="px-6 py-20">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-semibold text-LightBlue text-center mb-14">
+    <section className="px-4 py-20">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-semibold text-LightBlue text-center mb-14">
           Deployment Types
         </h2>
 
@@ -43,7 +46,7 @@ const Mp3 = () => {
 
               {/* Hover Reveal Section */}
               <div className="absolute bottom-[-100px] group-hover:bottom-0 left-0 right-0 bg-[#8ed1ec] py-5 px-4 flex justify-center items-center transition-all duration-300 ease-in-out shadow-inner">
-                <button className="bg-LightBlue hover:bg-LightBlue/80 text-primary text-sm font-semibold px-6 py-2 rounded-full transition duration-300">
+                <button onClick={()=> navigate('/careers')} className="bg-LightBlue hover:bg-LightBlue/80 text-primary text-sm font-semibold px-6 py-2 rounded-full transition duration-300">
                   Hire Now
                 </button>
               </div>

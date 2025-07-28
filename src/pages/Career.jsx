@@ -15,7 +15,9 @@ const Career = () => {
     <div ref={componentRef} className="text-secondary py-10 relative">
       <Hero />      
       <WhyHydronavix />
+      <div id="open-roles">
       <Openpos />
+      </div>
     </div>
   );
 };

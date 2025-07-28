@@ -106,7 +106,7 @@ const Section4 = () => {
         
         <h2
           ref={missionHeadingRef}
-          className="text-3xl md:text-5xl font-medium mb-10 opacity-0 text-shadow-lg"
+          className="text-2xl sm:text-4xl font-semibold mb-10 opacity-0 text-shadow-lg"
         >
           OUR MISSION
         </h2>

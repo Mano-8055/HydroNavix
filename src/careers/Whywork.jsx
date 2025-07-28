@@ -138,12 +138,6 @@ const Whywork = () => {
               <p className="text-base text-secondary/70 max-w-sm">
                 Five compelling reasons to join our team of ocean innovators
               </p>
-              <div className="pt-4">
-                <button className="group bg-secondary text-primary px-6 py-3 text-sm font-medium flex items-center gap-2 hover:bg-secondary/80 transition-all">
-                  EXPLORE CAREERS
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
             </div>
           </div>
 

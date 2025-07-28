@@ -22,7 +22,7 @@ const Project = () => {
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-40 md:h-56 object-cover transition-transform duration-300 group-hover:scale-105"
             />
 
             <div className="absolute inset-0 bg-secondary/30 z-10"></div>
@@ -30,7 +30,7 @@ const Project = () => {
             <div className="absolute inset-0 bg-secondary/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
 
             <div className="absolute inset-0 flex items-center justify-center z-20">
-              <p className="text-primary text-lg font-semibold text-center">
+              <p className="text-primary text-md md:text-lg font-semibold text-center">
                 {service.title}
               </p>
             </div>
