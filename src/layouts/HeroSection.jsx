@@ -1,77 +1,62 @@
+import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
-import HeroImg from "../assets/images/heroPoster.png";
-import HeroVideo from "../assets/hero.mp4"; 
-import { GoArrowRight } from "react-icons/go";
-import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
+import v1Video from "../assets/v1.mp4";
 
-const HeroSection = () => {
-  const contentRef = useRef(null);
-  const navigate = useNavigate();
+export default function HeroSection() {
+  const textRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
-      contentRef.current.children,
-      {
-        opacity: 0,
-        filter: "blur(10px)",
-        y: 30,
-      },
-      {
-        opacity: 1,
-        filter: "blur(0px)",
-        y: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power2.out",
-      }
+      textRef.current,
+      { opacity: 0, y: 60 },
+      { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }
     );
   }, []);
 
   return (
-    <section className="cursor-follow relative h-screen w-full">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover"
-          src={HeroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={HeroImg}
-        />
-        <div className="absolute inset-0 bg-secondary/40" />
-      </div>
-
-      {/* Content */}
-      <div
-        className="relative z-10 flex flex-col items-start justify-end h-full px-6 md:px-20 py-16"
-        ref={contentRef}
+    <section className="relative h-screen overflow-hidden cursor-follow">
+      <video
+        className="absolute w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
       >
-        <div className="max-w-2xl">
-          <h1 className="text-primary text-4xl md:text-6xl font-serif font-semibold leading-tight">
-            Navigating the Future of Marine & Energy with AI Precision
-          </h1>
-        </div>
-
-        <div className="w-full h-[1.5px] rounded-full bg-primary my-4"></div>
-
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
-          <p className="text-primary text-left text-sm md:text-base max-w-2xl">
-            HydroNavix blends innovation with precision, delivering advanced design solutions, technical consulting, and project support for the marine, shipbuilding, and oil & gas sectors
-          </p>
-          <button
-            onClick={() => navigate("/services")}
-            className="hidden md:flex items-center gap-3 border border-primary text-primary pl-4 pr-2 py-2 rounded-full group"
-          >
-            View Services
-            <GoArrowRight className="w-8 h-8 p-1.5 bg-primary text-secondary rounded-full -rotate-45 group-hover:rotate-0 transition duration-300" />
-          </button>
+        <source src={v1Video} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 z-10">
+        <div className="absolute inset-0 bg-secondary/80" />
+      </div>
+      <div className="relative z-20 flex items-center h-full px-4">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div ref={textRef} className="text-primary">
+            <div className="border-l-4 border-LightBlue pl-6 mb-8">
+              <p className="text-LightBlue text-sm font-bold tracking-widest uppercase mb-2">
+                AI-POWERED MARINE ENGINEERING
+              </p>
+              <h1 className="text-3xl lg:text-5xl font-bold leading-tight mb-6">
+                NAVIGATING THE FUTURE OF
+                <span className="text-LightBlue"> OFFSHORE DESIGN</span>
+              </h1>
+            </div>
+            <p className="text-md md:text-lg text-primary leading-relaxed mb-8 max-w-xl">
+              Where intelligent design, immersive technology, and global
+              experience converge to define the next era of ocean innovation
+            </p>
+            <div className="flex space-x-4">
+              <button className="group bg-LightBlue text-secondary px-4 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-3 hover:bg-LightBlue hover:shadow-xl transform hover:-translate-y-1">
+                GET STARTED
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </button>
+              <button className="group border-2 border-primary text-primary px-4 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-3 hover:bg-primary hover:text-secondary">
+                <Play className="w-5 h-5" />
+                WATCH DEMO
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import a1 from '../assets/about/a1.jpg'
+import a2 from '../assets/about/a2.jpg'
+import a3 from '../assets/about/a3.jpg'
+import a4 from '../assets/about/a4.jpg'
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,22 +68,22 @@ const Section5 = () => {
     {
       title: "Faster Design Cycles",
       text: "Accelerated project timelines through digital optimization and streamlined workflows.",
-      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600",
+      img: a1,
     },
     {
       title: "Better Coordination",
       text: "Seamless collaboration between teams, stakeholders, and global project partners.",
-      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+      img: a2,
     },
     {
       title: "Real-time Insight",
       text: "Live project monitoring, predictive analytics, and data-driven decision making.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+      img: a3,
     },
     {
       title: "Smart Decision Making",
       text: "AI-powered analysis and tech-enabled solutions for complex marine challenges.",
-      img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600",
+      img: a4,
     },
   ];
 
@@ -105,7 +110,7 @@ const Section5 = () => {
         </h2>
       </div>
 
-      <div className="mb-20">
+      <div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 future-grid">
           {industryNeeds.map((item, i) => (
             <div
@@ -128,18 +133,6 @@ const Section5 = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden">
-        <h3 className="text-3xl md:text-5xl font-medium text-secondary mb-10 text-center">
-          We are developing solutions
-        </h3>
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto solutions-grid">
-          {solutions.map((solution, index) => (
-            <div key={index} className="solution-item flex items-start space-x-6 p-6 bg-primary/10 backdrop-blur-strong border-l-4">
-              <p className="text-lg md:text-xl text-secondary leading-relaxed font-500">{solution}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };

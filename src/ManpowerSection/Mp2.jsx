@@ -56,7 +56,7 @@ const offerCards = [
 
 const Mp2 = () => {
   return (
-    <section className="px-6 py-20 bg-[#080a15]">
+    <section className="px-6 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-white">What We Offer</h2>
@@ -70,7 +70,7 @@ const Mp2 = () => {
           {offerCards.map((card, idx) => (
             <div
               key={idx}
-              className="group relative rounded-3xl overflow-hidden shadow-lg min-h-[400px]"
+              className="group relative overflow-hidden shadow-lg min-h-[320px]"
             >
               {/* Background Image with Hover Zoom & Blur Effect */}
               <img
@@ -79,13 +79,13 @@ const Mp2 = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:blur-sm"
               />
               {/* Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-secondary/40" />
 
               {/* Content Container */}
-              <div className="relative z-10 p-6 text-white h-full flex flex-col justify-between">
+              <div className="relative z-10 p-6 text-primary h-full flex flex-col justify-between">
                 {/* Top Section: Title and Hover-reveal description */}
                 <div>
-                  <h3 className="text-3xl font-bold">{card.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold">{card.title}</h3>
                   <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
                     <p className="text-gray-300 text-sm mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
                       {card.fullDesc}
