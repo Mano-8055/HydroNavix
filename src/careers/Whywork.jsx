@@ -146,7 +146,7 @@ const Whywork = () => {
               {reasons.map((reason, index) => (
                 <div
                   key={index}
-                  className={`group relative bg-primary border-2 border-secondary hover:bg-secondary hover:text-primary transition-all duration-300 ${
+                  className={`group relative bg-primary border-2 border-secondary ${
                     index === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
                   }`}
                   style={{ 
@@ -154,11 +154,8 @@ const Whywork = () => {
                     minHeight: index < 2 ? '200px' : '180px'
                   }}
                 >
-                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-secondary text-primary flex items-center justify-center text-xs font-bold group-hover:bg-primary group-hover:text-secondary transition-colors">
-                    {index + 1}
-                  </div>
                   <div className="p-4 h-full flex flex-col">
-                    <div className="h-16 w-16 mb-4 border border-current group-hover:bg-primary group-hover:text-secondary transition-colors">
+                    <div className="h-16 w-16 mb-4 border border-current">
                       {renderImage(reason.imageType, index)}
                     </div>
                     <h3 className="text-sm font-bold mb-2 leading-tight">
