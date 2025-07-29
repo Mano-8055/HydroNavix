@@ -22,7 +22,6 @@ const Contact = () => {
   });
 
   const leftRef = useRef(null);
-  const marqueeRef = useRef(null);
   const socialsRef = useRef(null);
 
   useEffect(() => {
@@ -39,18 +38,6 @@ const Contact = () => {
 
   useEffect(() => {
     titleControls.start("visible");
-  }, []);
-
-  useEffect(() => {
-    if (marqueeRef.current) {
-      const el = marqueeRef.current;
-      gsap.to(el, {
-        xPercent: -50,
-        duration: 10,
-        repeat: -1,
-        ease: "linear",
-      });
-    }
   }, []);
 
   useEffect(() => {
@@ -84,16 +71,17 @@ const Contact = () => {
   };
 
   return (
-    <div className="text-secondary min-h-screen py-24">
+    <div className="text-secondary min-h-screen py-28">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
-          <div>
+          <div className="flex flex-col gap-1">
             <FadeWords
               text="Contact"
               controls={titleControls}
               className="text-2xl sm:text-4xl font-semibold tracking-tight"
             />
+            <p className="text-md font-medium text-secondary/70">Reach out today and let’s power your project <br />with the right engineering team</p>
           </div>
           <div
             className="grid grid-col-2 md:grid-cols-3 gap-4 text-secondary/70 text-sm"
@@ -120,19 +108,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Marquee */}
-      <div className="overflow-hidden py-6 md:py-10 mt-10 border-y border-secondary/10">
-        <div
-          ref={marqueeRef}
-          className="flex whitespace-nowrap text-3xl md:text-4xl lg:text-5xl font-bold text-secondary uppercase"
-        >
-          <span className="mx-10">Request a Demo ·</span>
-          <span className="mx-10">Request a Demo ·</span>
-          <span className="mx-10">Request a Demo ·</span>
-          <span className="mx-10">Request a Demo ·</span>
         </div>
       </div>
 
