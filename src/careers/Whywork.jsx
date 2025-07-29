@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Waves, Cpu, Globe, Wrench, TrendingUp } from 'lucide-react';
 
 const reasons = [
   {

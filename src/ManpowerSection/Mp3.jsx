@@ -58,7 +58,7 @@ const Mp3 = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="group relative overflow-hidden border border-secondary transition-all duration-300 hover:shadow-xl rounded-2xl"
+              className="group relative overflow-hidden border border-secondary transition-all duration-300 hover:shadow-xl"
             >
               {/* Top Card Section */}
               <div className="bg-white px-6 py-6 rounded-t-2xl transition-all duration-300">
