@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import HeroVideo from '../assets/manpower.mp4';
+import HeroImage from '../assets/manpower.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -37,6 +38,7 @@ const Mp1 = () => {
         <div className="w-[90vw] md:w-[65vw] md:aspect-[2.6/1] rounded-[100px] overflow-hidden shadow-2xl bg-secondary">
           <video
             src={HeroVideo}
+            poster={HeroImage}
             className="w-full h-full object-cover"
             autoPlay
             muted

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from 'react-router-dom';
 import v1Video from "../assets/Hero.mp4";
+import v1Img from '../assets/images/heroPoster.png'
 
 export default function HeroSection() {
   const textRef = useRef(null);
@@ -21,6 +22,7 @@ export default function HeroSection() {
       {/* Background Video */}
       <video
         className="absolute w-full h-full object-cover z-0"
+        poster={v1Img}
         autoPlay
         muted
         loop
@@ -31,7 +33,7 @@ export default function HeroSection() {
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10">
-        <div className="absolute inset-0 bg-secondary/20" />
+        <div className="absolute inset-0 bg-secondary/40" />
       </div>
 
       {/* Content */}
