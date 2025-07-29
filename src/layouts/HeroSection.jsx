@@ -2,7 +2,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from 'react-router-dom';
-import v1Video from "../assets/v1.mp4";
+import v1Video from "../assets/A_hyper_realistic_cinematic_vi.mp4";
 
 export default function HeroSection() {
   const textRef = useRef(null);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Waves, Cpu, Globe, Wrench, TrendingUp } from 'lucide-react';
 
 const Whywork = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,100 +24,32 @@ const Whywork = () => {
     {
       title: "Ocean-Focused Innovation",
       description: "Shape the future of marine and offshore industries.",
-      imageType: "offshore"
+      icon: Waves
     },
     {
       title: "Smart Tech, Real Impact", 
       description: "Work with AI, VR, and digital design tools.",
-      imageType: "tech"
+      icon: Cpu
     },
     {
       title: "Global Collaboration",
       description: "Projects across Middle East, Asia, and Europe.",
-      imageType: "global"
+      icon: Globe
     },
     {
       title: "Engineering-First Culture",
       description: "Built by engineers — for engineers.",
-      imageType: "engineering"
+      icon: Wrench
     },
     {
       title: "Growth That Matters",
       description: "Scale your skills for the future.",
-      imageType: "growth"
+      icon: TrendingUp
     }
   ];
 
-  const renderImage = (type, index) => {
-    const baseClasses = "w-full h-full object-cover grayscale";
-    
-    switch(type) {
-      case 'offshore':
-        return (
-          <div className={baseClasses + " bg-primary flex items-center justify-center"}>
-            <svg width="60" height="40" viewBox="0 0 60 40" className="text-secondary">
-              <rect x="20" y="15" width="20" height="20" fill="currentColor" />
-              <rect x="15" y="10" width="30" height="5" fill="currentColor" />
-              <rect x="10" y="35" width="5" height="5" fill="currentColor" />
-              <rect x="45" y="35" width="5" height="5" fill="currentColor" />
-              <path d="M0 37 Q15 35 30 37 T60 37 L60 40 L0 40 Z" fill="currentColor" opacity="0.5" />
-            </svg>
-          </div>
-        );
-      case 'tech':
-        return (
-          <div className={baseClasses + " bg-primary flex items-center justify-center"}>
-            <svg width="50" height="40" viewBox="0 0 50 40" className="text-secondary">
-              <rect x="5" y="8" width="40" height="24" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <rect x="8" y="11" width="34" height="15" fill="currentColor" opacity="0.3" />
-              <circle cx="15" cy="30" r="1.5" fill="currentColor" />
-              <circle cx="35" cy="30" r="1.5" fill="currentColor" />
-            </svg>
-          </div>
-        );
-      case 'global':
-        return (
-          <div className={baseClasses + "bg-primary flex items-center justify-center"}>
-            <svg width="40" height="40" viewBox="0 0 40 40" className="text-secondary">
-              <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <path d="M8 20 Q13 10 20 20 T32 20" stroke="currentColor" strokeWidth="1.5" fill="none" />
-              <circle cx="13" cy="18" r="1" fill="currentColor" />
-              <circle cx="27" cy="15" r="1" fill="currentColor" />
-            </svg>
-          </div>
-        );
-      case 'engineering':
-        return (
-          <div className={baseClasses + "bg-primary flex items-center justify-center"}>
-            <svg width="40" height="40" viewBox="0 0 40 40" className="text-secondary">
-              <rect x="10" y="15" width="20" height="10" fill="currentColor" />
-              <rect x="8" y="12" width="24" height="3" fill="currentColor" />
-              <circle cx="15" cy="19" r="1.5" fill="primary" />
-              <circle cx="25" cy="19" r="1.5" fill="primary" />
-            </svg>
-          </div>
-        );
-      case 'growth':
-        return (
-          <div className={baseClasses + "bg-primary flex items-center justify-center"}>
-            <svg width="40" height="40" viewBox="0 0 40 40" className="text-secondary">
-              <path d="M8 32 L13 27 L18 30 L23 22 L28 25 L33 17" stroke="currentColor" strokeWidth="2" fill="none" />
-              <polygon points="30,17 33,14 36,20" fill="currentColor" />
-              <rect x="10" y="28" width="2" height="6" fill="currentColor" opacity="0.6" />
-              <rect x="16" y="25" width="2" height="9" fill="currentColor" opacity="0.6" />
-              <rect x="22" y="22" width="2" height="12" fill="currentColor" opacity="0.6" />
-            </svg>
-          </div>
-        );
-      default:
-        return <div className={baseClasses + " bg-primary"}></div>;
-    }
-  };
-
   return (
     <div id="why-section" className="relative flex items-center py-20">
- 
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full items-center">
           
@@ -143,30 +75,36 @@ const Whywork = () => {
 
           <div className={`lg:col-span-2 transition-all duration-800 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
-              {reasons.map((reason, index) => (
-                <div
-                  key={index}
-                  className={`group relative bg-primary border-2 border-secondary ${
-                    index === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
-                  }`}
-                  style={{ 
-                    transitionDelay: `${index * 100}ms`,
-                    minHeight: index < 2 ? '200px' : '180px'
-                  }}
-                >
-                  <div className="p-4 h-full flex flex-col">
-                    <div className="h-16 w-16 mb-4 border border-current">
-                      {renderImage(reason.imageType, index)}
+              {reasons.map((reason, index) => {
+                const IconComponent = reason.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`group relative bg-primary border-2 border-secondary hover:bg-secondary/5 transition-colors duration-300 ${
+                      index === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
+                    }`}
+                    style={{ 
+                      transitionDelay: `${index * 100}ms`,
+                      minHeight: index < 2 ? '200px' : '180px'
+                    }}
+                  >
+                    <div className="p-4 h-full flex flex-col">
+                      <div className="h-16 w-16 mb-4 border border-secondary flex items-center justify-center group-hover:bg-secondary/10 transition-colors duration-300">
+                        <IconComponent 
+                          size={32} 
+                          className="text-secondary group-hover:text-secondary transition-colors duration-300" 
+                        />
+                      </div>
+                      <h3 className="text-sm font-bold mb-2 leading-tight text-secondary">
+                        {reason.title}
+                      </h3>
+                      <p className="text-xs leading-relaxed text-secondary/70 group-hover:text-secondary/90 transition-colors duration-300 flex-1">
+                        {reason.description}
+                      </p>
                     </div>
-                    <h3 className="text-sm font-bold mb-2 leading-tight">
-                      {reason.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-secondary/70 group-hover:opacity-100 flex-1">
-                      {reason.description}
-                    </p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
