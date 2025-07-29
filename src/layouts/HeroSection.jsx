@@ -17,7 +17,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center">
+    <section className="relative min-h-screen overflow-hidden flex items-center cursor-follow">
       {/* Background Video */}
       <video
         className="absolute w-full h-full object-cover z-0"
