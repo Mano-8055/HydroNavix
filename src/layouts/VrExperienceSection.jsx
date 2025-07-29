@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import v3Video from "../assets/v3.mp4";
+import v3Video from "../assets/v2.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,7 +97,7 @@ export default function VrExperienceSection() {
 
           {/* Right Side Video */}
           <div ref={rightRef} className="relative cursor-follow">
-            <div className="aspect-video border-4 border-primary overflow-hidden bg-gray-900 relative shadow-2xl">
+            <div className="aspect-video border-2 md:border-4 border-primary overflow-hidden bg-gray-900 relative shadow-2xl">
               <video
                 autoPlay
                 muted
@@ -110,16 +110,16 @@ export default function VrExperienceSection() {
 
               {/* VR Interface Overlay */}
               <div className="absolute inset-0">
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                  <div className="bg-secondary/80 backdrop-blur-sm border border-LightBlue/50 p-3">
-                    <div className="text-LightBlue text-xs font-bold">
+                <div className="absolute top-2 md:top-4 left-2 md:left-4 right-2 md:right-4 flex justify-between items-start">
+                  <div className="bg-secondary/80 backdrop-blur-sm border border-LightBlue/50 p-1.5 md:p-3">
+                    <div className="text-LightBlue text-xs font-normal md:font-bold">
                       VR MODE ACTIVE
                     </div>
-                    <div className="text-primary text-sm">Vessel Inspection</div>
+                    <div className="text-primary text-xs font-normal">Vessel Inspection</div>
                   </div>
-                  <div className="bg-secondary/80 backdrop-blur-sm border border-primary/30 p-3">
-                    <div className="text-primary text-xs">DEPTH: 12.5m</div>
-                    <div className="text-primary text-xs">ZONE: ENGINE RM</div>
+                  <div className="bg-secondary/80 backdrop-blur-sm border border-primary/30 p-1.5 md:p-3">
+                    <div className="text-primary text-xs font-normal">DEPTH: 12.5m</div>
+                    <div className="text-primary text-xs font-normal">ZONE: ENGINE RM</div>
                   </div>
                 </div>
 
@@ -134,13 +134,13 @@ export default function VrExperienceSection() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-secondary/90 backdrop-blur-sm border border-primary/30 p-4">
+                <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4">
+                  <div className="bg-secondary/90 backdrop-blur-sm border border-primary/30 p-2 md:p-4">
                     <div className="flex justify-between items-center">
                       <div className="text-primary text-sm">
                         Tank Volume: 2,450 L
                       </div>
-                      <div className="text-LightBlue text-sm font-bold">
+                      <div className="text-LightBlue text-sm font-medium md:font-bold">
                         SCANNING...
                       </div>
                     </div>

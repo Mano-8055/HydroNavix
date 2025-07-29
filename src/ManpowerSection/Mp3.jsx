@@ -30,22 +30,22 @@ const Mp3 = () => {
   return (
     <section className="px-4 py-20">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-semibold text-LightBlue text-center mb-14">
+        <h2 className="text-2xl md:text-4xl font-semibold text-secondary text-center mb-14">
           Deployment Types
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {deploymentTypes.map((item, idx) => (
-            <div key={idx} className="group relative overflow-hidden border border-[#8ed1ec] transition-all duration-300 hover:shadow-xl">
+            <div key={idx} className="group relative overflow-hidden border border-secondary transition-all duration-300 hover:shadow-xl">
               {/* Top Card Section */}
               <div className="bg-white px-6 py-6 rounded-t-2xl transition-all duration-300">
-                <span className="text-2xl md:text-3xl font-bold text-LightBlue opacity-40">{item.id}</span>
-                <h3 className="mt-2 text-lg md:text-xl font-bold text-DarkBlue">{item.title}</h3>
+                <span className="text-2xl md:text-3xl font-bold text-secondary opacity-40">{item.id}</span>
+                <h3 className="mt-2 text-lg md:text-xl font-bold text-secondary">{item.title}</h3>
                 <p className="mt-2 text-secondary/70 text-sm font-medium">{item.desc}</p>
               </div>
 
               {/* Hover Reveal Section */}
-              <div className="absolute bottom-[-100px] group-hover:bottom-0 left-0 right-0 bg-[#8ed1ec] py-5 px-4 flex justify-center items-center transition-all duration-300 ease-in-out shadow-inner">
+              <div className="absolute bottom-[-100px] group-hover:bottom-0 left-0 right-0 bg-LightBlue py-5 px-4 flex justify-center items-center transition-all duration-300 ease-in-out shadow-inner">
                 <button onClick={()=> navigate('/careers')} className="bg-LightBlue hover:bg-LightBlue/80 text-primary text-sm font-semibold px-6 py-2 rounded-full transition duration-300">
                   Hire Now
                 </button>

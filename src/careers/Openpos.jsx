@@ -100,7 +100,7 @@ export default function Openpos() {
         </div>
 
         {departments.map(department => (
-          <div key={department} className="mb-12">
+          <div key={department} className="mb-4">
             <div className="space-y-4">
               {filteredPositions
                 .filter(position => position.department === department)

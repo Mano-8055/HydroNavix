@@ -19,14 +19,14 @@ const Mp1 = () => {
   return (
     <section className="relative overflow-hidden min-h-screen w-full flex flex-col items-center justify-center px-4 py-16">
       {/* Background Looping Text */}
-      <div className="absolute top-[40%] left-0 w-[300%] transform -translate-y-1/2 z-0 pointer-events-none">
+      {/* <div className="absolute top-[40%] left-0 w-[300%] transform -translate-y-1/2 z-0 pointer-events-none">
         <div
           ref={textRef}
           className="whitespace-nowrap text-[10vw] md:text-[20vw] font-extrabold text-secondary leading-none tracking-tight opacity-100"
         >
           HYDRO NAVIX HYDRO NAVIX HYDRO NAVIX HYDRO NAVIX
         </div>
-      </div>
+      </div> */}
 
       {/* Foreground Content */}
       <div className="relative z-10 w-full flex flex-col items-center gap-12 max-w-6xl mx-auto">

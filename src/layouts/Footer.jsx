@@ -77,7 +77,7 @@ const Footer = () => {
           </div> */}
 
           {/* Quick Links */}
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {navItems.map((item, index) => (
@@ -86,7 +86,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Footer */}

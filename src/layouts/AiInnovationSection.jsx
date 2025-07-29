@@ -2,7 +2,7 @@ import { ArrowRight, Upload, Eye, Settings, Download } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import v2Video from "../assets/v2.mp4";
+import v2Video from "../assets/v3.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,9 +138,9 @@ const rightRef = useRef(null);
                 <source src={v2Video} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-secondary/80 backdrop-blur-sm border border-primary/30 p-4">
-                  <div className="text-primary text-sm font-bold mb-1">
+              <div className="absolute bottom-3 md:bottom-6 left-6 right-6">
+                <div className="bg-secondary/80 backdrop-blur-sm border border-primary/30 p-2 md:p-4">
+                  <div className="text-primary text-sm font-normal md:font-bold mb-1">
                     AI PROCESSING
                   </div>
                   <div className="text-LightBlue text-xs">
@@ -151,10 +151,10 @@ const rightRef = useRef(null);
                   </div>
                 </div>
               </div>
-              <div className="absolute top-4 left-4 w-4 h-4 border-l-2 border-t-2 border-LightBlue" />
-              <div className="absolute top-4 right-4 w-4 h-4 border-r-2 border-t-2 border-LightBlue" />
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-l-2 border-b-2 border-LightBlue" />
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-r-2 border-b-2 border-LightBlue" />
+              <div className="absolute top-2 md:top-4 left-2 md:left-4 w-4 h-4 border-l-2 border-t-2 border-LightBlue" />
+              <div className="absolute top-2 md:top-4 right-2 md:right-4 w-4 h-4 border-r-2 border-t-2 border-LightBlue" />
+              <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 w-4 h-4 border-l-2 border-b-2 border-LightBlue" />
+              <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 w-4 h-4 border-r-2 border-b-2 border-LightBlue" />
             </div>
           </div>
 

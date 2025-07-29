@@ -70,7 +70,7 @@ const Mp2 = () => {
           {offerCards.map((card, idx) => (
             <div
               key={idx}
-              className="group relative overflow-hidden shadow-lg min-h-[320px]"
+              className="group relative overflow-hidden shadow-lg min-h-[320px] cursor-follow"
             >
               {/* Background Image with Hover Zoom & Blur Effect */}
               <img

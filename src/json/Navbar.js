@@ -9,7 +9,7 @@ export const navItems = [
     { name: "About", path: "/about" },
     { name: "Team", path: "/team" },
     { name: "Engineering Services", path: "/engineering-services" },
-    { name: "Marinex Studio", path: "/marinex-studio" },
+    { name: "MarineX Studio", path: "/marinex-studio" },
     { name: "Manpower", path: "/manpower"},
     { name: "Career", path: "/career" },
     { name: "Projects", path: "/projects" },
