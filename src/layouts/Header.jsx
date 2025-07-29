@@ -82,7 +82,7 @@ const Header = () => {
       <header
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
           isHome && !isScrolled && !isMobileMenuOpen
-            ? "bg-transparent text-primary"
+            ? "bg-transparent text-primary cursor-follow"
             : "bg-primary text-secondary"
         }`}
       >
