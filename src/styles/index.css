@@ -23,3 +23,35 @@ img {
 .hide-scroll::-webkit-scrollbar {
   display: none;
 }
+
+
+.shine-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.shine {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

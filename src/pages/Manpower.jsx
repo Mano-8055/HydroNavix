@@ -17,7 +17,7 @@ const Manpower = () => {
     }, []);
 
   return (
-    <div>
+    <div className='pt-16'>
       <Mp1 />
       <Mp2 />
       <Mp3 />

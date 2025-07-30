@@ -2,8 +2,8 @@ import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from 'react-router-dom';
-import v1Video from "../assets/Hero.mp4";
-import v1Img from '../assets/images/heroPoster.png'
+import v1Video from "../assets/hero3.mp4";
+import heroPoster from '../assets/images/heroPoster.png';
 
 export default function HeroSection() {
   const textRef = useRef(null);
@@ -19,10 +19,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center cursor-follow">
+
       {/* Background Video */}
       <video
         className="absolute w-full h-full object-cover z-0"
-        poster={v1Img}
+        poster={heroPoster}
         autoPlay
         muted
         loop
@@ -33,7 +34,10 @@ export default function HeroSection() {
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10">
-        <div className="absolute inset-0 bg-secondary/40" />
+        <div className="absolute inset-0 bg-secondary/60" />
+
+        {/* Fog Effect - Top Left */}
+        <div className="absolute -top-36 -left-36 w-[420px] md:w-[450px] h-[420px] md:h-[450px] bg-white opacity-60 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Content */}

@@ -4,16 +4,16 @@ const Preload = () => {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-primary relative overflow-hidden">
-      <div className={`flex items-center flex-col gap-1`}>
+      <div className={`flex items-center flex-col gap-1 animate-pulse`}>
             {/* Logo Icon */}
             <img
               src={LogoImg}
               alt="Hydro Navix Logo Icon"
-              className="h-24 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
       
             {/* Text Branding */}
-            <div className="ml-4 leading-tight">
+            <div className="leading-tight">
               <div className="text-3xl font-bold text-DarkBlue tracking-wide">
                 HYDRO{' '}N
                 <span className="text-LightBlue">A</span>

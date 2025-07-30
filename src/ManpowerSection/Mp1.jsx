@@ -32,7 +32,7 @@ const Mp1 = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden min-h-screen w-full flex flex-col items-center justify-center px-4 py-16"
+      className="relative overflow-hidden min-h-screen w-full flex flex-col items-center justify-center px-4 pb-0"
     >
       <div className="relative z-10 w-full flex flex-col items-center gap-12 max-w-6xl mx-auto">
         <div className="w-[90vw] md:w-[65vw] md:aspect-[2.6/1] rounded-[100px] overflow-hidden shadow-2xl bg-secondary">

@@ -71,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="text-secondary min-h-screen py-28">
+    <div className="text-secondary min-h-screen py-28 md:pt-32">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
