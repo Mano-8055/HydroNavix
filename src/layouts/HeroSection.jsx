@@ -37,14 +37,14 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-secondary/60" />
 
         {/* Fog Effect - Top Left */}
-        <div className="absolute -top-36 -left-36 w-[420px] md:w-[450px] h-[420px] md:h-[450px] bg-primary opacity-60 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-36 -left-36 w-[420px] md:w-[520px] h-[220px] bg-primary opacity-60 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Content */}
       <div className="relative z-20 w-full px-4">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div ref={textRef} className="text-primary">
-            <div className="border-l-4 border-LightBlue pl-6 mb-8">
+            <div className="border-l-4 border-LightBlue pl-3 md:pl-6 mb-4 md:mb-8">
               <p className="text-LightBlue text-sm font-bold tracking-widest uppercase mb-2">
                 AI-POWERED MARINE ENGINEERING
               </p>

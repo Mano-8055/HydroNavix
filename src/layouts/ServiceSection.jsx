@@ -1,51 +1,97 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Card1 from "../components/Card1";
 import { Services } from "../json/services";
 
-gsap.registerPlugin(ScrollTrigger);
+const CARD_WIDTH = 300;
+const CARD_MARGIN = 24;
 
 const ServiceSection = () => {
-  const scrollWrapperRef = useRef(null);
-  const scrollTween = useRef(null);
+  const containerRef = useRef(null);
+  const trackRef = useRef(null);
+  const tween = useRef(null);
+
+  const repeatedServices = [...Services, ...Services, ...Services];
 
   useEffect(() => {
-    if (!scrollWrapperRef.current) return;
+    const track = trackRef.current;
+    if (!track) return;
 
-    const wrapper = scrollWrapperRef.current;
-    const clone = wrapper.innerHTML;
-    wrapper.innerHTML += clone;
+    const totalWidth = (CARD_WIDTH + CARD_MARGIN) * Services.length;
 
-    const totalWidth = wrapper.scrollWidth / 2;
+    gsap.set(track, { x: -totalWidth });
 
-    scrollTween.current = gsap.to(wrapper, {
-      x: `-=${totalWidth}`,
-      duration: 30,
-      ease: "linear",
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
-      },
-    });
+    const loop = () => {
+      tween.current = gsap.to(track, {
+        x: `-=${totalWidth}`,
+        duration: 20,
+        ease: "linear",
+        repeat: -1,
+        modifiers: {
+          x: (x) => `${parseFloat(x) % totalWidth}px`, 
+        },
+      });
+    };
 
-    return () => scrollTween.current?.kill();
+    const updateScale = () => {
+      const cards = track.querySelectorAll(".card-container");
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distanceFromCenter = Math.abs(containerCenter - cardCenter);
+        const maxDistance = containerRect.width / 2;
+
+        const scale = distanceFromCenter < 150 ? 1.1 : 0.95;
+        gsap.to(card, { scale, duration: 0.3, ease: "power2.out" });
+      });
+    };
+
+    loop();
+
+    const handleScroll = () => {
+      requestAnimationFrame(updateScale);
+    };
+
+    containerRef.current.addEventListener("scroll", handleScroll);
+    gsap.ticker.add(updateScale);
+
+    return () => {
+      tween.current?.kill();
+      gsap.ticker.remove(updateScale);
+      containerRef.current?.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const handleMouseEnter = () => scrollTween.current?.pause();
-  const handleMouseLeave = () => scrollTween.current?.play();
+  const pause = () => tween.current?.pause();
+  const play = () => tween.current?.play();
 
   return (
     <div className="py-10">
       <div
-        className="overflow-hidden relative"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        ref={containerRef}
+        className="relative"
+        onMouseEnter={pause}
+        onMouseLeave={play}
       >
-        <div ref={scrollWrapperRef} className="flex gap-6 w-max">
-          {Services.map((service) => (
-            <div key={service.id} className="shrink-0 w-[300px]">
-              <Card1 title={service.title} id={service.id} img={service.image} />
+        <div
+          ref={trackRef}
+          className="flex w-max gap-6"
+          style={{ willChange: "transform" }}
+        >
+          {repeatedServices.map((service, index) => (
+            <div
+              key={index}
+              className="card-container shrink-0 w-[300px]"
+              style={{ willChange: "transform" }}
+            >
+              <Card1
+                title={service.title}
+                id={service.id}
+                img={service.image}
+              />
             </div>
           ))}
         </div>
