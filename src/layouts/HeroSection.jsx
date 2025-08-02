@@ -2,7 +2,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from 'react-router-dom';
-import v1Video from "../assets/hero3.mp4";
+import v1Video from "../assets/hero4.mp4";
 import heroPoster from '../assets/images/heroPoster.png';
 
 export default function HeroSection() {
@@ -37,7 +37,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-secondary/60" />
 
         {/* Fog Effect - Top Left */}
-        <div className="absolute -top-36 -left-36 w-[420px] md:w-[450px] h-[420px] md:h-[450px] bg-white opacity-60 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-36 -left-36 w-[420px] md:w-[450px] h-[420px] md:h-[450px] bg-primary opacity-60 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Content */}

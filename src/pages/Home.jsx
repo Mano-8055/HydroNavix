@@ -1,6 +1,7 @@
 import HeroSection from "../layouts/HeroSection";
 import AiInnovationSection from "../layouts/AiInnovationSection";
 import VrExperienceSection from "../layouts/VrExperienceSection";
+import DronePreviewSection from "../layouts/DronePreviewSection";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <AiInnovationSection />
       <VrExperienceSection />
+      <DronePreviewSection />
     </div>
   );
 }
