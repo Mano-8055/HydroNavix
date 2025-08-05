@@ -46,7 +46,7 @@ function App() {
       <HelmetProvider>
         <Router>
           <Header />
-          <CursorFollower />
+          {/* <CursorFollower /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/engineering-services" element={<Service />} />

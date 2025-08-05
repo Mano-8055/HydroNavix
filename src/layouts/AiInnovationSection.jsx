@@ -198,8 +198,9 @@ const rightRef = useRef(null);
                 </div>
               </div>
             ))}
-            <button className="w-full bg-secondary text-primary py-4 font-semibold tracking-wider transition-all duration-300 flex items-center justify-center gap-3 hover:bg-secondary/80 hover:shadow-xl group">
-              ACCESS AI PLATFORM
+            <button className="w-full bg-secondary uppercase text-primary py-4 font-semibold tracking-wider transition-all duration-300 flex items-center justify-center gap-3 hover:bg-secondary/80 hover:shadow-xl group">
+              {/* ACCESS AI PLATFORM */}
+              Coming Soon
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
           </div>

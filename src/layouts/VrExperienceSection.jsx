@@ -89,8 +89,9 @@ export default function VrExperienceSection() {
               ))}
             </div>
 
-            <button className="w-full md:w-fit group bg-LightBlue text-secondary px-4 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center justify-center md:justify-start gap-3 hover:bg-LightBlue hover:shadow-xl transform hover:-translate-y-1">
-              EXPLORE VR/AR PREVIEW
+            <button className="w-full md:w-fit uppercase group bg-LightBlue text-secondary px-4 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center justify-center md:justify-start gap-3 hover:bg-LightBlue hover:shadow-xl transform hover:-translate-y-1">
+              {/* EXPLORE VR/AR PREVIEW */}
+              Coming soon
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
           </div>

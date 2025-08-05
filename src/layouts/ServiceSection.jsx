@@ -4,7 +4,7 @@ import Card1 from "../components/Card1";
 import { Services } from "../json/services";
 
 const CARD_WIDTH = 300;
-const CARD_MARGIN = 24;
+const CARD_MARGIN = 30;
 
 const ServiceSection = () => {
   const containerRef = useRef(null);
@@ -44,7 +44,7 @@ const ServiceSection = () => {
         const distanceFromCenter = Math.abs(containerCenter - cardCenter);
         const maxDistance = containerRect.width / 2;
 
-        const scale = distanceFromCenter < 150 ? 1.1 : 0.95;
+        const scale = distanceFromCenter < 150 ? 1.2 : 0.95;
         gsap.to(card, { scale, duration: 0.3, ease: "power2.out" });
       });
     };
@@ -78,7 +78,7 @@ const ServiceSection = () => {
       >
         <div
           ref={trackRef}
-          className="flex w-max gap-6"
+          className="flex w-max gap-10"
           style={{ willChange: "transform" }}
         >
           {repeatedServices.map((service, index) => (

@@ -37,17 +37,17 @@ const Mp6 = () => {
       {/* Content */}
       <section ref={section6Ref} className="relative z-20 text-primary mx-2 md:mx-20 my-20 px-10 py-14 md:py-20 flex justify-center items-center">
         <div className="flex flex-col items-center text-center max-w-2xl">
-          <h2 className="text-3xl md:text-5xl font-semibold text-primary mb-2">
-            Need support? <br className='block md:hidden' /> We're here
+          <h2 className="text-2xl md:text-5xl font-semibold text-primary mb-2">
+            Ready to grow your career? <br className="block md:hidden" /> Join us
           </h2>
           <p className="text-sm md:text-lg font-medium text-primary mb-6">
-            Hydronavix can step in with the right people at the right time
+            At Hydronavix, we're always looking for passionate individuals to help shape the future of marine technology
           </p>
           <a
-            href="mailto:manpower@hydronavixmarine.com"
+            href="mailto:careers@hydronavixmarine.com"
             className="flex items-center gap-2 bg-primary text-secondary text-md font-medium rounded-full px-6 py-3 w-fit hover:bg-accent hover:text-primary hover:shadow-lg transform transition-all duration-300 ease-in-out"
           >
-            <FaEnvelope /> manpower@hydronavixmarine.com
+            <FaEnvelope /> careers@hydronavixmarine.com
           </a>
         </div>
       </section>

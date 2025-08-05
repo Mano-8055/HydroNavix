@@ -23,7 +23,7 @@ const Manpower = () => {
       <Mp3 />
       <Mp4 />
       <Mp5 />
-      <Mp6 />
+      {/* <Mp6 /> */}
     </div>
   );
 };

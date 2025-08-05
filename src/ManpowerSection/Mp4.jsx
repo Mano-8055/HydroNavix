@@ -48,7 +48,7 @@ const Mp4 = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1 */}
-          <div className="relative bg-secondary text-primary p-8 rounded-3xl overflow-hidden min-h-[300px] lg:row-span-2 flex flex-col justify-start group">
+          <div className="relative bg-secondary text-primary cursor-follow p-8 rounded-3xl overflow-hidden min-h-[300px] lg:row-span-2 flex flex-col justify-start group">
             <div className="relative z-10 w-full lg:w-3/5">
               <h3 className="text-3xl font-bold mb-4">{industrySectors[0].title}</h3>
               <p className="text-primary font-medium">{industrySectors[0].description}</p>
@@ -61,7 +61,7 @@ const Mp4 = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="relative bg-secondary text-primary p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-end">
+          <div className="relative bg-secondary text-primary cursor-follow p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-end">
             <img 
               src={industrySectors[1].image} 
               alt={industrySectors[1].title} 
@@ -74,7 +74,7 @@ const Mp4 = () => {
           </div>
           
           {/* Card 3 */}
-          <div className="relative bg-secondary text-primary p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-start">
+          <div className="relative bg-secondary text-primary cursor-follow p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-start">
             <div className="relative z-10 w-full lg:w-4/5">
               <h3 className="text-2xl font-bold mb-3">{industrySectors[2].title}</h3>
               <p className="text-primary font-medium">{industrySectors[2].description}</p>
@@ -89,7 +89,7 @@ const Mp4 = () => {
           {/* Bottom Row */}
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Card 4 */}
-            <div className="relative bg-secondary text-primary p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-end">
+            <div className="relative bg-secondary text-primary cursor-follow p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-end">
               <img 
                 src={industrySectors[3].image} 
                 alt={industrySectors[3].title} 
@@ -102,7 +102,7 @@ const Mp4 = () => {
             </div>
 
             {/* Card 5 (Keep Same) */}
-            <div className="relative bg-secondary text-primary p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-end">
+            <div className="relative bg-secondary text-primary cursor-follow p-8 rounded-3xl overflow-hidden min-h-[300px] flex flex-col group justify-end">
               <img 
                 src={industrySectors[4].image} 
                 alt={industrySectors[4].title} 

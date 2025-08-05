@@ -41,25 +41,25 @@ const Contact = () => {
   }, []);
 
   useEffect(() => {
-  if (socialsRef.current) {
-    const childrenArray = Array.from(socialsRef.current.children);
+    if (socialsRef.current) {
+      const childrenArray = Array.from(socialsRef.current.children);
 
-    gsap.fromTo(
-      childrenArray,
-      {
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.6,
-        ease: "power3.out",
-      }
-    );
-  }
-}, []);
+      gsap.fromTo(
+        childrenArray,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.6,
+          ease: "power3.out",
+        }
+      );
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,47 +73,69 @@ const Contact = () => {
   return (
     <div className="text-secondary min-h-screen py-28 md:pt-32">
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           <div className="flex flex-col gap-1">
             <FadeWords
               text="Contact"
               controls={titleControls}
               className="text-2xl sm:text-4xl font-semibold tracking-tight"
             />
-            <p className="text-md font-medium text-secondary/70">Reach out today and let’s power your project <br />with the right engineering team</p>
+            <p className="text-md font-medium text-secondary/70">
+              Reach out today and let’s power your project <br />
+              with the right engineering team
+            </p>
           </div>
-          <div
-            className="grid grid-col-2 md:grid-cols-3 gap-4 text-secondary/70 text-sm"
-          >
-            <div className="flex col-span-2 md:col-span-1 items-start gap-3">
-              <FaMapMarkerAlt className="mt-1 text-secondary" />
-              <div>
+          <div className="grid grid-col-2 md:grid-cols-2 gap-4 md:gap-4 text-secondary/70 text-sm">
+            {/* Address */}
+            <div className="flex items-start gap-2">
+              <FaMapMarkerAlt className="mt-1 text-secondary flex-shrink-0" />
+              <div className="min-w-0">
                 <h4 className="text-secondary font-semibold">Address</h4>
-                <p>1234 Pine Street, San Francisco, CA 94109</p>
+                <p className="break-words capitalize">
+                  Ajman free zone, C1 Building, C1-F1-Sf11705, Ajman, U.A.E
+                </p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <FaEnvelope className="mt-1 text-secondary" />
-              <div>
+
+            {/* Email */}
+            <div className="flex items-start gap-2">
+              <FaEnvelope className="mt-1 text-secondary flex-shrink-0" />
+              <div className="min-w-0">
                 <h4 className="text-secondary font-semibold">Email</h4>
-                <p>hello@ondex.com</p>
+                <p className="break-words">info@hydronavixmarine.com</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <FaPhoneAlt className="mt-1 text-secondary" />
-              <div>
+
+             {/* Landline*/}
+            <div className="flex items-start gap-2">
+              <FaPhoneAlt className="mt-1 text-secondary flex-shrink-0" />
+              <div className="min-w-0">
+                <h4 className="text-secondary font-semibold">Landline</h4>
+                <p className="break-words font-mono">
+                 065221553
+                </p>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-start gap-2">
+              <FaPhoneAlt className="mt-1 text-secondary flex-shrink-0" />
+              <div className="min-w-0">
                 <h4 className="text-secondary font-semibold">Phone</h4>
-                <p>(415) 876-5432</p>
+                <p className="break-words font-mono">
+                  +971-564048037 | +971-564048037
+                </p>
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-16 text-secondary">
+      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-16 text-secondary">
         {/* Left: Info & Socials */}
-        <div className="space-y-10">
+        <div className="space-y-5 md:space-y-10">
           <div>
             <div className="flex items-center gap-2 uppercase text-md tracking-widest font-medium text-secondary/80">
               <HiArrowUturnRight /> Information
@@ -121,10 +143,16 @@ const Contact = () => {
           </div>
 
           {/* Social Media Icons with Labels */}
-          <div ref={socialsRef} className="flex flex-row md:flex-col gap-6 text-bg-secondary text-sm">
+          <div
+            ref={socialsRef}
+            className="flex flex-row md:flex-col gap-6 text-bg-secondary text-sm"
+          >
             {[
               { href: "https://instagram.com", icon: <FaInstagram /> },
-              { href: "https://linkedin.com", icon: <FaLinkedinIn /> },
+              {
+                href: "https://www.linkedin.com/in/hydronavix-marine-and-offshore-engineering-0b99a2373/",
+                icon: <FaLinkedinIn />,
+              },
               { href: "https://twitter.com", icon: <FaTwitter /> },
               { href: "https://facebook.com", icon: <FaFacebookF /> },
             ].map((item, i) => (
@@ -138,7 +166,6 @@ const Contact = () => {
                 {item.icon}
               </a>
             ))}
-
           </div>
         </div>
 

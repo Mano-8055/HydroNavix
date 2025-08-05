@@ -1,11 +1,17 @@
 import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
-import { navItems } from "../json/Navbar"; 
+import { navItems } from "../json/Navbar";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { TbDeviceLandlinePhone } from "react-icons/tb";
 import Logo from "./Logo";
 
 const Footer = () => {
   const footerLinksItems = [
-    { text: "Instagram", href: "#", icon: AiFillInstagram },
-    { text: "LinkedIn", href: "#", icon: AiFillLinkedin },
+    { text: "Instagram", href: "", icon: AiFillInstagram },
+    {
+      text: "LinkedIn",
+      href: "https://www.linkedin.com/in/hydronavix-marine-and-offshore-engineering-0b99a2373/",
+      icon: AiFillLinkedin,
+    },
   ];
 
   return (
@@ -16,8 +22,34 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Logo />
-            <p className="text-primary/70 mb-2 text-sm mt-4">info@hydronavix.com</p>
-            <p className="text-primary/70 text-sm">+91 - 00000 00000</p>
+
+            {/* Address */}
+            <p className="flex items-start gap-2 capitalize text-primary/70 text-sm mt-6">
+              <FaMapMarkerAlt className="text-primary/70 mt-0.5" />
+              Ajman free zone, C1 Building, C1-F1-Sf11705, Ajman, U.A.E
+            </p>
+
+            {/* Email */}
+            <p className="flex items-start gap-2 lowercase text-primary/70 text-sm mt-1">
+              <FaEnvelope className="text-primary/70 mt-0.5" />
+              info@hydronavixmarine.com
+            </p>
+
+            {/* Landline */}
+            <div className="flex items-start gap-2 text-primary/70 text-sm mt-1">
+              <FaPhoneAlt className="text-primary/70 mt-0.5" />
+              <div>
+                <span className="font-medium mr-1">Landline:</span> 065221553
+              </div>
+            </div>
+
+            {/* Mobile Phones */}
+            <div className="flex items-start gap-2 text-primary/70 text-sm mt-1">
+              <FaPhoneAlt className="text-primary/70 mt-0.5" />
+              <div>
+                +971 - 564048037 | +971 - 564048037
+              </div>
+            </div>
           </div>
 
           {/* Location Columns
@@ -97,6 +129,7 @@ const Footer = () => {
               <a
                 key={index}
                 href={link.href}
+                target="_blank"
                 className="hover:text-accent transition-colors"
               >
                 <link.icon className="text-xl" />
