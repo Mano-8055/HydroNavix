@@ -15,11 +15,11 @@ export default function Home() {
     <div className="text-secondary">
       <HeroSection />
       <DronePreviewSection />
-      <VrExperienceSection />
       <AiInnovationSection />
+      <VrExperienceSection />
       <FloatingWhatsApp
         phoneNumber="+971564048037"
-        accountName="Hydro Navix Marine"
+        accountName="HydroNavixMarine"
         avatar={Logo}
         initialMessageByServer="How can I assist you?"
         statusMessage="Available"

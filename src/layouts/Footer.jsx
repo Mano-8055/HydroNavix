@@ -24,9 +24,13 @@ const Footer = () => {
             <Logo />
 
             {/* Address */}
-            <p className="flex items-start gap-2 capitalize text-primary/70 text-sm mt-6">
-              <FaMapMarkerAlt className="text-primary/70 mt-0.5" />
+            <div className="text-bold text-lg mt-6"></div>
+            <p className="flex items-start gap-2 capitalize text-primary/70 text-sm mt-1">
+              <FaMapMarkerAlt className="text-primary/70 mt-1" />
+              <div>
+              <div className="font-semibold text-lg">UAE</div>
               Ajman free zone, C1 Building, C1-F1-Sf11705, Ajman, U.A.E
+              </div>
             </p>
 
             {/* Email */}
@@ -36,7 +40,7 @@ const Footer = () => {
             </p>
 
             {/* Landline */}
-            <div className="flex items-start gap-2 text-primary/70 text-sm mt-1">
+            <div className="flex items-start gap-2 text-primary/70 font-mono text-sm mt-1">
               <FaPhoneAlt className="text-primary/70 mt-0.5" />
               <div>
                 <span className="font-medium mr-1">Landline:</span> 065221553
@@ -44,10 +48,10 @@ const Footer = () => {
             </div>
 
             {/* Mobile Phones */}
-            <div className="flex items-start gap-2 text-primary/70 text-sm mt-1">
+            <div className="flex items-start gap-2 text-primary/70 font-mono text-sm mt-1">
               <FaPhoneAlt className="text-primary/70 mt-0.5" />
               <div>
-                +971 - 564048037 | +971 - 564048037
+                +971-564048037 | +971-564048037
               </div>
             </div>
           </div>

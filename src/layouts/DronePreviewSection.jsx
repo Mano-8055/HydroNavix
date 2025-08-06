@@ -85,7 +85,38 @@ export default function DroneOverviewModern() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10 grid lg:grid-cols-2 items-center gap-12">
-        {/* left */}
+
+        {/* right */}
+        <div ref={textRef}>
+          <h2 className="text-3xl md:text-5xl font-bold leading-snug mb-6">
+            Drone-Driven{" "}
+            <span className="text-LightBlue">Asset Intelligence</span>
+          </h2>
+          <p className="text-secondary/80 text-md md:text-lg mb-6">
+            From hull inspections to complete 3D reconstructions, HydroNavix
+            delivers faster data and smarter insights through air and subsea
+            drones.
+          </p>
+
+          <div className="space-y-3 mb-8">
+            {services.map((s, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 text-sm md:text-base font-medium"
+              >
+                {s.icon}
+                <span>{s.title}</span>
+              </div>
+            ))}
+          </div>
+
+          <button onClick={() => navigate('/drone')} className="inline-flex items-center gap-3 border-2 border-secondary px-5 py-3 font-semibold hover:bg-secondary hover:text-primary transition-all">
+            Explore Drone Services
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+                {/* left */}
         <div ref={videoRef} className="relative cursor-follow">
           <div className="relative aspect-video w-full overflow-hidden shadow-xl border-4 border-secondary group">
             <video
@@ -121,36 +152,11 @@ export default function DroneOverviewModern() {
           </div>
         </div>
 
-        {/* right */}
-        <div ref={textRef}>
-          <h2 className="text-3xl md:text-5xl font-bold leading-snug mb-6">
-            Drone-Driven{" "}
-            <span className="text-LightBlue">Asset Intelligence</span>
-          </h2>
-          <p className="text-secondary/80 text-md md:text-lg mb-6">
-            From hull inspections to complete 3D reconstructions, HydroNavix
-            delivers faster data and smarter insights through air and subsea
-            drones.
-          </p>
 
-          <div className="space-y-3 mb-8">
-            {services.map((s, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 text-sm md:text-base font-medium"
-              >
-                {s.icon}
-                <span>{s.title}</span>
-              </div>
-            ))}
-          </div>
-
-          <button onClick={() => navigate('/drone')} className="inline-flex items-center gap-3 border-2 border-secondary px-5 py-3 font-semibold hover:bg-secondary hover:text-primary transition-all">
-            Explore Drone Services
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
       </div>
+
+
+      
     </section>
   );
 }
