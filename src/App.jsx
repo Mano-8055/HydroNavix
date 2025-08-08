@@ -41,6 +41,14 @@ function App() {
 
   if (isLoading) return <Preload />;
 
+    // useEffect(() => {
+    //   if (window.location.protocol !== 'https:') {
+    //     const httpsUrl = `https://${window.location.hostname}${window.location.pathname}${window.location.search}`;
+    //     window.location.replace(httpsUrl);
+    //   }
+    // }, []);
+
+
   return (
     <div>
       <HelmetProvider>
