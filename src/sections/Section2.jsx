@@ -52,19 +52,16 @@ const Section2 = () => {
         <div ref={leftRef} className="space-y-8">
           <div>
             <h2 className="text-2xl sm:text-4xl text-center font-semibold leading-tight text-secondary">
-              OUR STORY
+              ABOUT US 
             </h2>
           </div>
 
           <div className="space-y-6 text-secondary text-justify text-lg md:text-xl font-medium leading-relaxed">
             <p className="fade-para">
-              Hydronavix was not created in a boardroom; it was shaped by real experiences, on real waters. Our roots lie in a deep understanding of marine and offshore challenges, gained through years of hands-on exposure and engineering work in the field.
+              HydroNavix Marine and Offshore Engineering is a next-generation engineering firm redefining how marine, offshore, and oil & gas projects are designed, built, and maintained. Based in the UAE and driven by innovation, we blend traditional naval engineering expertise with cutting-edge technologies including AI, VR/AR, Digital Twins, and drone-based intelligence to deliver faster, smarter, and more efficient solutions to our clients worldwide.
             </p>
             <p className="fade-para">
-              Raised with a mindset to help and improve lives, we've always believed that every challenge has a solution. Entering the marine world wasn't a choice it was a natural evolution. We studied the sea, understood its forces, and worked with the structures, systems, and vessels that move it forward.
-            </p>
-            <p className="fade-para">
-              Through years of engineering design, construction, retrofits, and innovation, we've gained the expertise to deliver solutions that are practical, intelligent, and future-ready. Hydronavix is the result of that journey designed to meet the evolving needs of global marine and offshore industries.
+              From 2D/3D design and structural analysis to predictive maintenance, immersive digital walkthroughs, and real-time inspections, we cover the full lifecycle of marine and offshore assets. Our agile, cross-disciplinary team consists of experienced engineers, certified inspectors, and future-facing technologists working together to bring precision, safety, and innovation to every project.
             </p>
           </div>
         </div>

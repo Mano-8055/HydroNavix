@@ -25,13 +25,15 @@ const Footer = () => {
 
             {/* Address */}
             <div className="text-bold text-lg mt-6"></div>
-            <p className="flex items-start gap-2 capitalize text-primary/70 text-sm mt-1">
-              <FaMapMarkerAlt className="text-primary/70 mt-1" />
-              <div>
+            <div className="flex flex-col items-start gap-1 capitalize text-primary/70 text-sm mt-1">
               <div className="font-semibold text-lg">UAE</div>
-              Ajman free zone, C1 Building, C1-F1-Sf11705, Ajman, U.A.E
+              <div className="flex items-start gap-2 text-primary/70 text-sm mt-1">
+                <FaMapMarkerAlt className="text-primary/70" />
+                <div>
+                Ajman free zone, C1 Building, C1-F1-Sf11705, Ajman, U.A.E
+                </div>
               </div>
-            </p>
+            </div>
 
             {/* Email */}
             <p className="flex items-start gap-2 lowercase text-primary/70 text-sm mt-1">

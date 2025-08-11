@@ -34,6 +34,33 @@ import s51Img from '../assets/services/s51.webp';
 import s52Img from '../assets/services/s52.webp';
 import s53Img from '../assets/services/s53.webp';
 
+import s6Img from '../assets/services/s6.webp';
+import s61Img from '../assets/services/s61.webp';
+import s62Img from '../assets/services/s62.webp';
+import s63Img from '../assets/services/s63.webp';
+import s64Img from '../assets/services/s64.webp';
+import s65Img from '../assets/services/s65.webp';
+import s66Img from '../assets/services/s66.webp';
+import s67Img from '../assets/services/s67.webp';
+
+import s7Img from '../assets/services/s7.webp';
+import s71Img from '../assets/services/s71.webp';
+import s72Img from '../assets/services/s72.webp';
+import s73Img from '../assets/services/s73.webp';
+import s74Img from '../assets/services/s74.webp';
+import s75Img from '../assets/services/s75.webp';
+import s76Img from '../assets/services/s76.webp';
+import s77Img from '../assets/services/s77.webp';
+
+import s8Img from '../assets/services/s8.webp';
+import s81Img from '../assets/services/s81.webp';
+import s82Img from '../assets/services/s82.webp';
+import s83Img from '../assets/services/s83.webp';
+import s84Img from '../assets/services/s84.webp';
+import s85Img from '../assets/services/s85.webp';
+import s86Img from '../assets/services/s86.webp';
+import s87Img from '../assets/services/s87.webp';
+
 export const Services = [
   {
     id: "engineering-design-services",
@@ -81,7 +108,7 @@ export const Services = [
       { title: "Offshore Platform Design", description: "Fixed and floating platform layout planning, deck loading, module integration.", image: s43Img },
       { title: "Jacket and Substructure Design", description: "Design and global/local analysis for offshore jackets, braces, piles, and grouted connections.", image: s44Img },
       { title: "Geotechnical Studies", description: "Soil interaction and pile capacity assessment for jack-ups and fixed platforms.", image: s45Img },
-      { title: "Control Room Design", description: "Human-centric control cabin and ECR layouts for safe offshore and marine operations.", image: s46Img },
+      { title: "Control Room Design", description: "Ergonomics control cabin and ECR layouts for safe offshore and marine operations.", image: s46Img },
       { title: "Bridge and Access Design", description: "Design of gangways, bridges, and access systems between platforms and support vessels.", image: s47Img },
       { title: "Buoy Systems", description: "Design of SPMs, marker buoys, mooring buoys, and tethered floating aids.", image: s48Img },
     ],
@@ -94,6 +121,48 @@ export const Services = [
       { title: "Solar and Hybrid Marine Power", description: "Design integration of solar arrays, battery banks, and hybrid propulsion systems.", image: s51Img },
       { title: "Offshore Wind Engineering", description: "Substation layouts, floating wind platform studies, cable routing, and mooring analysis.", image: s52Img },
       { title: "Refinery Revamp Planning", description: "Modular planning, routing review, and layout updates for refinery upgrade and brownfield works.", image: s53Img },
+    ],
+  },
+  {
+    id: "qaqc-inspection",
+    title: "QA/QC Inspection",
+    image: s6Img,
+    services: [
+      { title: "Non-Destructive Testing (NDT)", description: "Ultrasonic Testing (UT), Radiographic Testing (RT), Magnetic Particle Testing (MT), Liquid Penetrant Testing (PT).", image: s61Img },
+      { title: "Welding Inspection", description: "Visual Inspection, WPS/PQR validation, Joint fit-up, Weld profile checks, Welder qualification.", image: s62Img },
+      { title: "Dimensional & Structural Checks", description: "Tolerance verification, flange face flatness, structural alignment.", image: s63Img },
+      { title: "Coating & Surface Inspection", description: "DFT measurement, adhesion test, surface profile, holiday testing.", image: s64Img },
+      { title: "Tank & Vessel QA", description: "API 650, ASME Section VIII compliance, hydrostatic testing, leak testing.", image: s65Img },
+      { title: "Factory Acceptance Testing (FAT)", description: "Pre-dispatch QA for packaged skids, control panels, and marine machinery.", image: s66Img },
+      { title: "Documentation & ITPs", description: "Inspection & Test Plans, audit documentation, traceability control.", image: s67Img },
+    ],
+  },
+  {
+    id: "subsea-piping-integrity",
+    title: "Subsea Piping & Integrity Services",
+    image: s7Img,
+    services: [
+      { title: "Subsea Pipeline Design & Drafting", description: "Routing, tie-in planning, 3D modeling, isometrics, spool drawings, launcher/receiver trap layouts.", image: s71Img },
+      { title: "Pigging Tool Engineering & Manufacturing", description: "Conceptual and detailed design of cleaning, batching, and inspection pigs for standard and complex pipelines.", image: s72Img },
+      { title: "Inline Inspection (ILI) Support", description: "Consultancy for ILI tool design, vendor liaison, feasibility studies, low-flow and multi-diameter solutions.", image: s73Img },
+      { title: "Post-Inspection Data Interpretation", description: "Defect mapping, corrosion modeling, life estimation, compliance with offshore pipeline codes.", image: s74Img },
+      { title: "Integrity Engineering & Risk Advisory", description: "FFS assessments, risk ranking, IMP development, subsea repair planning.", image: s75Img },
+      { title: "Applications", description: "Services for subsea fields, FPSOs, platforms, interfield lines, shore approaches, and aging systems.", image: s76Img },
+      { title: "Deliverables", description: "Design packages, pigging strategies, inspection readiness assessments, actionable reports.", image: s77Img },
+    ],
+  },
+  {
+    id: "structural-weighing-cog-analysis",
+    title: "Structural Weighing & COG Analysis",
+    image: s8Img,
+    services: [
+      { title: "Live Structural Weighing", description: "On-site weighing using calibrated load cells or hydraulic jacks with real-time distributed weight data.", image: s81Img },
+      { title: "Centre of Gravity (COG) Analysis", description: "Accurate 3D COG determination, tilt and imbalance checks, shift monitoring.", image: s82Img },
+      { title: "Weight Control Program (WCP)", description: "Weight estimation, progressive tracking, variance control, and monthly WCR reports.", image: s83Img },
+      { title: "Load-Out Engineering Support", description: "Sling arrangement, padeye load calculation, skidding/trailer analysis, marine transport load cases.", image: s84Img },
+      { title: "Regulatory & Client Compliance", description: "Procedures aligned with Noble Denton, ISO 19901, DNV-ST-N001, and client-specific standards.", image: s85Img },
+      { title: "Applications", description: "Support for offshore modules, jackets, load-outs, brownfield upgrades, emergency balance assessments.", image: s86Img },
+      { title: "Deliverables", description: "Weight verification reports, certified COG calculations, annotated drawings, lift-readiness packages.", image: s87Img },
     ],
   },
 ];

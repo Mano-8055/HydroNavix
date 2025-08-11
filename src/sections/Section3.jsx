@@ -82,11 +82,10 @@ const Section3 = () => {
           <h2 className="text-2xl sm:text-4xl text-secondary leading-tight font-semibold mb-5">
             OUR VISION
           </h2>
-          <h3 className="text-xl md:text-2xl leading-tight">
-            To engineer a future where marine and offshore projects are driven
-            by intelligence, sustainability, and practical impact
+          <h3 className="text-xl md:text-2xl leading-tight text-justify">
+           To shape a globally adaptive marine future by pioneering intelligent infrastructure, advancing environmental resilience, and building long-term value through transformative engineering.
           </h3>
-          <p className="text-md md:text-lg leading-relaxed">
+          <p className="text-md md:text-lg leading-relaxed text-justify">
             We see a connected world where vessels, platforms, and marine assets
             operate smarter, safer, and more efficiently powered by digital
             technologies and solid engineering.

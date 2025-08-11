@@ -115,7 +115,7 @@ const Section6 = () => {
       
       <div className="text-center mb-10">
         <h2 className="rd-heading text-2xl sm:text-4xl font-semibold text-secondary mb-2.5">
-          R&D AND OUR 2040 OUTLOOK
+          R&D AND OUR 2030 OUTLOOK
         </h2>
         <p className="rd-subtext text-lg md:text-xl font-normal text-secondary/60 max-w-4xl mx-auto leading-relaxed">
           Innovation is at the core of Hydronavix. Our current R&D efforts focus on

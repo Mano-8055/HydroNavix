@@ -113,9 +113,8 @@ const Section4 = () => {
 
         <div ref={missionTextRef} className="opacity-0 w-full">
           <p className="text-xl md:text-3xl font-600 text-accent-200 mb-16 max-w-5xl mx-auto leading-tight">
-            To deliver high-performance engineering solutions by combining precision, innovation, and smart technology helping marine and offshore industries work faster, safer, and with greater clarity.
+            To execute high-impact technical programs through data-rich modeling, modular project strategies, immersive spatial visualization, and next-gen automation enabling faster decision-making, enhanced uptime, and lifecycle-driven asset performance across maritime domains.
           </p>
-
         </div>
       </div>
 
