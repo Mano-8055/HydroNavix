@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="flex items-start gap-2 text-primary/70 font-mono text-sm mt-1">
               <FaPhoneAlt className="text-primary/70 mt-0.5" />
               <div>
-                +971-564048037 | +971-564048037
+                +971-564048037 | +971-564048026
               </div>
             </div>
           </div>

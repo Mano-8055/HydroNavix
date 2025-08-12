@@ -124,7 +124,7 @@ const Contact = () => {
               <div className="min-w-0">
                 <h4 className="text-secondary font-semibold">Phone</h4>
                 <p className="break-words font-mono">
-                  +971-564048037 | +971-564048037
+                  +971-564048037 | +971-564048026
                 </p>
               </div>
             </div>

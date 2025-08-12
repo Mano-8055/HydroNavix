@@ -12,7 +12,7 @@ export default function Openpos() {
       type: 'Freelance',
       location: 'Remote',
       description: 'Design and oversee construction of marine vessels and offshore structures with focus on performance and safety standards.',
-      tags: ['Remote Integration', 'New York City']
+      tags: ['Remote Integration', 'UAE - Dubai']
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function Openpos() {
       type: 'Full-time',
       location: 'On-site',
       description: 'Analyze and design structural systems for marine and offshore applications ensuring compliance with international standards.',
-      tags: ['Systems Integration', 'San Francisco']
+      tags: ['Systems Integration', 'UAE - Dubai']
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function Openpos() {
       type: 'Full-time',
       location: 'On-site',
       description: 'Design and develop piping systems for marine vessels and industrial facilities with focus on efficiency and safety.',
-      tags: ['Process Design', 'New York City']
+      tags: ['Process Design', 'UAE - Dubai']
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ export default function Openpos() {
       type: 'Full-time',
       location: 'On-site',
       description: 'Design electrical and instrumentation systems for marine and offshore projects ensuring optimal performance.',
-      tags: ['Control Systems', 'San Francisco']
+      tags: ['Control Systems', 'UAE - Dubai']
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ export default function Openpos() {
       type: 'Full-time',
       location: 'On-site',
       description: 'Create detailed technical drawings and plans for structural components using CAD software and engineering specifications.',
-      tags: ['Technical Drawing', 'New York City']
+      tags: ['Technical Drawing', 'UAE - Dubai']
     },
     {
       id: 6,
@@ -57,7 +57,7 @@ export default function Openpos() {
       type: 'Full-time',
       location: 'On-site',
       description: 'Develop comprehensive piping drawings and isometric diagrams for marine and industrial piping systems.',
-      tags: ['CAD Design', 'San Francisco']
+      tags: ['CAD Design', 'UAE - Dubai']
     },
     {
       id: 7,
@@ -66,7 +66,7 @@ export default function Openpos() {
       type: 'Full-time',
       location: 'On-site',
       description: 'Produce detailed electrical and instrumentation drawings including schematics, panel layouts, and cable routing.',
-      tags: ['Electrical Design', 'New York City']
+      tags: ['Electrical Design', 'UAE - Dubai']
     }
   ];
 
