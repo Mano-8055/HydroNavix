@@ -2,7 +2,7 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const Card1 = ({ title, id, img }) => {
   return (
-    <div className="relative group h-72 w-full overflow-hidden shadow-md cursor-pointer">
+    <div className="relative group h-72 overflow-hidden shadow-md cursor-pointer">
       <a href={`/engineering-services/${id}`} className="block w-full h-full">
         
         {/* Background Image with Zoom Effect */}

@@ -15,8 +15,8 @@ const Service = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-32 text-center">
-      <div className="flex flex-col gap-1 items-center justify-center pb-4 md:pb-8">
+    <div className="min-h-screen flex flex-col items-center justify-center py-32 text-center">
+      <div className="flex flex-col gap-1 items-center justify-center pb-4 px-4 md:pb-8">
         <FadeWords
           text="ENGINEERING SERVICES"
           controls={titleControls}
@@ -27,7 +27,9 @@ const Service = () => {
         </p>
       </div>
 
-      <ServiceSection />
+      <div className="w-full mx-auto">
+        <ServiceSection />
+      </div>
     </div>
   );
 };
