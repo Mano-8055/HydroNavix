@@ -12,6 +12,7 @@ import {
 import { HiArrowUturnRight } from "react-icons/hi2";
 import { useAnimation } from "framer-motion";
 import FadeWords from "../components/FadeWords";
+import contactImg from "../assets/contact.png";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -107,14 +108,12 @@ const Contact = () => {
               </div>
             </div>
 
-             {/* Landline*/}
+            {/* Landline*/}
             <div className="flex items-start gap-2">
               <FaPhoneAlt className="mt-1 text-secondary flex-shrink-0" />
               <div className="min-w-0">
                 <h4 className="text-secondary font-semibold">Landline</h4>
-                <p className="break-words font-mono">
-                 065221553
-                </p>
+                <p className="break-words font-mono">065221553</p>
               </div>
             </div>
 
@@ -128,45 +127,54 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-16 text-secondary">
+      <div className="max-w-7xl mx-auto px-4 py-5 md:py-12 grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-16 text-secondary">
         {/* Left: Info & Socials */}
-        <div className="space-y-5 md:space-y-10">
+        <div className="space-y-5">
           <div>
             <div className="flex items-center gap-2 uppercase text-md tracking-widest font-medium text-secondary/80">
               <HiArrowUturnRight /> Information
             </div>
           </div>
 
-          {/* Social Media Icons with Labels */}
-          <div
-            ref={socialsRef}
-            className="flex flex-row md:flex-col gap-6 text-bg-secondary text-sm"
-          >
-            {[
-              { href: "https://instagram.com", icon: <FaInstagram /> },
-              {
-                href: "https://www.linkedin.com/in/hydronavix-marine-and-offshore-engineering-0b99a2373/",
-                icon: <FaLinkedinIn />,
-              },
-              { href: "https://twitter.com", icon: <FaTwitter /> },
-              { href: "https://facebook.com", icon: <FaFacebookF /> },
-            ].map((item, i) => (
-              <a
-                key={i}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-accent duration-300 transition text-xl"
-              >
-                {item.icon}
-              </a>
-            ))}
+          <div className="relative">
+            {/* Background Image */}
+            <img
+              src={contactImg}
+              alt="Background"
+              className="w-full h-auto md:h-80 object-cover"
+            />
+
+            {/* Social Media Icons Overlay */}
+            <div
+              ref={socialsRef}
+              className="absolute top-2 left-2 flex flex-row md:flex-col gap-5 text-bg-secondary text-sm bg-primary p-2 shadow-lg"
+            >
+              {[
+                { href: "https://instagram.com", icon: <FaInstagram /> },
+                {
+                  href: "https://www.linkedin.com/in/hydronavix-marine-and-offshore-engineering-0b99a2373/",
+                  icon: <FaLinkedinIn />,
+                },
+                { href: "https://twitter.com", icon: <FaTwitter /> },
+                { href: "https://facebook.com", icon: <FaFacebookF /> },
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent duration-300 transition text-lg"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
           </div>
+
         </div>
 
         {/* Right: Contact Form */}

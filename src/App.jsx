@@ -67,7 +67,7 @@ function App() {
             <Route path="/manpower" element={<Manpower />} />
             <Route path="/about" element={<About />} />
             <Route path="/clients" element={<Client />} />
-            <Route path="/career" element={<Career />} />
+            <Route path="/careers" element={<Career />} />
             <Route path="/drone" element={<Drone />} />
           </Routes>
           <Footer />
