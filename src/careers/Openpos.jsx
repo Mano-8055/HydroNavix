@@ -9,64 +9,57 @@ export default function Openpos() {
       id: 1,
       title: 'Naval Architect',
       department: 'Marine Engineering',
-      type: 'Freelance',
-      location: 'Remote',
+      type: 'Full-time',
+      location: 'UAE - Dubai',
       description: 'Design and oversee construction of marine vessels and offshore structures with focus on performance and safety standards.',
-      tags: ['Remote Integration', 'UAE - Dubai']
     },
     {
       id: 2,
       title: 'Structural Engineer',
       department: 'Engineering',
       type: 'Full-time',
-      location: 'On-site',
+      location: 'UAE - Dubai',
       description: 'Analyze and design structural systems for marine and offshore applications ensuring compliance with international standards.',
-      tags: ['Systems Integration', 'UAE - Dubai']
     },
     {
       id: 3,
       title: 'Piping Engineer',
       department: 'Engineering',
       type: 'Full-time',
-      location: 'On-site',
+      location: 'UAE - Dubai',
       description: 'Design and develop piping systems for marine vessels and industrial facilities with focus on efficiency and safety.',
-      tags: ['Process Design', 'UAE - Dubai']
     },
     {
       id: 4,
       title: 'E & I Engineer',
       department: 'Engineering',
       type: 'Full-time',
-      location: 'On-site',
+      location: 'UAE - Dubai',
       description: 'Design electrical and instrumentation systems for marine and offshore projects ensuring optimal performance.',
-      tags: ['Control Systems', 'UAE - Dubai']
     },
     {
       id: 5,
       title: 'Structural Draughtsman',
       department: 'Design',
       type: 'Full-time',
-      location: 'On-site',
+      location: 'UAE - Dubai',
       description: 'Create detailed technical drawings and plans for structural components using CAD software and engineering specifications.',
-      tags: ['Technical Drawing', 'UAE - Dubai']
     },
     {
       id: 6,
       title: 'Piping Draughtsman',
       department: 'Design',
       type: 'Full-time',
-      location: 'On-site',
+      location: 'UAE - Dubai',
       description: 'Develop comprehensive piping drawings and isometric diagrams for marine and industrial piping systems.',
-      tags: ['CAD Design', 'UAE - Dubai']
     },
     {
       id: 7,
       title: 'E & I Draughtsman',
       department: 'Design',
       type: 'Full-time',
-      location: 'On-site',
+      location: 'UAE - Dubai',
       description: 'Produce detailed electrical and instrumentation drawings including schematics, panel layouts, and cable routing.',
-      tags: ['Electrical Design', 'UAE - Dubai']
     }
   ];
 
@@ -116,14 +109,16 @@ export default function Openpos() {
                           {position.title}
                         </h3>
                         <div className="flex flex-wrap gap-2">
-                          {position.tags.map((tag, index) => (
                             <span
-                              key={index}
                               className="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full font-medium"
                             >
-                              {tag}
+                              {position.type}
                             </span>
-                          ))}
+                             <span
+                              className="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full font-medium"
+                            >
+                              {position.location}
+                            </span>
                         </div>
                       </div>
                       <p className="text-secondary/70 text-sm text-justify leading-relaxed max-w-2xl">

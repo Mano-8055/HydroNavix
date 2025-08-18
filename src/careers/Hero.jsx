@@ -49,10 +49,10 @@ const Hero = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 
-                <button className="group border-2 border-secondary text-secondary px-8 py-4 flex items-center justify-center md:justify-normal gap-3 hover:bg-secondary hover:text-primary transition-all duration-200 font-medium">
+                <a href='/careers/#submit-resume' className="group border-2 border-secondary text-secondary px-8 py-4 flex items-center justify-center md:justify-normal gap-3 hover:bg-secondary hover:text-primary transition-all duration-200 font-medium">
                   Submit Resume
                   <span className="text-sm opacity-75">(Future Opportunities)</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>

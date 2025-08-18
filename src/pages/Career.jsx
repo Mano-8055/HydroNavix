@@ -18,6 +18,7 @@ const Career = () => {
       <div id="open-roles">
       <Openpos />
       </div>
+      <div id="submit-resume"></div>
       <Mp6 />
     </div>
   );

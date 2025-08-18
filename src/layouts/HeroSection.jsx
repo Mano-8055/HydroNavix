@@ -1,14 +1,23 @@
 import { ArrowRight, Play } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useNavigate } from 'react-router-dom';
 import v1Video from "../assets/hero4.mp4";
 import heroPoster from '../assets/images/heroPoster.png';
 
 export default function HeroSection() {
   const textRef = useRef(null);
-  const navigate = useNavigate();
+  const [isDisabled, setIsDisabled] = useState(false);
 
+ const handleClick = () => {
+  setIsDisabled(true);
+  window.open(
+    "https://drive.google.com/uc?export=download&id=1p2vmuwjcRA4bzMdb-HekW7BXGPvXM_Bw",
+    "_self"
+  );
+  setTimeout(() => {
+    setIsDisabled(false);
+  }, 3000);
+};
   useEffect(() => {
     gsap.fromTo(
       textRef.current,
@@ -58,10 +67,16 @@ export default function HeroSection() {
               experience converge to define the next era of ocean innovation
             </p>
             <div className="flex justify-center md:justify-normal space-x-2 md:space-x-4">
-              <button
-                onClick={() => navigate('/contact-us')}
-                className="group bg-LightBlue text-secondary px-3 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-1 md:gap-3 hover:bg-LightBlue hover:shadow-xl transform hover:-translate-y-1"
-              >
+               <button
+                  onClick={handleClick}
+                  disabled={isDisabled}
+                  className={`group px-3 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-1 md:gap-3 transform
+                    ${
+                      isDisabled
+                        ? "bg-LightBlue/60 cursor-not-allowed text-secondary/60"
+                        : "bg-LightBlue text-secondary hover:bg-LightBlue hover:shadow-xl hover:-translate-y-1"
+                    }`}
+                >
                 GET STARTED
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </button>
