@@ -38,7 +38,7 @@ const Mp6 = () => {
       <section ref={section6Ref} className="relative z-20 text-primary mx-2 md:mx-20 my-20 px-10 py-14 md:py-20 flex justify-center items-center">
         <div className="flex flex-col items-center text-center max-w-2xl">
           <h2 className="text-2xl md:text-5xl font-semibold text-primary mb-2">
-            Ready to grow your career? <br className="block md:hidden" /> Join us
+            Ready to grow your career? Join us
           </h2>
           <p className="text-sm md:text-lg font-medium text-primary mb-6">
             At Hydronavix, we're always looking for passionate individuals to help shape the future of marine technology
