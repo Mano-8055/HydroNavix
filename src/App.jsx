@@ -19,6 +19,7 @@ import Career from "./pages/Career";
 import Lenis from "@studio-freight/lenis";
 import Home from "./pages/Home";
 import Drone from "./pages/Drone";
+import JobApply from "./components/JobApply";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -68,6 +69,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/clients" element={<Client />} />
             <Route path="/careers" element={<Career />} />
+            <Route path="/careers/:title" element={<JobApply />} />
             <Route path="/drone" element={<Drone />} />
           </Routes>
           <Footer />

@@ -12,7 +12,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="text-secondary">
+    <div className="text-secondary overflow-hidden">
       <HeroSection />
       <DronePreviewSection />
       <AiInnovationSection />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import Job from "../json/Job";
+import { Link } from "react-router-dom";
 
 export default function Openpos() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -68,11 +69,11 @@ export default function Openpos() {
                           {position.shortDescription}
                         </p>
                       </div>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLScKEnJn5A9Xm1IAF2PJx6_b118X0hg8nBIj96St7GD-4Lp4Ow/viewform" target="_blank"
+                      <Link to={`/careers/${position.title.toLowerCase().replace(/\s+/g, "-")}`}
                         className="self-start md:self-auto px-6 py-2 bg-secondary text-primary text-sm font-medium rounded-full hover:bg-secondary/50 transition-colors flex-shrink-0"
                       >
                         Apply
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ))}
