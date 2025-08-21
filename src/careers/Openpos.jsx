@@ -1,7 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Search } from "lucide-react";
 import Job from "../json/Job";
 import { Link } from "react-router-dom";
+
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .replace(/&/g, "and")       
+    .replace(/[^a-z0-9]+/g, "-")  
+    .replace(/^-+|-+$/g, "");  
 
 export default function Openpos() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -69,7 +76,7 @@ export default function Openpos() {
                           {position.shortDescription}
                         </p>
                       </div>
-                      <Link to={`/careers/${position.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      <Link to={`/careers/${slugify(position.title)}`}
                         className="self-start md:self-auto px-6 py-2 bg-secondary text-primary text-sm font-medium rounded-full hover:bg-secondary/50 transition-colors flex-shrink-0"
                       >
                         Apply

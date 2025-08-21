@@ -1,132 +1,145 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft, Upload, X, Check, User, Briefcase, GraduationCap, FileText, Plus, Mail } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import {
+  ChevronRight,
+  ChevronLeft,
+  Upload,
+  X,
+  Check,
+  User,
+  Briefcase,
+  GraduationCap,
+  FileText,
+  Plus,
+  Mail,
+} from "lucide-react";
+import Job from "../json/Job";
 
-// Mock job data - replace with your actual Job import
-const Job = [
-  {
-    title: "Senior Marine Engineer",
-    department: "Engineering",
-    type: "Full-time",
-    location: "Singapore",
-    experience: "5-8 years",
-    shortDescription: "Join our elite marine engineering team to develop cutting-edge offshore solutions and drive innovation in marine technology.",
-    roleOverview: "As a Senior Marine Engineer, you will lead complex marine projects, design innovative offshore solutions, and collaborate with cross-functional teams to deliver world-class marine engineering services.",
-    responsibilities: [
-      "Lead marine engineering projects from concept to completion",
-      "Design and analyze offshore structures and marine systems",
-      "Collaborate with naval architects and project managers",
-      "Ensure compliance with international maritime standards",
-      "Mentor junior engineers and provide technical guidance",
-      "Conduct feasibility studies and risk assessments"
-    ],
-    mandatorySkills: [
-      "Bachelor's degree in Marine Engineering or related field",
-      "5+ years of experience in marine/offshore industry",
-      "Proficiency in AutoCAD, SolidWorks, or similar CAD software",
-      "Knowledge of maritime regulations and classification society rules",
-      "Strong analytical and problem-solving skills",
-      "Excellent communication and leadership abilities"
-    ],
-    advantages: [
-      "Experience with subsea systems and underwater robotics",
-      "Knowledge of hydrodynamic analysis software",
-      "Previous project management experience",
-      "Professional engineering certification"
-    ]
-  }
-];
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 const HydroNavixApplication = () => {
+  const { title } = useParams();
+  const job = Job.find((j) => slugify(j.title) === title.toLowerCase()) || null;
+
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState({});
   const [dragActive, setDragActive] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    location: '',
-    nationality: '',
-    jobTitle: '',
-    company: '',
-    experience: '',
-    marineExperience: '',
+    jobRole: job.title,
+    fullName: "",
+    email: "",
+    phone: "",
+    location: "",
+    nationality: "",
+    jobTitle: "",
+    company: "",
+    experience: "",
+    marineExperience: "",
     skills: [],
-    qualification: '',
-    fieldOfStudy: '',
-    university: '',
-    noticePeriod: '',
-    expectedSalary: '',
-    whyJoin: '',
-    privacyPolicy: false
+    qualification: "",
+    fieldOfStudy: "",
+    university: "",
+    noticePeriod: "",
+    expectedSalary: "",
+    whyJoin: "",
+    privacyPolicy: false,
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const totalSteps = 5;
-  
-  // Get job details - using first job as example, you can modify this to use useParams
-  const job = Job[0]; // In real app, use: Job.find(j => j.title.toLowerCase().replace(/\s+/g, "-") === title.toLowerCase())
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Auto-save functionality (using state instead of localStorage)
-  useEffect(() => {
-    // In a real application, you could save to a server here
-    console.log('Form data updated:', formData);
-  }, [formData]);
-
   const skills = [
-    'Marine Engineering', 'Naval Architecture', 'Offshore Operations', 'Subsea Engineering',
-    'Port Management', 'Maritime Law', 'Hydrodynamics', 'Marine Surveying', 'Ship Design',
-    'Underwater Robotics', 'Ocean Engineering', 'Marine Electronics', 'Navigation Systems',
-    'Maritime Safety', 'Environmental Compliance', 'Project Management'
+    "Marine Engineering",
+    "Naval Architecture",
+    "Offshore Operations",
+    "Subsea Engineering",
+    "Port Management",
+    "Maritime Law",
+    "Hydrodynamics",
+    "Marine Surveying",
+    "Ship Design",
+    "Underwater Robotics",
+    "Ocean Engineering",
+    "Marine Electronics",
+    "Navigation Systems",
+    "Maritime Safety",
+    "Environmental Compliance",
+    "Project Management",
   ];
 
   const validateStep = (step) => {
     const newErrors = {};
-    
+
     switch (step) {
       case 1:
-        if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-        if (!formData.email.trim()) newErrors.email = 'Email is required';
-        else if (!/^\S+@\S+$/i.test(formData.email)) newErrors.email = 'Invalid email address';
-        if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-        if (!formData.location.trim()) newErrors.location = 'Location is required';
-        if (!formData.nationality.trim()) newErrors.nationality = 'Nationality is required';
+        if (!formData.fullName.trim())
+          newErrors.fullName = "Full name is required";
+        if (!formData.email.trim()) newErrors.email = "Email is required";
+        else if (!/^\S+@\S+$/i.test(formData.email))
+          newErrors.email = "Invalid email address";
+        if (!formData.phone.trim())
+          newErrors.phone = "Phone number is required";
+        if (!formData.location.trim())
+          newErrors.location = "Location is required";
+        if (!formData.nationality.trim())
+          newErrors.nationality = "Nationality is required";
         break;
       case 2:
-        if (!formData.experience) newErrors.experience = 'Experience is required';
-        if (!formData.marineExperience) newErrors.marineExperience = 'Please select an option';
+        if (!formData.jobTitle) newErrors.jobTitle = "Job Title is required";
+        if (!formData.company) newErrors.company = "Company is required";
+        if (!formData.experience)
+          newErrors.experience = "Experience is required";
+        if (!formData.marineExperience)
+          newErrors.marineExperience = "Please select an option";
         break;
       case 3:
-        if (!formData.qualification) newErrors.qualification = 'Qualification is required';
-        if (!formData.fieldOfStudy.trim()) newErrors.fieldOfStudy = 'Field of study is required';
-        if (!formData.university.trim()) newErrors.university = 'University is required';
+        if (!formData.qualification)
+          newErrors.qualification = "Qualification is required";
+        if (!formData.fieldOfStudy.trim())
+          newErrors.fieldOfStudy = "Field of study is required";
+        if (!formData.university.trim())
+          newErrors.university = "University is required";
+        break;
+      case 4:
+        if (!uploadedFiles.resume) newErrors.resume = "Resume is required";
         break;
       case 5:
-        if (!formData.noticePeriod) newErrors.noticePeriod = 'Notice period is required';
-        if (!formData.whyJoin.trim()) newErrors.whyJoin = 'Please tell us why you want to join';
+        if (!formData.noticePeriod)
+          newErrors.noticePeriod = "Notice period is required";
+        if (!formData.whyJoin.trim())
+          newErrors.whyJoin = "Please tell us why you want to join";
         break;
       case 6:
-        if (!formData.privacyPolicy) newErrors.privacyPolicy = 'You must accept the privacy policy';
+        if (!formData.privacyPolicy)
+          newErrors.privacyPolicy = "You must accept the privacy policy";
         break;
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleNext = () => {
     if (currentStep === 0) {
-      // No validation needed for job details step
       setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    
+
     if (validateStep(currentStep) && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -137,25 +150,24 @@ const HydroNavixApplication = () => {
   };
 
   const updateFormData = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    // Clear error when user starts typing
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
   };
 
   const handleSkillToggle = (skill) => {
     const currentSkills = formData.skills || [];
     const updatedSkills = currentSkills.includes(skill)
-      ? currentSkills.filter(s => s !== skill)
+      ? currentSkills.filter((s) => s !== skill)
       : [...currentSkills, skill];
-    updateFormData('skills', updatedSkills);
+    updateFormData("skills", updatedSkills);
   };
 
   const handleFileUpload = (e, type) => {
     const file = e.target.files[0];
     if (file) {
-      setUploadedFiles(prev => ({ ...prev, [type]: file }));
+      setUploadedFiles((prev) => ({ ...prev, [type]: file }));
     }
   };
 
@@ -164,85 +176,80 @@ const HydroNavixApplication = () => {
     setDragActive(false);
     const file = e.dataTransfer.files[0];
     if (file) {
-      setUploadedFiles(prev => ({ ...prev, [type]: file }));
+      setUploadedFiles((prev) => ({ ...prev, [type]: file }));
     }
   };
 
   const removeFile = (type) => {
-    setUploadedFiles(prev => {
+    setUploadedFiles((prev) => {
       const updated = { ...prev };
       delete updated[type];
       return updated;
     });
   };
 
-const handleSubmit = async () => {
-  if (!validateStep(7)) return;
+  const handleSubmit = async () => {
+    if (!validateStep(5)) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    setLoading(true);
+    const formDataToSend = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      formDataToSend.append(key, value);
+    });
 
-  try {
-    const emailData = {
-      to: 'byvenkataraja@gmail.com',
-      subject: `New Application - ${formData.fullName} for Marine Position`,
-      body: `
-        <h2>New Job Application Received</h2>
-        
-        <h3>Personal Details</h3>
-        <p><b>Name:</b> ${formData.fullName}</p>
-        <p><b>Email:</b> ${formData.email}</p>
-        <p><b>Phone:</b> ${formData.phone}</p>
-        <p><b>Location:</b> ${formData.location}</p>
-        <p><b>Nationality:</b> ${formData.nationality}</p>
+    Object.values(uploadedFiles).forEach((file) => {
+      formDataToSend.append("files", file);
+    });
 
-        <h3>Professional Background</h3>
-        <p><b>Current Role:</b> ${formData.jobTitle} at ${formData.company}</p>
-        <p><b>Experience:</b> ${formData.experience} years</p>
-        <p><b>Marine Experience:</b> ${formData.marineExperience}</p>
-        <p><b>Key Skills:</b> ${formData.skills?.join(', ') || 'None specified'}</p>
+    try {
+      const res = await fetch(
+        `https://hydronavixmarinebackend.onrender.com/apply`,
+        {
+          method: "POST",
+          body: formDataToSend,
+        }
+      );
 
-        <h3>Education</h3>
-        <p><b>Qualification:</b> ${formData.qualification}</p>
-        <p><b>Field of Study:</b> ${formData.fieldOfStudy}</p>
-        <p><b>University:</b> ${formData.university}</p>
-
-        <h3>Additional Information</h3>
-        <p><b>Notice Period:</b> ${formData.noticePeriod}</p>
-        <p><b>Expected Salary:</b> ${formData.expectedSalary || 'Not specified'}</p>
-        <p><b>Why HydroNavix:</b> ${formData.whyJoin}</p>
-
-        <h3>Files Uploaded</h3>
-        <p>${Object.values(uploadedFiles).map(f => f.name).join(', ') || 'None'}</p>
-      `
-    };
-
-    // TODO: Call your backend/email service
-    // await fetch('/api/sendEmail', { ... })
-
-    console.log('Application submitted:', { ...formData, files: uploadedFiles });
-
-    setIsSubmitted(true);
-  } catch (error) {
-    console.error('Submission error:', error);
-    setError('There was an error submitting your application. Please try again.');
-  }
-};
+      const data = await res.json();
+      if (data.success) {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4 py-24">
+      <div className="min-h-screen flex items-center justify-center px-4 py-24">
         <div className="max-w-2xl w-full text-center">
-          <div className="bg-black text-white p-12 rounded-2xl">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-              <Check className="w-10 h-10 text-black" />
+          <div className="bg-secondary text-primary p-10">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+              <Check className="w-18 h-18 text-secondary" />
             </div>
-            <h1 className="text-3xl font-bold mb-4">Application Submitted!</h1>
-            <p className="text-xl mb-8">
-              Thank you, {formData.fullName?.split(' ')[0]}! Your application has been received.
-              Our recruitment team will review your profile and contact you if shortlisted.
+            <h1 className="text-2xl font-semibold mb-4">
+              Application Submitted!
+            </h1>
+            <p className="text-xl mb-8 text-primary/80">
+              Thank you, {formData.fullName?.split(" ")[0]}! Your application
+              has been received. Our recruitment team will review your profile
+              and contact you if shortlisted.
             </p>
             <div className="text-gray-300 text-sm">
               <p>Expected review timeline: 5-7 business days</p>
               <p>Questions? Contact us at careers@hydronavix.com</p>
             </div>
+            <Link
+              to="/"
+              className="inline-block text-primary underline underline-offset-2 py-3 font-medium hover:text-primary/90 transition"
+            >
+              Back to Home
+            </Link>
           </div>
         </div>
       </div>
@@ -253,45 +260,57 @@ const handleSubmit = async () => {
     switch (currentStep) {
       case 0:
         return (
-          <div className="space-y-6">
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
-              <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-6">
-                <span className="bg-gray-100 px-3 py-1 rounded-full">{job.department}</span>
-                <span className="bg-gray-100 px-3 py-1 rounded-full">{job.type}</span>
-                <span className="bg-gray-100 px-3 py-1 rounded-full">{job.location}</span>
-                <span className="bg-gray-100 px-3 py-1 rounded-full">{job.experience}</span>
+          <div className="space-y-5">
+            <div>
+              <h1 className="text-2xl font-bold mb-1.5">{job.title}</h1>
+              <div className="flex flex-wrap gap-2 text-sm text-secondary/80 mb-5">
+                <span className="bg-secondary/20 px-2.5 py-1 rounded-full">
+                  {job.department}
+                </span>
+                <span className="bg-secondary/20 px-2.5 py-1 rounded-full">
+                  {job.type}
+                </span>
+                <span className="bg-secondary/20 px-2.5 py-1 rounded-full">
+                  {job.location}
+                </span>
+                <span className="bg-secondary/20 px-2.5 py-1 rounded-full">
+                  {job.experience}
+                </span>
               </div>
-              <p className="text-lg text-gray-700 mb-8">{job.shortDescription}</p>
             </div>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4 flex items-center">
-                <Briefcase className="w-5 h-5 mr-2" />
+            <section>
+              <h2 className="text-md md:text-lg font-semibold mb-1.5">
                 Role Overview
               </h2>
-              <p className="text-gray-700 leading-relaxed">{job.roleOverview}</p>
+              <p className="text-secondary/70 leading-relaxed">
+                {job.roleOverview}
+              </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">Key Responsibilities</h2>
+              <h2 className="text-md md:text-lg font-semibold mb-1.5">
+                Key Responsibilities
+              </h2>
               <ul className="space-y-2">
                 {job.responsibilities.map((responsibility, idx) => (
                   <li key={idx} className="flex items-start">
-                    <div className="w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700">{responsibility}</span>
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-secondary/70">{responsibility}</span>
                   </li>
                 ))}
               </ul>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">Required Skills & Qualifications</h2>
+              <h2 className="text-md md:text-lg font-semibold mb-1.5">
+                Required Skills & Qualifications
+              </h2>
               <ul className="space-y-2">
                 {job.mandatorySkills.map((skill, idx) => (
                   <li key={idx} className="flex items-start">
-                    <Check className="w-4 h-4 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{skill}</span>
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-secondary/70">{skill}</span>
                   </li>
                 ))}
               </ul>
@@ -299,61 +318,70 @@ const handleSubmit = async () => {
 
             {job.advantages && job.advantages.length > 0 && (
               <section className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Preferred Qualifications</h2>
+                <h2 className="text-md md:text-lg font-semibold mb-1.5">
+                  Preferred Qualifications
+                </h2>
                 <ul className="space-y-2">
                   {job.advantages.map((advantage, idx) => (
                     <li key={idx} className="flex items-start">
-                      <Plus className="w-4 h-4 text-blue-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{advantage}</span>
+                      <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                      <span className="text-secondary/70">{advantage}</span>
                     </li>
                   ))}
                 </ul>
               </section>
             )}
-
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h3 className="font-semibold text-blue-900 mb-2">Ready to Apply?</h3>
-              <p className="text-blue-800">Click "Start Application" below to begin your application process. The form will take approximately 5-10 minutes to complete.</p>
-            </div>
           </div>
         );
 
       case 1:
         return (
           <div className="space-y-6">
-            <div className="flex items-center mb-6">
-              <User className="w-6 h-6 mr-3" />
-              <h2 className="text-2xl font-bold">Personal Details</h2>
+            <div className="flex items-center">
+              <User className="w-5 h-5 mr-3" />
+              <h2 className="text-lg md:text-xl font-semibold">
+                Personal Details
+              </h2>
             </div>
-            
+
             <div>
-              <label className="block text-sm font-medium mb-2">Full Name *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Full Name *
+              </label>
               <input
                 value={formData.fullName}
-                onChange={(e) => updateFormData('fullName', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("fullName", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="Enter your full name"
               />
-              {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
+              {errors.fullName && (
+                <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Email Address *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Email Address *
+              </label>
               <input
                 value={formData.email}
-                onChange={(e) => updateFormData('email', e.target.value)}
+                onChange={(e) => updateFormData("email", e.target.value)}
                 type="email"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="your.email@example.com"
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Phone Number *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Phone Number *
+              </label>
               <div className="flex">
-                <select 
-                  className="p-4 border border-gray-300 rounded-l-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none bg-gray-50"
+                <select
+                  className="px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none bg-primary"
                   defaultValue="+91"
                 >
                   <option value="+91">🇮🇳 +91</option>
@@ -363,31 +391,39 @@ const handleSubmit = async () => {
                 </select>
                 <input
                   value={formData.phone}
-                  onChange={(e) => updateFormData('phone', e.target.value)}
-                  className="flex-1 p-4 border-t border-r border-b border-gray-300 rounded-r-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                  onChange={(e) => updateFormData("phone", e.target.value)}
+                  className="flex-1 px-2 py-2.5 border-t border-r border-b border-secondary/30 focus:border-secondary outline-none transition-all"
                   placeholder="Your phone number"
                 />
               </div>
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Current Location *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Current Location *
+              </label>
               <input
                 value={formData.location}
-                onChange={(e) => updateFormData('location', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("location", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="City, Country"
               />
-              {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
+              {errors.location && (
+                <p className="text-red-500 text-sm mt-1">{errors.location}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Nationality *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Nationality *
+              </label>
               <select
                 value={formData.nationality}
-                onChange={(e) => updateFormData('nationality', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("nationality", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
               >
                 <option value="">Select nationality</option>
                 <option value="Indian">Indian</option>
@@ -397,7 +433,11 @@ const handleSubmit = async () => {
                 <option value="Canadian">Canadian</option>
                 <option value="Other">Other</option>
               </select>
-              {errors.nationality && <p className="text-red-500 text-sm mt-1">{errors.nationality}</p>}
+              {errors.nationality && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.nationality}
+                </p>
+              )}
             </div>
           </div>
         );
@@ -405,37 +445,51 @@ const handleSubmit = async () => {
       case 2:
         return (
           <div className="space-y-6">
-            <div className="flex items-center mb-6">
-              <Briefcase className="w-6 h-6 mr-3" />
-              <h2 className="text-2xl font-bold">Professional Background</h2>
+            <div className="flex items-center">
+              <Briefcase className="w-5 h-5 mr-3" />
+              <h2 className="text-lg md:text-xl font-semibold">
+                Professional Background
+              </h2>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Current Job Title</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Current Job Title
+              </label>
               <input
                 value={formData.jobTitle}
-                onChange={(e) => updateFormData('jobTitle', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("jobTitle", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="e.g. Marine Engineer"
               />
+              {errors.jobTitle && (
+                <p className="text-red-500 text-sm mt-1">{errors.jobTitle}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Current Company</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Current Company
+              </label>
               <input
                 value={formData.company}
-                onChange={(e) => updateFormData('company', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("company", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="Company name"
               />
+              {errors.company && (
+                <p className="text-red-500 text-sm mt-1">{errors.company}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Total Years of Experience *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Total Years of Experience *
+              </label>
               <select
                 value={formData.experience}
-                onChange={(e) => updateFormData('experience', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("experience", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
               >
                 <option value="">Select experience</option>
                 <option value="0-1">0-1 years</option>
@@ -444,50 +498,64 @@ const handleSubmit = async () => {
                 <option value="7-10">7-10 years</option>
                 <option value="10+">10+ years</option>
               </select>
-              {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
+              {errors.experience && (
+                <p className="text-red-500 text-sm mt-1">{errors.experience}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Marine/Offshore Industry Experience *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Marine/Offshore Industry Experience *
+              </label>
               <div className="flex space-x-4">
                 <label className="flex items-center cursor-pointer">
                   <input
                     type="radio"
                     name="marineExperience"
                     value="yes"
-                    checked={formData.marineExperience === 'yes'}
-                    onChange={(e) => updateFormData('marineExperience', e.target.value)}
+                    checked={formData.marineExperience === "yes"}
+                    onChange={(e) =>
+                      updateFormData("marineExperience", e.target.value)
+                    }
                     className="mr-2 w-4 h-4"
                   />
-                  <span className={`px-4 py-2 border border-gray-300 rounded-lg transition-all ${formData.marineExperience === 'yes' ? 'bg-black text-white' : 'hover:bg-black hover:text-white'}`}>Yes</span>
+                  <span>Yes</span>
                 </label>
                 <label className="flex items-center cursor-pointer">
                   <input
                     type="radio"
                     name="marineExperience"
                     value="no"
-                    checked={formData.marineExperience === 'no'}
-                    onChange={(e) => updateFormData('marineExperience', e.target.value)}
+                    checked={formData.marineExperience === "no"}
+                    onChange={(e) =>
+                      updateFormData("marineExperience", e.target.value)
+                    }
                     className="mr-2 w-4 h-4"
                   />
-                  <span className={`px-4 py-2 border border-gray-300 rounded-lg transition-all ${formData.marineExperience === 'no' ? 'bg-black text-white' : 'hover:bg-black hover:text-white'}`}>No</span>
+                  <span>No</span>
                 </label>
               </div>
-              {errors.marineExperience && <p className="text-red-500 text-sm mt-1">{errors.marineExperience}</p>}
+              {errors.marineExperience && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.marineExperience}
+                </p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Key Skills</label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-48 overflow-y-auto">
-                {skills.map(skill => (
+              <label className="block text-sm font-medium mb-1.5">
+                Key Skills
+              </label>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                {skills.map((skill) => (
                   <button
                     key={skill}
                     type="button"
                     onClick={() => handleSkillToggle(skill)}
-                    className={`p-2 text-sm rounded-lg border transition-all ${
+                    className={`p-1.5 text-sm border transition-all ${
                       formData.skills?.includes(skill)
-                        ? 'bg-black text-white border-black'
-                        : 'bg-white text-black border-gray-300 hover:bg-gray-50'
+                        ? "bg-secondary text-primary border-secondary"
+                        : "bg-primary text-secondary border-secondary/30 hover:bg-gray-50"
                     }`}
                   >
                     {skill}
@@ -501,48 +569,68 @@ const handleSubmit = async () => {
       case 3:
         return (
           <div className="space-y-6">
-            <div className="flex items-center mb-6">
-              <GraduationCap className="w-6 h-6 mr-3" />
-              <h2 className="text-2xl font-bold">Education</h2>
+            <div className="flex items-center">
+              <GraduationCap className="w-5 h-5 mr-3" />
+              <h2 className="text-lg md:text-xl font-semibold">Education</h2>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Highest Qualification *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Highest Qualification *
+              </label>
               <select
                 value={formData.qualification}
-                onChange={(e) => updateFormData('qualification', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) =>
+                  updateFormData("qualification", e.target.value)
+                }
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
               >
                 <option value="">Select qualification</option>
                 <option value="High School">High School</option>
                 <option value="Bachelor's Degree">Bachelor's Degree</option>
                 <option value="Master's Degree">Master's Degree</option>
                 <option value="PhD">PhD</option>
-                <option value="Professional Certification">Professional Certification</option>
+                <option value="Professional Certification">
+                  Professional Certification
+                </option>
               </select>
-              {errors.qualification && <p className="text-red-500 text-sm mt-1">{errors.qualification}</p>}
+              {errors.qualification && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.qualification}
+                </p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Field of Study *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Field of Study *
+              </label>
               <input
                 value={formData.fieldOfStudy}
-                onChange={(e) => updateFormData('fieldOfStudy', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("fieldOfStudy", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="e.g. Marine Engineering, Naval Architecture"
               />
-              {errors.fieldOfStudy && <p className="text-red-500 text-sm mt-1">{errors.fieldOfStudy}</p>}
+              {errors.fieldOfStudy && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.fieldOfStudy}
+                </p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">University/Institute *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                University/Institute *
+              </label>
               <input
                 value={formData.university}
-                onChange={(e) => updateFormData('university', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("university", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="Institution name"
               />
-              {errors.university && <p className="text-red-500 text-sm mt-1">{errors.university}</p>}
+              {errors.university && (
+                <p className="text-red-500 text-sm mt-1">{errors.university}</p>
+              )}
             </div>
           </div>
         );
@@ -550,26 +638,32 @@ const handleSubmit = async () => {
       case 4:
         return (
           <div className="space-y-6">
-            <div className="flex items-center mb-6">
-              <FileText className="w-6 h-6 mr-3" />
-              <h2 className="text-2xl font-bold">Upload Documents</h2>
+            <div className="flex items-center">
+              <FileText className="w-5 h-5 mr-3" />
+              <h2 className="text-lg md:text-xl font-semibold">
+                Upload Documents
+              </h2>
             </div>
 
-            {['resume', 'coverLetter', 'portfolio'].map((type) => {
+            {["resume", "coverLetter", "portfolio"].map((type) => {
               const labels = {
-                resume: 'Resume/CV *',
-                coverLetter: 'Cover Letter (Optional)',
-                portfolio: 'Portfolio/Project References (Optional)'
+                resume: "Resume/CV *",
+                coverLetter: "Cover Letter (Optional)",
+                portfolio: "Portfolio/Project References (Optional)",
               };
 
               return (
                 <div key={type}>
-                  <label className="block text-sm font-medium mb-2">{labels[type]}</label>
+                  <label className="block text-sm font-medium mb-1.5">
+                    {labels[type]}
+                  </label>
                   {uploadedFiles[type] ? (
-                    <div className="flex items-center justify-between p-4 bg-gray-50 border border-gray-300 rounded-lg">
+                    <div className="flex items-center justify-between p-4 bg-gray-50 border border-secondary/30">
                       <div className="flex items-center">
                         <FileText className="w-5 h-5 mr-2" />
-                        <span className="text-sm">{uploadedFiles[type].name}</span>
+                        <span className="text-sm">
+                          {uploadedFiles[type].name}
+                        </span>
                       </div>
                       <button
                         type="button"
@@ -581,27 +675,37 @@ const handleSubmit = async () => {
                     </div>
                   ) : (
                     <div
-                      className={`border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-all ${
-                        dragActive ? 'border-black bg-gray-50' : 'hover:border-gray-400'
+                      className={`border-2 border-dashed border-secondary/30 p-8 text-center transition-all ${
+                        dragActive
+                          ? "border-secondary bg-gray-50"
+                          : "hover:border-secondary/70"
                       }`}
                       onDragEnter={() => setDragActive(true)}
                       onDragLeave={() => setDragActive(false)}
                       onDragOver={(e) => e.preventDefault()}
                       onDrop={(e) => handleDrop(e, type)}
                     >
-                      <Upload className="w-8 h-8 mx-auto mb-4 text-gray-400" />
-                      <p className="text-gray-600 mb-2">Drag & drop your file here, or</p>
-                      <label className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer transition-all">
+                      <Upload className="w-8 h-8 mx-auto mb-4 text-secondary/70" />
+                      <p className="text-secondary/70 mb-2">
+                        Drag & drop your file here, or
+                      </p>
+                      <label className="bg-secondary text-primary px-2 py-2 hover:bg-secondary/80 cursor-pointer transition-all">
                         Browse Files
                         <input
                           type="file"
                           className="hidden"
-                          accept={type === 'portfolio' ? '.pdf,.doc,.docx,.jpg,.png' : '.pdf,.doc,.docx'}
+                          accept={
+                            type === "portfolio"
+                              ? ".pdf,.doc,.docx,.jpg,.png"
+                              : ".pdf,.doc,.docx"
+                          }
                           onChange={(e) => handleFileUpload(e, type)}
                         />
                       </label>
-                      <p className="text-xs text-gray-500 mt-2">
-                        {type === 'portfolio' ? 'PDF, DOC, JPG, PNG up to 5MB' : 'PDF, DOC up to 5MB'}
+                      <p className="text-xs text-secondary/70 mt-2">
+                        {type === "portfolio"
+                          ? "PDF, DOC, JPG, PNG up to 5MB"
+                          : "PDF, DOC up to 5MB"}
                       </p>
                     </div>
                   )}
@@ -614,17 +718,21 @@ const handleSubmit = async () => {
       case 5:
         return (
           <div className="space-y-6">
-            <div className="flex items-center mb-6">
-              <Plus className="w-6 h-6 mr-3" />
-              <h2 className="text-2xl font-bold">Additional Information</h2>
+            <div className="flex items-center">
+              <Plus className="w-5 h-5 mr-3" />
+              <h2 className="text-lg md:text-xl font-semibold">
+                Additional Information
+              </h2>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Notice Period *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Notice Period *
+              </label>
               <select
                 value={formData.noticePeriod}
-                onChange={(e) => updateFormData('noticePeriod', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) => updateFormData("noticePeriod", e.target.value)}
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
               >
                 <option value="">Select notice period</option>
                 <option value="Immediate">Immediate</option>
@@ -633,49 +741,69 @@ const handleSubmit = async () => {
                 <option value="2 months">2 months</option>
                 <option value="3 months">3 months</option>
               </select>
-              {errors.noticePeriod && <p className="text-red-500 text-sm mt-1">{errors.noticePeriod}</p>}
+              {errors.noticePeriod && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.noticePeriod}
+                </p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Expected Salary (Optional)</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Expected Salary (Optional)
+              </label>
               <input
                 value={formData.expectedSalary}
-                onChange={(e) => updateFormData('expectedSalary', e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all"
+                onChange={(e) =>
+                  updateFormData("expectedSalary", e.target.value)
+                }
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all"
                 placeholder="e.g. ₹50,000 per month or $60,000 per year"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Why do you want to join HydroNavix? *</label>
+              <label className="block text-sm font-medium mb-1.5">
+                Why do you want to join HydroNavix? *
+              </label>
               <textarea
                 value={formData.whyJoin}
-                onChange={(e) => updateFormData('whyJoin', e.target.value)}
+                onChange={(e) => updateFormData("whyJoin", e.target.value)}
                 rows={4}
-                className="w-full p-4 border border-gray-300 rounded-lg focus:border-black focus:ring-2 focus:ring-black/20 outline-none transition-all resize-none"
+                className="w-full px-2 py-2.5 border border-secondary/30 focus:border-secondary outline-none transition-all resize-none"
                 placeholder="Share your motivation and what excites you about HydroNavix..."
               />
-              {errors.whyJoin && <p className="text-red-500 text-sm mt-1">{errors.whyJoin}</p>}
+              {errors.whyJoin && (
+                <p className="text-red-500 text-sm mt-1">{errors.whyJoin}</p>
+              )}
             </div>
-            
-            <div className="flex items-start space-x-3">
+
+            <div className="flex items-start space-x-2">
               <input
                 type="checkbox"
                 checked={formData.privacyPolicy}
-                onChange={(e) => updateFormData('privacyPolicy', e.target.checked)}
+                onChange={(e) =>
+                  updateFormData("privacyPolicy", e.target.checked)
+                }
                 className="mt-1"
               />
               <label className="text-sm">
-                I agree to HydroNavix's <a href="#" className="text-black underline hover:no-underline">Privacy Policy</a> 
-                and consent to the processing of my personal data for recruitment purposes. *
+                I agree to HydroNavix's{" "}
+                <a
+                  href="#"
+                  className="text-secondary underline hover:no-underline"
+                >
+                  Privacy Policy
+                </a>
+                and consent to the processing of my personal data for
+                recruitment purposes. *
               </label>
             </div>
-            {errors.privacyPolicy && <p className="text-red-500 text-sm">{errors.privacyPolicy}</p>}
+            {errors.privacyPolicy && (
+              <p className="text-red-500 text-sm">{errors.privacyPolicy}</p>
+            )}
           </div>
-      
         );
-
-
 
       default:
         return null;
@@ -683,25 +811,33 @@ const handleSubmit = async () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-24">
+    <div className="min-h-screen py-20">
       {/* Header */}
-      <div className="bg-black text-white p-6">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-2">HydroNavix</h1>
-          <p className="text-gray-300">Elite Marine & Offshore Careers</p>
+      <div className="bg-secondary text-primary py-10">
+        <div className="max-w-5xl mx-auto px-4">
+          <h1 className="text-2xl md:text-4xl text-center font-semibold mb-1.5">
+            HydroNavix
+          </h1>
+          <p className="text-primary/70 text-center">
+            Elite Marine & Offshore Careers
+          </p>
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="bg-gray-100 py-4">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium">Step {currentStep} of {totalSteps}</span>
-            <span className="text-sm text-gray-600">{Math.round((currentStep / totalSteps) * 100)}% Complete</span>
+      <div className="py-6 px-4 ">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-sm font-medium">
+              Step {currentStep} of {totalSteps}
+            </span>
+            <span className="text-sm text-secondary/70">
+              {Math.round((currentStep / totalSteps) * 100)}% Complete
+            </span>
           </div>
-          <div className="w-full bg-gray-300 rounded-full h-2">
-            <div 
-              className="bg-black h-2 rounded-full transition-all duration-300 ease-out"
+          <div className="w-full bg-secondary/30 rounded-full h-2">
+            <div
+              className="bg-secondary h-2 rounded-full transition-all duration-300 ease-out"
               style={{ width: `${(currentStep / totalSteps) * 100}%` }}
             ></div>
           </div>
@@ -709,20 +845,20 @@ const handleSubmit = async () => {
       </div>
 
       {/* Form Content */}
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="max-w-5xl mx-auto p-6">
+        <div className="">
           {renderStepContent()}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
+          <div className="flex justify-between mt-8 pt-6 border-t border-secondary/20">
             <button
               type="button"
               onClick={handlePrevious}
               disabled={currentStep === 1}
-              className={`flex items-center px-6 py-3 rounded-lg transition-all ${
+              className={`flex items-center px-3 py-2 transition-all ${
                 currentStep === 1
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-200 text-black hover:bg-gray-300'
+                  ? "border border-secondary/50 text-secondary/50 cursor-not-allowed"
+                  : "border border-secondary text-secondary"
               }`}
             >
               <ChevronLeft className="w-4 h-4 mr-2" />
@@ -733,7 +869,7 @@ const handleSubmit = async () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-all"
+                className="flex items-center px-3 py-2 bg-secondary text-primary hover:bg-secondary/70 transition-all"
               >
                 Next
                 <ChevronRight className="w-4 h-4 ml-2" />
@@ -742,10 +878,48 @@ const handleSubmit = async () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="flex items-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-all font-semibold"
+                disabled={
+                  loading ||
+                  !formData.noticePeriod ||
+                  !formData.whyJoin.trim() ||
+                  !formData.privacyPolicy ||
+                  !uploadedFiles.resume
+                }
+                className={`flex items-center px-3 py-2 font-semibold transition-all ${
+                  loading ||
+                  !formData.noticePeriod ||
+                  !formData.whyJoin.trim() ||
+                  !formData.privacyPolicy ||
+                  !uploadedFiles.resume
+                    ? "bg-secondary/50 text-primary/70 cursor-not-allowed"
+                    : "bg-secondary text-primary hover:bg-secondary/70"
+                }`}
               >
-                <Mail className="w-4 h-4 mr-2" />
-                Submit Application
+                {loading ? (
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-primary"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                ) : (
+                  <Mail className="w-4 h-4 mr-2" />
+                )}
+                {loading ? "Submitting..." : "Submit Application"}
               </button>
             )}
           </div>
