@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowDown, Play } from 'lucide-react';
 import heroImage from '../assets/about1.png'; 
 
 const Hero = () => {
@@ -46,13 +46,13 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
                 <a href='/careers/#open-roles' className="group bg-secondary text-primary px-8 py-4 flex items-center justify-center md:justify-normal gap-3 hover:bg-secondary/80 transition-all duration-200 font-medium">
                   View Open Roles
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowDown className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                
+{/*                 
                 <a href='/careers/#submit-resume' className="group border-2 border-secondary text-secondary px-8 py-4 flex items-center justify-center md:justify-normal gap-3 hover:bg-secondary hover:text-primary transition-all duration-200 font-medium">
                   Submit Resume
                   <span className="text-sm opacity-75">(Future Opportunities)</span>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
