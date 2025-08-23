@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import v1Video from "../assets/hero4.mp4";
 import heroPoster from '../assets/images/heroPoster.png';
+import Ads from "../components/Ads";
 
 export default function HeroSection() {
   const textRef = useRef(null);
@@ -40,6 +41,16 @@ export default function HeroSection() {
       >
         <source src={v1Video} type="video/mp4" />
       </video>
+
+      <div className="absolute w-full left-0 right-0 bottom-0 z-20">
+    <Ads
+        messages={[
+          "Meet HydroNavix at INMEX India 2025, 10 to 12 September - Let’s connect and shape the future of marine technology together"
+        ]}
+        speed={20}
+      />
+        
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10">
