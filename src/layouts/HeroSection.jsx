@@ -45,9 +45,9 @@ export default function HeroSection() {
       <div className="absolute w-full left-0 right-0 bottom-0 z-20">
     <Ads
         messages={[
-          "Meet HydroNavix at INMEX India 2025, 10 to 12 September - Let’s connect and shape the future of marine technology together"
+          "Meet HydroNavix at INMEX India 2025, 10 to 12 September - Let’s connect and shape the future of marine technology together || HydroNavix is participating in ADIPEC 2025 | 3–6 November 2025 | Abu Dhabi, UAE"
         ]}
-        speed={20}
+        speed={10}
       />
         
       </div>
