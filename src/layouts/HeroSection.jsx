@@ -2,23 +2,23 @@ import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import v1Video from "../assets/hero4.mp4";
-import heroPoster from '../assets/images/heroPoster.png';
+import heroPoster from "../assets/images/heroPoster.png";
 import Ads from "../components/Ads";
 
 export default function HeroSection() {
   const textRef = useRef(null);
   const [isDisabled, setIsDisabled] = useState(false);
 
- const handleClick = () => {
-  setIsDisabled(true);
-  window.open(
-    "https://drive.google.com/uc?export=download&id=1p2vmuwjcRA4bzMdb-HekW7BXGPvXM_Bw",
-    "_self"
-  );
-  setTimeout(() => {
-    setIsDisabled(false);
-  }, 3000);
-};
+  const handleClick = () => {
+    setIsDisabled(true);
+    window.open(
+      "https://drive.google.com/uc?export=download&id=1p2vmuwjcRA4bzMdb-HekW7BXGPvXM_Bw",
+      "_self"
+    );
+    setTimeout(() => {
+      setIsDisabled(false);
+    }, 3000);
+  };
   useEffect(() => {
     gsap.fromTo(
       textRef.current,
@@ -29,7 +29,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center cursor-follow">
-
       {/* Background Video */}
       <video
         className="absolute w-full h-full object-cover z-0"
@@ -43,19 +42,12 @@ export default function HeroSection() {
       </video>
 
       <div className="absolute w-full left-0 right-0 bottom-0 z-20">
-    <Ads
-        messages={[
-          "Meet HydroNavix at INMEX India 2025, 10 to 12 September - Let’s connect and shape the future of marine technology together || HydroNavix is participating in ADIPEC 2025 | 3–6 November 2025 | Abu Dhabi, UAE"
-        ]}
-        speed={10}
-      />
-        
+        <Ads/>
       </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10">
         <div className="absolute inset-0 bg-secondary/60" />
-
         {/* Fog Effect - Top Left */}
         <div className="absolute -top-36 -left-36 w-[420px] md:w-[520px] h-[220px] bg-primary opacity-60 rounded-full blur-3xl pointer-events-none" />
       </div>
@@ -78,27 +70,22 @@ export default function HeroSection() {
               experience converge to define the next era of ocean innovation
             </p>
             <div className="flex justify-center md:justify-normal space-x-2 md:space-x-4">
-               <button
-                  onClick={handleClick}
-                  disabled={isDisabled}
-                  className={`group px-3 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-1 md:gap-3 transform
+              <button
+                onClick={handleClick}
+                disabled={isDisabled}
+                className={`group px-3 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-1 md:gap-3 transform
                     ${
                       isDisabled
                         ? "bg-LightBlue/60 cursor-not-allowed text-secondary/60"
                         : "bg-LightBlue text-secondary hover:bg-LightBlue hover:shadow-xl hover:-translate-y-1"
                     }`}
-                >
+              >
                 GET STARTED
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </button>
-              {/* <button className="group border-2 border-primary text-primary px-2 md:px-8 py-4 font-semibold tracking-wider transition-all duration-300 flex items-center gap-1 md:gap-3 hover:bg-primary hover:text-secondary">
-                <Play className="w-5 h-5" />
-                WATCH DEMO
-              </button> */}
             </div>
           </div>
 
-          {/* Right Column  */}
           <div className="hidden lg:block">
             <div className="w-full h-[400px]"></div>
           </div>
