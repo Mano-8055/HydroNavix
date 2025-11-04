@@ -41,9 +41,9 @@ export default function HeroSection() {
         <source src={v1Video} type="video/mp4" />
       </video>
 
-      <div className="absolute w-full left-0 right-0 bottom-0 z-20">
+      {/* <div className="absolute w-full left-0 right-0 bottom-0 z-20">
         <Ads/>
-      </div>
+      </div> */}
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10">
