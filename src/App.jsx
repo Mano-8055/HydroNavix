@@ -65,7 +65,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/projects" element={<Project />} />
             <Route path="/marinex-studio" element={<MarinexStudio />} />
-            <Route path="/manpower" element={<Manpower />} />
+            <Route path="/technical-support" element={<Manpower />} />
             <Route path="/about" element={<About />} />
             <Route path="/clients" element={<Client />} />
             <Route path="/careers" element={<Career />} />

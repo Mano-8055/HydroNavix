@@ -52,7 +52,7 @@ const Mp1 = () => {
             className="text-2xl lg:text-4xl font-semibold leading-snug text-secondary mt-2"
           >
             Empowering Projects with{' '}
-            <span className="text-secondary/70">Expert Manpower</span>
+            <span className="text-secondary/70">Expert Technical Support</span>
           </h2>
           <p className="text-sm lg:text-base font-medium text-secondary/80 mt-6 text-justify">
             Hydronavix provides highly qualified engineering personnel for marine, offshore, and oil & gas projects worldwide.

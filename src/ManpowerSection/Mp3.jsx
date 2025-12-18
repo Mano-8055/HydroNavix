@@ -9,7 +9,7 @@ const Mp3 = () => {
     {
       id: '01',
       title: 'On-Site Deployment',
-      desc: 'Workforce for global sites including UAE, GCC, EU & Asia.',
+      desc: 'Technical teams for global sites including UAE, GCC, EU & Asia.',
     },
     {
       id: '02',
@@ -23,7 +23,7 @@ const Mp3 = () => {
     },
     {
       id: '04',
-      title: 'Emergency Staffing',
+      title: 'Rapid Deployment',
       desc: 'Deploy skilled professionals at short notice.',
     },
   ];
