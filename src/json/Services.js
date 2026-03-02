@@ -62,6 +62,9 @@ import s84Img from "../assets/services/s84.webp";
 import s85Img from "../assets/services/s85.webp";
 import s86Img from "../assets/services/s86.webp";
 import s87Img from "../assets/services/s87.webp";
+import heavy from "../assets/services/heavy.jpg";
+import rigging from "../assets/services/rigging.jpg";
+import engineering from "../assets/services/engineering.jpg";
 
 export const Services = [
   {
@@ -367,7 +370,7 @@ export const Services = [
   },
   {
     id: "structural-weighing-cog-analysis",
-    title: "Structural Weighing & COG Analysis",
+    title: "Heavy Lift & Loadout Engineering",
     image: s8Img,
     services: [
       {
@@ -411,6 +414,24 @@ export const Services = [
         description:
           "Weight verification reports, certified COG calculations, annotated drawings, lift-readiness packages.",
         image: s87Img,
+      },
+      {
+        title: "Heavy Lift Engineering",
+        description:
+          "Heavy-lift engineering for modules, jackets, topsides, and large steel structures.",
+        image: heavy,
+      },
+      {
+        title: "Rigging and Analysis",
+        description:
+          "Riggingg analysis, lifting plans, and crane capacityy verification.",
+        image: rigging,
+      },
+      {
+        title: "On-Call Engineering support",
+        description:
+          "On-call engineering support during critical lifting and load-out operations",
+        image: engineering,
       },
     ],
   },

@@ -10,7 +10,7 @@ export default function HeroSection() {
 
   const handleClick = () => {
     const link = document.createElement('a');
-    link.href = '/Hydronavix broucher.pdf';
+    link.href = '/Hydronavix broucher updated.pdf';
     link.download = 'Hydronavix broucher.pdf';
     link.click();
   };

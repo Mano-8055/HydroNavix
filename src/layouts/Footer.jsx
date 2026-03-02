@@ -1,4 +1,4 @@
-import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import { AiFillFacebook, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { navItems } from "../json/Navbar";
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { TbDeviceLandlinePhone } from "react-icons/tb";
@@ -6,10 +6,15 @@ import Logo from "./Logo";
 
 const Footer = () => {
   const footerLinksItems = [
-    { text: "Instagram", href: "", icon: AiFillInstagram },
+    { text: "Instagram", href: "https://www.instagram.com/hydronavix?igsh=NGttYTdpNDJ6ZGxv", icon: AiFillInstagram },
     {
-      text: "LinkedIn",
-      href: "https://www.linkedin.com/in/hydronavix-marine-and-offshore-engineering-0b99a2373/",
+      text: "Facebook",
+      href: "https://www.facebook.com/share/16yCpRRx5B",
+      icon: AiFillFacebook,
+    },
+    {
+      text: "Linkedin",
+      href: "https://www.linkedin.com/company/hydronavix-marine-and-offshore-engineering",
       icon: AiFillLinkedin,
     },
   ];
@@ -129,7 +134,7 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <div className="border-t border-primary/80 text-sm font-medium text-primary/80 px-6 md:px-20 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div>© 2025. All rights reserved.</div>
+          <div>© 2026. All rights reserved.</div>
           <div className="flex space-x-6 flex-wrap justify-center">
             {footerLinksItems.map((link, index) => (
               <a

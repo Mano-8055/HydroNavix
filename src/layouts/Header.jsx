@@ -4,11 +4,11 @@ import gsap from "gsap";
 import { impNavItems, navItems } from "../json/Navbar";
 import Logo from "./Logo";
 
-const Header = () => {
- 
+const Header = ({ isInsideHero = false }) => {
+
   const navigate = useNavigate();
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === "/" || location.pathname === "/investors" || location.pathname === "/port-vision" || location.pathname === "/port-roadmap";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -20,9 +20,15 @@ const Header = () => {
   };
 
   useEffect(() => {
+    // Ensure we're at the top initially
+    window.scrollTo(0, 0);
+
     const handleScroll = () => {
-     setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
+
+    // Call once to set initial state
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -80,11 +86,10 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          isHome && !isScrolled && !isMobileMenuOpen
-            ? "bg-transparent text-primary cursor-follow"
-            : "bg-primary text-secondary"
-        }`}
+        className={`${isInsideHero ? 'relative w-full z-50' : 'fixed w-full top-0 z-50'} transition-all duration-300 ${isHome && !isScrolled && !isMobileMenuOpen
+          ? `bg-transparent ${(location.pathname === "/investors" || location.pathname === "/port-vision" || location.pathname === "/port-roadmap") ? "text-secondary" : "text-primary"} cursor-follow`
+          : "bg-primary text-secondary"
+          }`}
       >
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4 relative">
           {/* Logo */}
@@ -108,12 +113,11 @@ const Header = () => {
                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
-                        `block py-1 md:py-0 font-medium transition-colors duration-300 ${
-                          isScrolled || !isHome
-                            ? isActive
-                              ? "text-secondary"
-                              : "text-secondary/60 hover:text-secondary"
-                            : isActive
+                        `block py-1 md:py-0 font-medium transition-colors duration-300 ${isScrolled || !isHome || location.pathname === "/investors" || location.pathname === "/port-vision" || location.pathname === "/port-roadmap"
+                          ? isActive
+                            ? "text-secondary"
+                            : "text-secondary/60 hover:text-secondary"
+                          : isActive
                             ? "text-primary"
                             : "text-primary/70 hover:text-primary"
                         }`
@@ -134,14 +138,12 @@ const Header = () => {
               onClick={toggleMobileMenu}
             >
               <span
-                 className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
-                    isMobileMenuOpen ? "rotate-45" : "translate-y-[-6px]"
-                  } ${isScrolled || !isHome || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
+                className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${isMobileMenuOpen ? "rotate-45" : "translate-y-[-6px]"
+                  } ${isScrolled || !isHome || isMobileMenuOpen || location.pathname === "/investors" || location.pathname === "/port-vision" || location.pathname === "/port-roadmap" ? "bg-secondary" : "bg-primary"}`}
               ></span>
               <span
-                 className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${
-                  isMobileMenuOpen ? "-rotate-45" : "translate-y-[6px]"
-                } ${isScrolled || !isHome || isMobileMenuOpen ? "bg-secondary" : "bg-primary"}`}
+                className={`absolute w-7 h-0.5 rounded-full transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45" : "translate-y-[6px]"
+                  } ${isScrolled || !isHome || isMobileMenuOpen || location.pathname === "/investors" || location.pathname === "/port-vision" || location.pathname === "/port-roadmap" ? "bg-secondary" : "bg-primary"}`}
               ></span>
             </button>
           </div>
@@ -165,19 +167,18 @@ const Header = () => {
           <ul className="flex flex-col items-center space-y-4 text-lg">
             {navItems.map((item, index) => (
               <li key={index}>
-                  <NavLink
-                    to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `block font-medium transition-colors duration-300 ${
-                        isActive
-                          ? "text-secondary"
-                          : "text-secondary/80 hover:text-secondary"
-                      }`
-                    }
-                  >
-                    {item.name}
-                  </NavLink>
+                <NavLink
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `block font-medium transition-colors duration-300 ${isActive
+                      ? "text-secondary"
+                      : "text-secondary/80 hover:text-secondary"
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
               </li>
             ))}
           </ul>

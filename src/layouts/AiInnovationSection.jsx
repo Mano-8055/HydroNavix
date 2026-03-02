@@ -125,7 +125,7 @@ const rightRef = useRef(null);
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16">
           <div className="relative cursor-follow" ref={leftRef}>
             <div className="aspect-video border-4 border-secondary overflow-hidden bg-secondary relative shadow-2xl">
               <video
@@ -188,13 +188,13 @@ const rightRef = useRef(null);
                       <p className="text-secondary/70 text-sm">{item.desc}</p>
                     </div>
                   </div>
-                  {hoveredFeature === index && (
+                  {/* {hoveredFeature === index && (
                     <div className="border-t-2 border-LightBlue mt-2 pt-2">
                       <button className="text-sm font-bold text-LightBlue flex items-center gap-2 hover:gap-3 transition-all">
                         LEARN MORE <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             ))}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Header from "./layouts/Header";
 import Contact from "./pages/Contact";
@@ -20,6 +20,9 @@ import Lenis from "@studio-freight/lenis";
 import Home from "./pages/Home";
 import Drone from "./pages/Drone";
 import JobApply from "./components/JobApply";
+import Investors from "./pages/Investors";
+import PortVision from "./pages/PortVision";
+import PortRoadmap from "./pages/PortRoadmap";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,12 +45,12 @@ function App() {
 
   if (isLoading) return <Preload />;
 
-    // useEffect(() => {
-    //   if (window.location.protocol !== 'https:') {
-    //     const httpsUrl = `https://${window.location.hostname}${window.location.pathname}${window.location.search}`;
-    //     window.location.replace(httpsUrl);
-    //   }
-    // }, []);
+  // useEffect(() => {
+  //   if (window.location.protocol !== 'https:') {
+  //     const httpsUrl = `https://${window.location.hostname}${window.location.pathname}${window.location.search}`;
+  //     window.location.replace(httpsUrl);
+  //   }
+  // }, []);
 
 
   return (
@@ -71,6 +74,9 @@ function App() {
             <Route path="/careers" element={<Career />} />
             <Route path="/careers/:title" element={<JobApply />} />
             <Route path="/drone" element={<Drone />} />
+            <Route path="/investors" element={<Investors />} />
+            <Route path="/port-vision" element={<PortVision />} />
+            <Route path="/port-roadmap" element={<PortRoadmap />} />
           </Routes>
           <Footer />
         </Router>
